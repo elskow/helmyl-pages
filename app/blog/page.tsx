@@ -24,7 +24,12 @@ const Blog = () => {
         )
     }
 
-    const tags = sortedPosts.map((post) => post.tags).flat()
+    const tags = sortedPosts
+        .map((post) => post.tags)
+        .flat()
+        .filter((value, index, self) => {
+            return self.indexOf(value) === index
+        })
 
     return (
         <PageLayout>

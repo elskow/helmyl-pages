@@ -17,7 +17,13 @@ const TagsPage = () => {
         )
     }
 
-    const tags = posts.map((post) => post.tags).flat()
+    const tags = posts
+        .map((post) => post.tags)
+        .flat()
+        .filter((value, index, self) => {
+            return self.indexOf(value) === index
+        })
+
     return (
         <PageLayout>
             <ul className="mx-auto mt-10 w-full justify-center space-y-8 lg:max-w-5xl">
