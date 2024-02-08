@@ -58,7 +58,7 @@ const Blog = () => {
                                 href="/tags"
                                 className="mb-2 mr-2 rounded bg-green-50 px-1 py-1 text-xs font-medium capitalize text-green-900 transition-all duration-300 hover:bg-green-900 hover:text-white dark:bg-gray-800 dark:text-white dark:hover:bg-gray-600"
                             >
-                                +{tags.length - 3} more
+                                +{tags.length - 2} more
                             </Link>
                         </li>
                     )}

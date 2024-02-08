@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                         className="z-10 min-h-screen bg-gradient-to-tr from-green-50 to-neutral-200 bg-fixed px-4 dark:from-slate-950 dark:to-slate-800"
                         style={{ position: 'relative', zIndex: '20' }}
                     >
-                        <Navbar className="mx-auto pt-10 lg:max-w-5xl lg:pt-14" />
+                        <Navbar className="mx-auto pt-6 md:pt-8 lg:max-w-5xl lg:pt-14" />
                         {children}
                     </div>
                     <div
