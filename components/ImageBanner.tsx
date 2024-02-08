@@ -17,10 +17,11 @@ const ImageBanner = ({ image, title }) => {
             <Image
                 src={image}
                 alt={title}
-                width={1200}
-                height={600}
+                width={1080}
+                height={400}
                 className="h-full w-full object-cover"
                 loading="lazy"
+                quality={50}
             />
         </motion.div>
     )
