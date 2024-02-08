@@ -78,12 +78,31 @@ const CustomLink = (props: any) => {
     return <a target="_blank" rel="noopener noreferrer" {...props} />
 }
 
-function RoundedImage(props: any) {
-    return <Image alt={props.alt} className="rounded-lg" {...props} />
+function Images({ src, alt }: { src: string; alt: string }) {
+    return (
+        <div className="flex justify-center">
+            <figure className="mb:p-5 relative z-0 w-fit rounded-lg bg-white p-2 px-10 dark:bg-slate-900">
+                <div className="flex justify-center">
+                    <Image
+                        src={src}
+                        alt={alt}
+                        className="max-h-[60vh] max-w-full rounded-lg object-cover object-center lg:rounded-xl"
+                        width={500}
+                        height={500}
+                        loading="lazy"
+                        quality={50}
+                    />
+                </div>
+                <p className="text-center text-sm text-gray-500 dark:text-gray-400">{alt}</p>
+            </figure>
+        </div>
+    )
 }
 
 const components: MDXComponents = {
-    Image: RoundedImage,
+    Image: Images,
+    img: Images,
+    images: Images,
     pre: Pre,
     a: CustomLink,
 }
