@@ -82,13 +82,15 @@ const Navbar = memo(({ className }: NavbarProps) => {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className="flex flex-col gap-2 transition duration-300 ease-in-out">
                             {Object.values(menuItems).map((item) => (
-                                <DropdownMenuItem key={item.name}>
-                                    <Link href={item.href}>{item.name}</Link>
-                                </DropdownMenuItem>
+                                <Link href={item.href} key={item.name} className="flex w-full">
+                                    <DropdownMenuItem className="flex w-full min-w-[8rem] items-center gap-2 font-medium">
+                                        <span>{item.name}</span>
+                                    </DropdownMenuItem>
+                                </Link>
                             ))}
-                            <DropdownMenuItem>
-                                <Link href="/contact">Contact Me</Link>
-                            </DropdownMenuItem>
+                            <Link href="/contact">
+                                <DropdownMenuItem>Contact Me</DropdownMenuItem>
+                            </Link>
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </div>
