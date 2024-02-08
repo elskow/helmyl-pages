@@ -1,0 +1,77 @@
+import { allPosts } from '@/.contentlayer/generated'
+import PageLayout from '@/layouts/PageLayout'
+
+import PostCard from '@/components/PostCard'
+import { Metadata } from 'next'
+import { slug } from 'github-slugger'
+import Link from 'next/link'
+
+export const metadata: Metadata = {
+    title: 'Blog',
+}
+const Blog = () => {
+    const posts = allPosts.filter((post) => post.draft !== true)
+    const sortedPosts = posts.sort((a, b) => b.date.localeCompare(a.date))
+
+    if (sortedPosts.length === 0) {
+        return (
+            <PageLayout>
+                <div className="flex min-h-[60vh] flex-col items-center justify-center pt-28 text-center">
+                    <h1 className="font-bold">Author has not written any posts yet.</h1>
+                    <p>Please check back later.</p>
+                </div>
+            </PageLayout>
+        )
+    }
+
+    const tags = sortedPosts.map((post) => post.tags).flat()
+
+    return (
+        <PageLayout>
+            <ul className="mx-auto mt-10 w-full justify-center space-y-8 lg:max-w-5xl">
+                <div className="space-y-3">
+                    <h1 className="font-newsreader text-4xl font-bold lg:text-5xl">Blog</h1>
+                    <p className="font-light lg:text-lg">
+                        I write about software development, productivity, and other topics that
+                        interest me.
+                    </p>
+                </div>
+                <ul className="mb-4 flex select-none flex-wrap border-b border-gray-200 pb-5 dark:border-gray-700">
+                    {tags.slice(0, 2).map((tag) => (
+                        <li
+                            key={tag}
+                            className="mb-2 mr-2 rounded bg-green-50 px-3 py-1 text-sm font-medium capitalize text-green-900 transition-all duration-300 hover:bg-green-900 hover:text-white dark:bg-gray-800 dark:text-white dark:hover:bg-gray-600 md:text-base"
+                        >
+                            <Link className="px-2" href={`/tags/${slug(tag)}`}>
+                                {slug(tag)}
+                            </Link>
+                        </li>
+                    ))}
+                    {tags.length > 2 && (
+                        <li>
+                            <Link
+                                href="/tags"
+                                className="mb-2 mr-2 rounded bg-green-50 px-1 py-1 text-xs font-medium capitalize text-green-900 transition-all duration-300 hover:bg-green-900 hover:text-white dark:bg-gray-800 dark:text-white dark:hover:bg-gray-600"
+                            >
+                                +{tags.length - 3} more
+                            </Link>
+                        </li>
+                    )}
+                </ul>
+                {sortedPosts.map((post) => (
+                    <li key={post.slug} className="mt-4">
+                        <PostCard
+                            readingTime={post.readingTime.text}
+                            href={`${post.url}`}
+                            title={post.title}
+                            summary={post.summary}
+                            date={post.date}
+                        />
+                    </li>
+                ))}
+            </ul>
+        </PageLayout>
+    )
+}
+
+export default Blog
