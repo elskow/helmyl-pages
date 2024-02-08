@@ -48,6 +48,7 @@
     "remark-images": "^4.0.0",
     "remark-math": "^5.1.1",
     "rss": "^1.2.2",
+    "sharp": "^0.33.2",
     "tailwind-merge": "^2.2.1",
     "tailwindcss": "3.3.3",
     "tailwindcss-animate": "^1.0.7",

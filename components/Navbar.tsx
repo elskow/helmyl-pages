@@ -37,9 +37,9 @@ const Navbar = memo(({ className }: NavbarProps) => {
             <header className="flex items-center gap-4">
                 <Link href="/" className="flex items-center gap-2 pr-4">
                     <Avatar className="hidden self-center shadow-sm shadow-slate-700 dark:shadow-slate-400 sm:flex">
-                        <AvatarImage asChild src="/helmy-avatar.jpg" alt="Avatar">
+                        <AvatarImage asChild src="/helmy-avatar.webp" alt="Avatar">
                             <Image
-                                src="/helmy-avatar.jpg"
+                                src="/helmy-avatar.webp"
                                 alt="Avatar"
                                 className="h-full w-full"
                                 width={48}
@@ -48,7 +48,7 @@ const Navbar = memo(({ className }: NavbarProps) => {
                         </AvatarImage>
                         <AvatarFallback>
                             <Image
-                                src="/helmy-avatar.jpg"
+                                src="/helmy-avatar.webp"
                                 alt="Avatar"
                                 className="h-full w-full"
                                 width={48}
