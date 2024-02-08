@@ -4,6 +4,7 @@ import '@/styles/prism.css'
 import Navbar from '@/components/Navbar'
 import { inclusiveSans, newsreader, jetBrainsMono } from '@/lib/fonts'
 import { ThemeProviders } from './providers'
+import Script from 'next/script'
 
 import CONFIG from '@/blog.config'
 
@@ -37,6 +38,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
             <link rel="manifest" href="/favicons/site.webmanifest" />
             <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
+            <Script
+                async
+                src="https://us.umami.is/script.js"
+                data-website-id="80b9e23d-c5ef-463d-9f8a-fca203abdc5a"
+            />
             <body className="bg-light dark:bg-dark min-h-screen">
                 <ThemeProviders>
                     <div
