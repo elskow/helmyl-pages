@@ -1,17 +1,28 @@
 import { allPosts } from '@/.contentlayer/generated'
 import PageLayout from '@/layouts/PageLayout'
-
 import PostCard from '@/components/PostCard'
 import { Metadata } from 'next'
-import { slug } from 'github-slugger'
 import Link from 'next/link'
+import React, { useMemo } from 'react'
 
 export const metadata: Metadata = {
     title: 'Blog',
 }
+
+const posts = allPosts.filter((post) => post.draft !== true)
+const sortedPosts = posts.sort((a, b) => b.date.localeCompare(a.date))
+
+const MemoizedPostCard = React.memo(PostCard)
+
 const Blog = () => {
-    const posts = allPosts.filter((post) => post.draft !== true)
-    const sortedPosts = posts.sort((a, b) => b.date.localeCompare(a.date))
+    const tags = useMemo(() => {
+        return sortedPosts
+            .map((post) => post.tags)
+            .flat()
+            .filter((value, index, self) => {
+                return self.indexOf(value) === index
+            })
+    }, [])
 
     if (sortedPosts.length === 0) {
         return (
@@ -23,13 +34,6 @@ const Blog = () => {
             </PageLayout>
         )
     }
-
-    const tags = sortedPosts
-        .map((post) => post.tags)
-        .flat()
-        .filter((value, index, self) => {
-            return self.indexOf(value) === index
-        })
 
     return (
         <PageLayout>
@@ -47,8 +51,8 @@ const Blog = () => {
                             key={tag}
                             className="mb-2 mr-2 rounded bg-green-50 px-3 py-1 text-sm font-medium capitalize text-green-900 transition-all duration-300 hover:bg-green-900 hover:text-white dark:bg-gray-800 dark:text-white dark:hover:bg-gray-600 md:text-base"
                         >
-                            <Link className="px-2" href={`/tags/${slug(tag)}`}>
-                                {slug(tag)}
+                            <Link className="px-2" href={`/tags/${tag}`}>
+                                {tag}
                             </Link>
                         </li>
                     ))}
@@ -56,7 +60,7 @@ const Blog = () => {
                         <li>
                             <Link
                                 href="/tags"
-                                className="mb-2 mr-2 rounded bg-green-50 px-1 py-1 text-xs font-medium capitalize text-green-900 transition-all duration-300 hover:bg-green-900 hover:text-white dark:bg-gray-800 dark:text-white dark:hover:bg-gray-600"
+                                className="mb-2 mr-2 rounded bg-green-900 px-1 py-1 text-xs font-medium capitalize text-green-50 transition-all duration-300  dark:bg-gray-300 dark:text-gray-900"
                             >
                                 +{tags.length - 2} more
                             </Link>
@@ -65,7 +69,7 @@ const Blog = () => {
                 </ul>
                 {sortedPosts.map((post) => (
                     <li key={post.slug} className="mt-4">
-                        <PostCard
+                        <MemoizedPostCard
                             readingTime={post.readingTime.text}
                             href={`${post.url}`}
                             title={post.title}

@@ -2,9 +2,19 @@ import PageLayout from '@/layouts/PageLayout'
 import { allPosts } from '@/.contentlayer/generated'
 import { slug } from 'github-slugger'
 import Link from 'next/link'
+import { useMemo } from 'react'
+
+const posts = allPosts.filter((post) => post.draft !== true)
 
 const TagsPage = () => {
-    const posts = allPosts.filter((post) => post.draft !== true)
+    const tags = useMemo(() => {
+        return posts
+            .map((post) => post.tags)
+            .flat()
+            .filter((value, index, self) => {
+                return self.indexOf(value) === index
+            })
+    }, [])
 
     if (posts.length === 0) {
         return (
@@ -16,13 +26,6 @@ const TagsPage = () => {
             </PageLayout>
         )
     }
-
-    const tags = posts
-        .map((post) => post.tags)
-        .flat()
-        .filter((value, index, self) => {
-            return self.indexOf(value) === index
-        })
 
     return (
         <PageLayout>

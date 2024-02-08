@@ -3,6 +3,7 @@ import PostCard from '@/components/PostCard'
 import PageLayout from '@/layouts/PageLayout'
 import { slug } from 'github-slugger'
 import type { Metadata } from 'next'
+import React, { useMemo } from 'react'
 
 export async function generateMetadata({ params }): Promise<Metadata> {
     const tag = params.tag
@@ -12,10 +13,16 @@ export async function generateMetadata({ params }): Promise<Metadata> {
     }
 }
 
+const MemoizedPostCard = React.memo(PostCard)
+
 const Tag = ({ params }) => {
-    const filteredPosts: Post[] = allPosts.filter((post) => {
-        return post.tags?.some((tag) => slug(tag) === params.tag)
-    })
+    const filteredPosts: Post[] = useMemo(
+        () =>
+            allPosts.filter((post) => {
+                return post.tags?.some((tag) => slug(tag) === params.tag)
+            }),
+        [params.tag]
+    )
 
     return (
         <PageLayout>
@@ -26,7 +33,7 @@ const Tag = ({ params }) => {
                 </h1>
                 {filteredPosts.map((post) => (
                     <li key={post.slug}>
-                        <PostCard
+                        <MemoizedPostCard
                             readingTime={post.readingTime.text}
                             href={`${post.url}`}
                             title={post.title}
