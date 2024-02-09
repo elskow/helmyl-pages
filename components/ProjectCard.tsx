@@ -45,7 +45,7 @@ const ProjectCard = ({ title, description, image, href }: ProjectProps) => {
             },
         },
         hover: {
-            scale: 1.05,
+            scale: 1.02,
             transition: {
                 type: 'spring',
                 stiffness: 200,
@@ -58,18 +58,26 @@ const ProjectCard = ({ title, description, image, href }: ProjectProps) => {
     return (
         <Link href={href} target="_blank">
             <motion.div
-                className="delay-50 flex flex-col rounded-lg px-3 py-2 text-black transition hover:bg-secondary hover:bg-opacity-5 dark:text-white dark:hover:bg-primary dark:hover:bg-opacity-5"
+                className="delay-50 flex flex-col justify-between rounded-lg p-6 text-black transition hover:bg-white hover:text-slate-700 dark:text-primary dark:hover:bg-primary dark:hover:bg-opacity-5 dark:hover:text-secondary"
                 initial="hidden"
                 animate="visible"
                 whileHover="hover"
                 variants={cardVariants}
             >
-                <Image src={image} width={35} height={35} className="my-3 " alt="Project Logo" />
-                <h1 className="mt-2 font-semibold text-primary dark:text-primary">{title}</h1>
-                <p className=" dark:text-silver mt-1  text-sm">{description}</p>
-                <p className="text-dark mt-6 flex items-center dark:text-white">
+                <div className="mb-5 flex max-h-[20vh] justify-center overflow-hidden">
+                    <Image
+                        src={image}
+                        width={300}
+                        height={300}
+                        className="my-5 w-full rounded-lg object-cover"
+                        alt={description}
+                    />
+                </div>
+                <h1 className="mb-4 mt-2 text-xl font-semibold">{title}</h1>
+                <p className="mb-6 mt-4 text-sm">{description}</p>
+                <p className="text-dark mt-6 flex items-center">
                     <LinkIcon />
-                    <span className="ml-2 text-sm font-semibold ">
+                    <span className="ml-2 text-sm font-semibold">
                         {href.replace(/^https?:\/\//, '')}
                     </span>
                 </p>
