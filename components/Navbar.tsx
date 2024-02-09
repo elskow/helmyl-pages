@@ -44,6 +44,7 @@ const Navbar = memo(({ className }: NavbarProps) => {
                                 className="h-full w-full"
                                 width={48}
                                 height={48}
+                                loading="lazy"
                             />
                         </AvatarImage>
                         <AvatarFallback>
@@ -53,6 +54,7 @@ const Navbar = memo(({ className }: NavbarProps) => {
                                 className="h-full w-full"
                                 width={48}
                                 height={48}
+                                loading="lazy"
                             />
                         </AvatarFallback>
                     </Avatar>

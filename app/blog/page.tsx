@@ -1,9 +1,11 @@
 import { allPosts } from '@/.contentlayer/generated'
 import PageLayout from '@/layouts/PageLayout'
-import PostCard from '@/components/PostCard'
 import { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import React, { useMemo } from 'react'
+
+const PostCard = dynamic(() => import('@/components/PostCard'))
 
 export const metadata: Metadata = {
     title: 'Blog',

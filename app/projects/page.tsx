@@ -1,7 +1,9 @@
 import { allProjects } from '@/.contentlayer/generated'
-import ProjectCard from '@/components/ProjectCard'
 import PageLayout from '@/layouts/PageLayout'
 import { Metadata } from 'next'
+import { lazy } from 'react'
+
+const ProjectCard = lazy(() => import('@/components/ProjectCard'))
 
 export const metadata: Metadata = {
     title: 'Projects',

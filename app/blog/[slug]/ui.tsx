@@ -1,13 +1,14 @@
-import { lazy, Suspense } from 'react'
+import { Suspense } from 'react'
 import { allPosts } from '@/.contentlayer/generated'
 import Link from 'next/link'
 import { slug } from 'github-slugger'
 import { MdxRenderer } from '@/components/Mdx'
-import FormatDate from '@/components/FormatDate'
 
 import { notFound } from 'next/navigation'
+import dynamic from 'next/dynamic'
 
-const ImageBanner = lazy(() => import('@/components/ImageBanner'))
+const FormatDate = dynamic(() => import('@/components/FormatDate'))
+const ImageBanner = dynamic(() => import('@/components/ImageBanner'))
 
 const findPost = (slug, posts) => posts.find((post) => post.slug === slug)
 
