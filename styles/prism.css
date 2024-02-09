@@ -11,17 +11,8 @@ pre[class*="language-"] {
 	color: #ffffff;
 	font-family: "JetBrains Mono", "Fira Code", "Dank Mono", "Space Mono", monospace;
 	/* The following properties are standard, please leave them as they are */
-	font-size: 1em;
-	direction: ltr;
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	line-height: 1.5;
-	-moz-tab-size: 2;
-	-o-tab-size: 2;
-	tab-size: 2;
 	/* The following properties are also standard */
+	line-height: 1.5em;
 	-webkit-hyphens: none;
 	-moz-hyphens: none;
 	-ms-hyphens: none;
@@ -47,7 +38,7 @@ pre[class*="language-"] ::selection {
 /* Properties specific to code blocks */
 pre[class*="language-"] {
 	padding: 1em; /* this is standard */
-	margin: -1.6em 0em 0.5em 0em; /* this is standard */
+	margin: 0em 0em 0.5em 0em; /* this is standard */
 	overflow: auto; /* this is standard */
 	border-radius: 0.5em;
 	@apply border-t-4 border-solid border-purple-800;
@@ -140,6 +131,8 @@ pre[class*="language-"] {
 	margin: 0;
 	border-top-left-radius: 0.5em;
 	border-top-right-radius: 0.5em;
+	font-family: "JetBrains Mono", "Fira Code", "Dank Mono", "Space Mono", monospace;
+	@apply text-sm md:text-base lg:text-lg;
 }
 
 div.toc {

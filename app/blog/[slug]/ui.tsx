@@ -18,7 +18,7 @@ export default function Page({ params }: { params: { slug: string } }) {
     }
 
     return (
-        <section className="mx-auto space-y-6 px-2 pb-16 pt-10 lg:max-w-5xl lg:pt-14">
+        <section className="mx-auto px-2 pb-16 pt-10 lg:max-w-5xl lg:pt-14">
             <div className="space-y-4 border-b border-gray-200 pb-5 dark:border-gray-700">
                 <Suspense
                     fallback={<div style={{ height: 200 }} className="animate-pulse bg-gray-200" />}
@@ -53,7 +53,7 @@ export default function Page({ params }: { params: { slug: string } }) {
                     <span>{post.readingTime.text}</span>
                 </div>
             </div>
-            <article className="rose-code:font-code text-pretty prose-code:line-height-1.5 prose prose-sm min-h-full w-full min-w-full space-y-5 dark:prose-invert sm:prose-base md:prose-lg prose-code:text-sm prose-code:tracking-wide sm:prose-code:text-base md:prose-code:text-lg">
+            <article className="text-pretty prose-md prose min-h-full w-full min-w-full font-newsreader antialiased prose-code:prose-sm dark:prose-invert sm:prose-lg sm:prose-code:prose-sm md:prose-lg md:prose-h2:prose-xl md:prose-code:prose-lg lg:prose-xl lg:prose-h2:prose-2xl lg:prose-code:prose-lg prose-code:font-code lg:max-w-6xl">
                 <MdxRenderer code={post.body.code} />
             </article>
         </section>

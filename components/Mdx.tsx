@@ -5,6 +5,7 @@ import type { MDXComponents } from 'mdx/types'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Image from 'next/image'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { ReactNode, useRef, useState } from 'react'
 
 import { LuCopy, LuCopyCheck } from 'react-icons/lu'
@@ -32,10 +33,31 @@ const Pre = ({ children, className }: { children: ReactNode; className?: string 
         }, 2000)
     }
 
+    const buttonVariants = {
+        copied: {
+            scale: [1, 1.4, 1],
+            rotate: [0, 360, 0],
+            color: ['#000', '#FFF', '#000'],
+            transition: {
+                duration: 1,
+                yoyo: Infinity,
+                ease: 'easeInOut',
+            },
+        },
+        notCopied: {
+            scale: 1,
+            rotate: 0,
+            transition: {
+                duration: 1,
+                ease: 'easeInOut',
+            },
+        },
+    }
+
     return (
         <div ref={textInput} onMouseEnter={onEnter} onMouseLeave={onExit} className="relative z-0">
             {hovered && (
-                <button
+                <motion.button
                     aria-label="Copy code"
                     className={cn(
                         'border-1 absolute right-2 top-2 z-10 rounded-xl p-1 text-slate-300 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 dark:border-slate-800 dark:bg-slate-900',
@@ -44,15 +66,17 @@ const Pre = ({ children, className }: { children: ReactNode; className?: string 
                             : 'border-slate-300'
                     )}
                     onClick={onCopy}
+                    variants={buttonVariants}
+                    animate={copied ? 'copied' : 'notCopied'}
                 >
                     <>
                         {copied ? (
-                            <LuCopyCheck size={25} className="text-green-400" />
+                            <LuCopyCheck size={20} className="text-green-400" />
                         ) : (
-                            <LuCopy size={25} />
+                            <LuCopy size={20} />
                         )}
                     </>
-                </button>
+                </motion.button>
             )}
 
             <pre className={className}>{children}</pre>
