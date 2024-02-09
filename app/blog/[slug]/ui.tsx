@@ -1,4 +1,4 @@
-import { Suspense } from 'react'
+import { Suspense, lazy } from 'react'
 import { allPosts } from '@/.contentlayer/generated'
 import Link from 'next/link'
 import { slug } from 'github-slugger'
@@ -9,6 +9,7 @@ import dynamic from 'next/dynamic'
 
 const FormatDate = dynamic(() => import('@/components/FormatDate'))
 const ImageBanner = dynamic(() => import('@/components/ImageBanner'))
+const Toc = lazy(() => import('@/components/TableOfContents'))
 
 const findPost = (slug, posts) => posts.find((post) => post.slug === slug)
 
@@ -20,7 +21,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
     return (
         <section className="mx-auto px-2 pb-16 pt-10 lg:max-w-5xl lg:pt-14">
-            <div className="space-y-4 border-b border-gray-200 pb-5 dark:border-gray-700">
+            <div className="space-y-4 pb-5">
                 <Suspense
                     fallback={<div style={{ height: 200 }} className="animate-pulse bg-gray-200" />}
                 >
@@ -54,8 +55,13 @@ export default function Page({ params }: { params: { slug: string } }) {
                     <span>{post.readingTime.text}</span>
                 </div>
             </div>
-            <article className="text-pretty prose-md prose min-h-full w-full min-w-full font-newsreader antialiased prose-code:prose-sm dark:prose-invert sm:prose-lg sm:prose-code:prose-sm md:prose-lg md:prose-h2:prose-xl md:prose-code:prose-lg lg:prose-xl lg:prose-h2:prose-2xl lg:prose-code:prose-lg prose-code:font-code lg:max-w-6xl">
-                <MdxRenderer code={post.body.code} />
+            <article className="text-pretty prose-md js-toc-content prose flex min-h-full w-full min-w-full flex-col font-newsreader antialiased prose-code:prose-sm dark:prose-invert sm:prose-lg sm:prose-code:prose-sm md:prose-lg md:prose-h2:prose-xl md:prose-code:prose-base lg:prose-xl lg:prose-h2:prose-2xl lg:prose-code:prose-base prose-code:font-code lg:max-w-6xl lg:flex-row">
+                <div className="lg:w-3/4">
+                    <MdxRenderer code={post.body.code} />
+                </div>
+                <div className="hidden lg:block lg:w-1/4 lg:pl-4">
+                    <Toc />
+                </div>
             </article>
         </section>
     )

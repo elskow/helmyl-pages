@@ -1,5 +1,7 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import readingTime from 'reading-time'
+
+
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeKatex from 'rehype-katex'
 import rehypePrism from 'rehype-prism-plus'
@@ -7,7 +9,6 @@ import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import rehypeCodeTitles from 'rehype-code-titles'
-import rehypeToc from 'rehype-toc'
 import remarkEmbedImages from 'remark-embed-images'
 import remarkImages from 'remark-images'
 
@@ -69,21 +70,15 @@ export default makeSource({
             [rehypeKatex, { output: 'mathml' }],
             rehypeCodeTitles,
             rehypeSlug,
-            rehypePrism,
+            [rehypePrism, {
+                showLineNumbers: true,
+                ignoreMissing: true,
+            }],
             [
                 rehypeAutolinkHeadings,
                 {
                     properties: {
                         className: ['anchor'],
-                    },
-                },
-            ],
-            [
-                rehypeToc,
-                {
-                    headings: ['h2', 'h3'],
-                    cssClasses: {
-                        toc: 'toc',
                     },
                 },
             ],
