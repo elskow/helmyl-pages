@@ -26,7 +26,6 @@ export async function generateMetadata({
             url: `${CONFIG.url}/blog/${slug}`,
         },
         twitter: {
-            card: 'summary_large_image',
             title,
             description,
         },
