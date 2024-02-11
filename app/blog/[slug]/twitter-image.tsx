@@ -1,4 +1,6 @@
 import { ImageResponse } from 'next/server'
+import OpenGraphImage from '@/components/OpenGraphImage/BlogsOG'
+import { loadGoogleFont } from '@/lib/load-google-font'
 import { allPosts } from '@/.contentlayer/generated'
 
 export const size = {
@@ -13,41 +15,19 @@ export default async function Image({ params }: { params: { slug: string } }) {
     if (!post) {
         return
     }
-    const { title, tags, summary: description, readingTime } = post
+    const { title, tags, readingTime } = post
+    const inclusiveSans = await loadGoogleFont({ family: 'Inclusive Sans' })
+
     return new ImageResponse(
-        (
-            <div
-                style={{ borderBottom: '40px solid #2C7A7B' }}
-                tw="flex w-full items-start h-full flex-col bg-[#e8ece9] text-black p-[80px]"
-            >
-                <div tw="flex flex-col w-full pt-[6px]">
-                    <div tw="flex w-full">
-                        <div tw="flex text-slate-800 font-bold text-lg leading-normal">
-                            {tags.join(', ')}
-                        </div>
-                    </div>
-                    <div tw="flex w-full mt-12 items-start">
-                        <div
-                            tw="flex font-bold text-7xl leading-none"
-                            style={{
-                                fontWeight: 'bolder',
-                                fontFamily: "'Inclusive Sans ExtraBold', sans-serif",
-                            }}
-                        >
-                            {title}
-                        </div>
-                    </div>
-                    <div tw="flex w-full mt-14 items-start">
-                        <div tw="flex text-lg leading-normal pr-10">{description}</div>
-                    </div>
-                    <div tw="flex w-full mt-14 items-start">
-                        <div tw="flex text-lg leading-normal pr-10">{readingTime.text}</div>
-                    </div>
-                </div>
-            </div>
-        ),
+        <OpenGraphImage title={title} tags={tags} readingTime={readingTime} />,
         {
             ...size,
+            fonts: [
+                {
+                    name: 'Inclusive Sans',
+                    data: inclusiveSans,
+                },
+            ],
         }
     )
 }
