@@ -35,20 +35,17 @@ const Pre = ({ children, className }: { children: ReactNode; className?: string 
 
     const buttonVariants = {
         copied: {
-            scale: [1, 1.4, 1],
-            rotate: [0, 360, 0],
-            color: ['#000', '#FFF', '#000'],
+            scale: [1, 1.2, 1],
+            rotate: [0, -10, 10, -10, 10, 0], // Wiggle effect
             transition: {
-                duration: 1,
-                yoyo: Infinity,
+                duration: 0.3,
                 ease: 'easeInOut',
             },
         },
         notCopied: {
             scale: 1,
-            rotate: 0,
             transition: {
-                duration: 1,
+                duration: 0.3,
                 ease: 'easeInOut',
             },
         },
@@ -68,6 +65,8 @@ const Pre = ({ children, className }: { children: ReactNode; className?: string 
                     onClick={onCopy}
                     variants={buttonVariants}
                     animate={copied ? 'copied' : 'notCopied'}
+                    whileHover={{ scale: 1.1 }} // Add scale effect on hover
+                    whileTap={{ scale: 0.9 }} // Add scale effect on tap
                 >
                     <>
                         {copied ? (

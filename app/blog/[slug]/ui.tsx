@@ -27,7 +27,9 @@ export default function Page({ params }: { params: { slug: string } }) {
                 >
                     {post.banner && <ImageBanner image={post.banner} title={post.title} />}
                 </Suspense>
-                <h1 className="font-newsreader text-4xl font-bold">{post.title}</h1>
+                <h1 className="font-newsreader text-4xl font-bold text-primary dark:text-primary">
+                    {post.title}
+                </h1>
                 <div className="font-newsreader text-base text-primary dark:text-primary md:text-lg lg:text-xl">
                     {post.summary}
                 </div>
@@ -55,7 +57,7 @@ export default function Page({ params }: { params: { slug: string } }) {
                     <span>{post.readingTime.text}</span>
                 </div>
             </div>
-            <article className="text-pretty prose-md js-toc-content prose flex min-h-full w-full min-w-full flex-col font-newsreader antialiased prose-code:prose-sm dark:prose-invert sm:prose-lg sm:prose-code:prose-sm md:prose-lg md:prose-h2:prose-xl md:prose-code:prose-base lg:prose-xl lg:prose-h2:prose-2xl lg:prose-code:prose-base prose-code:font-code lg:max-w-6xl lg:flex-row">
+            <article className="text-pretty prose-md js-toc-content prose flex min-h-full w-full min-w-full flex-col font-newsreader prose-code:prose-sm dark:prose-invert sm:prose-lg sm:prose-code:prose-sm md:prose-lg md:prose-h2:prose-xl md:prose-code:prose-base lg:prose-xl lg:prose-h2:prose-2xl lg:prose-code:prose-base prose-code:font-code lg:max-w-6xl lg:flex-row lg:space-x-4 prose-p:text-black dark:prose-p:text-white">
                 <div className="lg:w-3/4">
                     <MdxRenderer code={post.body.code} />
                 </div>
