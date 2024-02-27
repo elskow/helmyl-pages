@@ -33,7 +33,7 @@ const Tag = ({ params }) => {
                     {filteredPosts.length} posts tagged with{' '}
                     <span className="font-newsreader font-bold">{params.tag}</span>
                 </h1>
-                {filteredPosts.map((post) => (
+                {filteredPosts.map((post, index) => (
                     <li key={post.slug}>
                         <MemoizedPostCard
                             readingTime={post.readingTime.text}
@@ -41,6 +41,7 @@ const Tag = ({ params }) => {
                             title={post.title}
                             summary={post.summary}
                             date={post.date}
+                            index={index}
                         />
                     </li>
                 ))}
