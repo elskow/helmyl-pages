@@ -11,14 +11,15 @@ export const metadata: Metadata = {
     title: 'Blog',
 }
 
-const posts = allPosts.filter((post) => post.draft !== true)
-const sortedPosts = posts.sort((a, b) => b.date.localeCompare(a.date))
+const posts = allPosts
+    .filter((post) => post.draft !== true)
+    .sort((a, b) => b.date.localeCompare(a.date))
 
 const MemoizedPostCard = React.memo(PostCard)
 
 const Blog = () => {
     const tags = useMemo(() => {
-        return sortedPosts
+        return posts
             .map((post) => post.tags)
             .flat()
             .filter((value, index, self) => {
@@ -26,7 +27,7 @@ const Blog = () => {
             })
     }, [])
 
-    if (sortedPosts.length === 0) {
+    if (posts.length === 0) {
         return (
             <PageLayout>
                 <div className="flex min-h-[60vh] flex-col items-center justify-center pt-28 text-center">
@@ -69,7 +70,7 @@ const Blog = () => {
                         </li>
                     )}
                 </ul>
-                {sortedPosts.map((post) => (
+                {posts.map((post) => (
                     <li key={post.slug} className="mt-4">
                         <MemoizedPostCard
                             readingTime={post.readingTime.text}
@@ -77,6 +78,7 @@ const Blog = () => {
                             title={post.title}
                             summary={post.summary}
                             date={post.date}
+                            index={posts.indexOf(post)}
                         />
                     </li>
                 ))}

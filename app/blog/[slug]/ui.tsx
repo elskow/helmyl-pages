@@ -31,7 +31,7 @@ export default function Page({ params }: { params: { slug: string } }) {
                     {post.title}
                 </h1>
                 <div className="font-newsreader text-base text-primary dark:text-primary md:text-lg lg:text-xl">
-                    {post.summary}
+                    {post.summary}                                                      
                 </div>
                 <ul className="mb-4 flex select-none flex-wrap">
                     <div className="text-sm font-medium text-primary dark:text-primary md:text-base">

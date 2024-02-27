@@ -11,33 +11,36 @@ interface CardProps {
     summary: string
     date: string
     readingTime: string
+    index: number
 }
 
 const Card: React.FC<CardProps> = (props) => {
-    const { href, title, summary, date, readingTime } = props
+    const { href, title, summary, date, readingTime, index } = props
 
     const variants = {
-        hidden: { opacity: 0, scale: 0.95 },
+        hidden: { opacity: 0, scale: 0.95, y: 100 },
         visible: {
             opacity: 1,
             scale: 1,
+            y: 0,
             transition: {
                 type: 'spring',
-                stiffness: 50,
-                damping: 20,
-                delay: 0.5,
-                duration: 2,
+                stiffness: 100,
+                damping: 15,
+                delay: 0.2 * index,
+                duration: 1.5,
                 ease: 'easeInOut',
             },
         },
         exit: {
             opacity: 0,
             scale: 0.95,
+            y: -100,
             transition: {
                 type: 'spring',
-                stiffness: 50,
-                damping: 20,
-                duration: 2,
+                stiffness: 100,
+                damping: 15,
+                duration: 1.5,
                 ease: 'easeInOut',
             },
         },
