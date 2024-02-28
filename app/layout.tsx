@@ -8,6 +8,7 @@ import { ThemeProviders } from './providers'
 import CONFIG from '@/blog.config'
 
 import type { Metadata } from 'next'
+import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
     metadataBase: new URL(CONFIG.url),
@@ -63,11 +64,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body className="bg-light dark:bg-dark min-h-screen">
                 <ThemeProviders>
                     <div
-                        className="z-10 min-h-screen bg-gradient-to-tr from-green-50 to-neutral-200 bg-fixed px-4 dark:from-slate-950 dark:to-slate-800"
+                        className="z-10 min-h-screen bg-gradient-to-tr from-green-50 to-neutral-200 bg-fixed px-4 dark:from-slate-900 dark:to-slate-800"
                         style={{ position: 'relative', zIndex: '20' }}
                     >
                         <Navbar className="mx-auto pt-6 md:pt-8 lg:max-w-5xl lg:pt-14" />
                         {children}
+                        <Footer className="mx-auto pb-6 pt-6 lg:max-w-5xl lg:pb-12 lg:pt-14" />
                     </div>
                     <div
                         className="absolute h-2/5 w-4/12 max-w-full overflow-clip rounded-full bg-white opacity-25 blur-6xl dark:bg-slate-800"

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 const NotFound = () => {
     return (
-        <div className="flex min-h-[60vh] flex-col items-center justify-center pt-28 text-center">
+        <div className="flex min-h-[80vh] flex-col items-center justify-center pt-2 text-center lg:min-h-[75vh]">
             <motion.h1
                 className="mb-4 text-3xl font-bold text-neutral-900 dark:text-neutral-100 lg:text-6xl"
                 initial={{ opacity: 0, y: -50 }}
