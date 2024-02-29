@@ -1,9 +1,36 @@
 import PageLayout from '@/layouts/PageLayout'
 import Image from 'next/image'
 import Link from 'next/link'
-import { GitHubLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons'
+import { GitHubLogoIcon, TwitterLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons'
 import { MdCallToAction } from 'react-icons/md'
 import Skillset from '@/components/Skillset'
+
+const socialMedia = [
+    {
+        name: 'LinkedIn',
+        href: 'https://www.linkedin.com/in/helmyluqman/',
+        icon: LinkedInLogoIcon,
+        text: 'LinkedIn Profile',
+    },
+    {
+        name: 'Github',
+        href: 'https://github.com/elskow',
+        icon: GitHubLogoIcon,
+        text: 'Github Profile',
+    },
+    {
+        name: 'Twitter',
+        href: 'https://twitter.com/helmy_lh',
+        icon: TwitterLogoIcon,
+        text: 'Follow on Twitter',
+    },
+    {
+        name: 'Email',
+        href: 'mailto:helmyl.work@gmail.com',
+        icon: MdCallToAction,
+        text: 'Send Email',
+    },
+]
 
 const AboutPage = () => {
     return (
@@ -63,30 +90,21 @@ const AboutPage = () => {
                 </div>
                 <div className="lg:pl-32">
                     <ul role="list" className="space-y-6">
-                        <Link
-                            className="group flex items-center text-sm font-medium text-zinc-800 transition hover:text-teal-600 dark:text-zinc-200 dark:hover:text-teal-500"
-                            aria-label="Follow on Twitter"
-                            href="https://twitter.com/helmy_lh"
-                        >
-                            <TwitterLogoIcon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
-                            <span className="ml-4">Follow on Twitter</span>
-                        </Link>
-                        <Link
-                            className="group flex items-center text-sm font-medium text-zinc-800 transition hover:text-teal-600 dark:text-zinc-200 dark:hover:text-teal-500"
-                            aria-label="GitHub Profile"
-                            href="https://github.com/elskow"
-                        >
-                            <GitHubLogoIcon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
-                            <span className="ml-4">GitHub Profile</span>
-                        </Link>
-                        <Link
-                            className="group flex items-center text-sm font-medium text-zinc-800 transition hover:text-teal-600 dark:text-zinc-200 dark:hover:text-teal-500"
-                            aria-label="Contact Me"
-                            href="mailto:helmyl.work@gmail.com"
-                        >
-                            <MdCallToAction className="h-6 w-6 flex-none fill-zinc-800 transition group-hover:fill-teal-600 dark:fill-zinc-200 dark:group-hover:fill-teal-500" />
-                            <span className="ml-4">Contact Me</span>
-                        </Link>
+                        {socialMedia.map((item, index) => (
+                            <li key={index}>
+                                <Link
+                                    href={item.href}
+                                    aria-label={item.name}
+                                    className="group flex items-center text-sm font-medium text-zinc-800 transition hover:text-teal-600 dark:text-zinc-200 dark:hover:text-teal-500"
+                                >
+                                    <item.icon
+                                        className="h-6 w-6 flex-none fill-zinc-800 transition group-hover:fill-teal-500"
+                                        aria-hidden="true"
+                                    />
+                                    <span className="ml-4">{item.text}</span>
+                                </Link>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>
