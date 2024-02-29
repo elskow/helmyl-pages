@@ -31,7 +31,7 @@ const experiences = [
 export default async function Page() {
     return (
         <main className="mx-auto space-y-6 pb-32 pt-36 lg:max-w-5xl lg:pb-36 lg:pt-40">
-            <section className="mb-36 space-y-6">
+            <section className="mb-36 min-h-[60vh] space-y-6">
                 <p className="font-medium text-slate-800 dark:text-slate-100 sm:text-xl">
                     Hello! I&apos;m <span className="font-semibold">Helmy Luqmanulhakim</span>
                 </p>
@@ -63,20 +63,20 @@ export default async function Page() {
             </section>
             <section className="grid grid-cols-1 gap-24 lg:grid-cols-2">
                 <div className="space-y-6">
-                    <h1 className="font-semibold text-slate-900 dark:text-slate-50 lg:text-xl">
+                    <h1 className="font-semibold text-slate-900 dark:text-slate-50 sm:text-xl">
                         Latest Posts
                     </h1>
                     {posts.map((post) => (
                         <ul
                             key={post.slug}
-                            className="mt-4 space-y-2 rounded-lg bg-white px-4 py-6 shadow-md dark:bg-slate-800"
+                            className="mt-4 space-y-2 rounded-lg bg-white px-4 py-6 shadow-md transition-all duration-200 hover:bg-slate-50 hover:shadow-lg dark:bg-slate-800 dark:hover:bg-slate-900"
                         >
                             <Link
                                 href={`/blog/${post.slug}`}
                                 passHref
                                 className="group cursor-pointer"
                             >
-                                <h1 className="mb-6 font-semibold text-slate-900 transition-all duration-200 group-hover:pointer-events-none group-hover:text-green-600 dark:text-slate-50 dark:group-hover:text-green-400">
+                                <h1 className="mb-6 font-semibold text-slate-900 transition-all duration-200 group-hover:pointer-events-none group-hover:text-lime-600 dark:text-slate-50 dark:group-hover:text-lime-400">
                                     {post.title}
                                 </h1>
                                 <p className="mb-4 text-slate-800 dark:text-slate-100">
@@ -90,7 +90,7 @@ export default async function Page() {
                     ))}
                 </div>
                 <div className="space-y-6">
-                    <h1 className="font-semibold text-slate-900 dark:text-slate-50 lg:text-xl">
+                    <h1 className="font-semibold text-slate-900 dark:text-slate-50 sm:text-xl">
                         Work Experience
                     </h1>
                     <div className="pl-4 pt-4">
