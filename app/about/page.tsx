@@ -98,7 +98,7 @@ const AboutPage = () => {
                                     className="group flex items-center text-sm font-medium text-zinc-800 transition hover:text-teal-600 dark:text-zinc-200 dark:hover:text-teal-500"
                                 >
                                     <item.icon
-                                        className="h-6 w-6 flex-none fill-zinc-800 transition group-hover:fill-teal-500"
+                                        className="h-6 w-6 flex-none fill-zinc-800 transition group-hover:fill-teal-500 dark:fill-zinc-200 dark:group-hover:fill-teal-500"
                                         aria-hidden="true"
                                     />
                                     <span className="ml-4">{item.text}</span>
