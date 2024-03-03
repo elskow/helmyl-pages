@@ -35,7 +35,7 @@ const socialMedia = [
 const AboutPage = () => {
     return (
         <PageLayout>
-            <div className="mx-auto mb-12 mt-12 grid w-full grid-cols-1 justify-center gap-y-6 space-y-8 lg:max-w-5xl lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-16">
+            <div className="mx-auto mb-12 mt-12 grid w-full grid-cols-1 justify-center gap-y-8 space-y-10 lg:max-w-5xl lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-20">
                 <div className="lg:pl-32">
                     <div className="max-w-xs px-2.5 lg:max-w-none">
                         <Image
@@ -48,17 +48,17 @@ const AboutPage = () => {
                     </div>
                 </div>
                 <div className="lg:order-first lg:row-span-2">
-                    <h1 className="font-newsreader text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl lg:mb-14 lg:mt-8">
+                    <h1 className="font-newsreader text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl lg:mb-16 lg:mt-10">
                         I&apos;m{' '}
                         <span className="text-teal-700 dark:text-teal-400">
                             Helmy Luqmanulhakim
                         </span>
                         , a software engineer from Surabaya, Indonesia.
                     </h1>
-                    <div className="mt-10 text-base ">
-                        <section className="space-y-6 md:space-y-8">
+                    <div className="mt-12 text-base ">
+                        <section className="space-y-8 md:space-y-10">
                             <div>
-                                <h2 className="mb-2 text-lg font-bold lg:mb-4 lg:text-2xl">
+                                <h2 className="mb-3 text-xl font-bold lg:mb-5 lg:text-3xl">
                                     Who am I?
                                 </h2>
                                 <p className="font-normal lg:text-lg">
@@ -80,7 +80,7 @@ const AboutPage = () => {
                                 </p>
                             </div>
                             <div>
-                                <h2 className="mb-6 text-lg font-bold lg:mb-8 lg:text-2xl">
+                                <h2 className="mb-8 text-xl font-bold lg:mb-10 lg:text-3xl">
                                     What am I using?
                                 </h2>
                                 <Skillset />
@@ -89,7 +89,7 @@ const AboutPage = () => {
                     </div>
                 </div>
                 <div className="lg:pl-32">
-                    <ul role="list" className="space-y-6">
+                    <ul role="list" className="space-y-8">
                         {socialMedia.map((item, index) => (
                             <li key={index}>
                                 <Link

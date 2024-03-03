@@ -39,6 +39,7 @@ const Projects: React.FC = () => {
                                     href={project.href}
                                     image={project.imgSrc}
                                     description={project.description}
+                                    index={projects[category].indexOf(project)}
                                 />
                             ))}
                         </div>

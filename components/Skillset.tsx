@@ -6,6 +6,8 @@ import { BiLogoGoLang, BiLogoJava, BiLogoPython } from 'react-icons/bi'
 import { FaReact, FaDocker } from 'react-icons/fa'
 import { SiApachekafka, SiMicrosoftazure, SiPowerbi } from 'react-icons/si'
 
+import { motion } from 'framer-motion'
+
 const logos = [
     { Icon: BiLogoGoLang, link: 'https://golang.org/' },
     { Icon: BiLogoJava, link: 'https://www.java.com/' },
@@ -55,9 +57,9 @@ const Skillset = () => {
         >
             <ul className="flex max-w-none md:justify-start">
                 {logos.concat(logos).map((logo, index) => (
-                    <Link key={index} href={logo.link}>
-                        <li
-                            className={`mx-8 ${hoveredLogo === index ? 'cursor-pointer text-teal-500' : ''} ${hoveredLogo !== null && hoveredLogo !== index ? 'opacity-60' : ''} transform transition-all duration-300 ease-in-out hover:scale-110 hover:text-teal-600`}
+                    <Link key={index} href={logo.link} target="_blank">
+                        <motion.li
+                            className={`mx-8 ${hoveredLogo === index ? 'cursor-pointer text-teal-500' : ''} ${hoveredLogo !== null && hoveredLogo !== index ? 'opacity-60' : ''}`}
                             onMouseEnter={() => {
                                 stopScroll()
                                 setHoveredLogo(index)
@@ -66,9 +68,11 @@ const Skillset = () => {
                                 startScroll()
                                 setHoveredLogo(null)
                             }}
+                            animate={{ scale: 1 }}
+                            whileHover={{ scale: 1.1, color: '#38b2ac' }}
                         >
                             <logo.Icon className="text-4xl md:text-5xl" />
-                        </li>
+                        </motion.li>
                     </Link>
                 ))}
             </ul>

@@ -1,7 +1,6 @@
 import { memo } from 'react'
 import { ChevronDownIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
-import Image from 'next/image'
 
 import ThemeSwitcher from '@/components/ThemeSwitcher'
 import {
@@ -10,7 +9,6 @@ import {
     DropdownMenuItem,
     DropdownMenuContent,
 } from '@/components/ui/dropdown-menu'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 const menuItems: Record<string, { name: string; href: string }> = {
     about: {
@@ -36,30 +34,8 @@ const Navbar = memo(({ className }: NavbarProps) => {
         <nav className={`flex select-none items-center justify-between py-4 ${className}`}>
             <header className="flex items-center gap-4">
                 <Link href="/" className="flex items-center gap-2 pr-4">
-                    <Avatar className="hidden self-center shadow-sm shadow-slate-700 dark:shadow-slate-400 sm:flex">
-                        <AvatarImage asChild src="/helmy-avatar.webp" alt="Avatar">
-                            <Image
-                                src="/helmy-avatar.webp"
-                                alt="Avatar"
-                                className="h-full w-full"
-                                width={48}
-                                height={48}
-                                loading="lazy"
-                            />
-                        </AvatarImage>
-                        <AvatarFallback>
-                            <Image
-                                src="/helmy-avatar.webp"
-                                alt="Avatar"
-                                className="h-full w-full"
-                                width={48}
-                                height={48}
-                                loading="lazy"
-                            />
-                        </AvatarFallback>
-                    </Avatar>
-                    <h1 className="flex self-center text-xl font-bold sm:hidden lg:text-2xl">
-                        helmyl
+                    <h1 className="flex self-center text-xl font-extrabold transition duration-200 ease-in-out hover:text-teal-700 dark:hover:text-green-400 lg:text-lg">
+                        helmyl.com
                     </h1>
                 </Link>
                 <div className="hidden items-center gap-4 align-middle sm:flex lg:gap-6 lg:text-lg">
@@ -67,7 +43,7 @@ const Navbar = memo(({ className }: NavbarProps) => {
                         <Link
                             key={key}
                             href={item.href}
-                            className="item-menu-hover self-center font-medium hover:font-semibold"
+                            className="item-menu-hover self-center font-medium transition duration-200 ease-in-out hover:font-semibold"
                         >
                             {item.name}
                         </Link>
@@ -98,7 +74,7 @@ const Navbar = memo(({ className }: NavbarProps) => {
                 </div>
                 <Link
                     href="/contact"
-                    className="item-menu-hover hidden self-center font-medium hover:font-semibold sm:block lg:text-lg"
+                    className="item-menu-hover hidden self-center font-medium transition duration-200 ease-in-out hover:font-semibold sm:block lg:text-lg"
                 >
                     Contact Me
                 </Link>

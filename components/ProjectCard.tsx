@@ -9,6 +9,7 @@ interface ProjectProps {
     title: string
     description: string
     image: string
+    index: number // Add an index prop
 }
 
 export const LinkIcon = () => {
@@ -30,7 +31,7 @@ export const LinkIcon = () => {
     )
 }
 
-const ProjectCard = ({ title, description, image, href }: ProjectProps) => {
+const ProjectCard = ({ title, description, image, href, index }: ProjectProps) => {
     const cardVariants = {
         hidden: { opacity: 0, scale: 0.9 },
         visible: {
@@ -40,7 +41,7 @@ const ProjectCard = ({ title, description, image, href }: ProjectProps) => {
                 type: 'spring',
                 stiffness: 100,
                 damping: 20,
-                delay: 0.1,
+                delay: 0.1 * index, // Use the index to calculate the delay
                 duration: 0.8,
             },
         },
