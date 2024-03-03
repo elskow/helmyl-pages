@@ -1,36 +1,9 @@
 import PageLayout from '@/layouts/PageLayout'
 import Image from 'next/image'
 import Link from 'next/link'
-import { GitHubLogoIcon, TwitterLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons'
-import { MdCallToAction } from 'react-icons/md'
-import Skillset from '@/components/Skillset'
+import Skillset from '@/components/_about/Skillset'
 
-const socialMedia = [
-    {
-        name: 'LinkedIn',
-        href: 'https://www.linkedin.com/in/helmyluqman/',
-        icon: LinkedInLogoIcon,
-        text: 'LinkedIn Profile',
-    },
-    {
-        name: 'Github',
-        href: 'https://github.com/elskow',
-        icon: GitHubLogoIcon,
-        text: 'Github Profile',
-    },
-    {
-        name: 'Twitter',
-        href: 'https://twitter.com/helmy_lh',
-        icon: TwitterLogoIcon,
-        text: 'Follow on Twitter',
-    },
-    {
-        name: 'Email',
-        href: 'mailto:helmyl.work@gmail.com',
-        icon: MdCallToAction,
-        text: 'Send Email',
-    },
-]
+import SocialMedia from '@/const/SocialMedia'
 
 const AboutPage = () => {
     return (
@@ -90,7 +63,7 @@ const AboutPage = () => {
                 </div>
                 <div className="lg:pl-32">
                     <ul role="list" className="space-y-8">
-                        {socialMedia.map((item, index) => (
+                        {SocialMedia.map((item, index) => (
                             <li key={index}>
                                 <Link
                                     href={item.href}

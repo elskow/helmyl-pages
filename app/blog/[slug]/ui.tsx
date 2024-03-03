@@ -2,14 +2,14 @@ import { Suspense, lazy } from 'react'
 import { allPosts } from '@/.contentlayer/generated'
 import Link from 'next/link'
 import { slug } from 'github-slugger'
-import { MdxRenderer } from '@/components/Mdx'
+import { MdxRenderer } from '@/components/_blog/Mdx'
 
 import { notFound } from 'next/navigation'
 import dynamic from 'next/dynamic'
 
-const FormatDate = dynamic(() => import('@/components/FormatDate'))
-const ImageBanner = dynamic(() => import('@/components/ImageBanner'))
-const Toc = lazy(() => import('@/components/TableOfContents'))
+const FormatDate = dynamic(() => import('@/components/_blog/FormatDate'))
+const ImageBanner = dynamic(() => import('@/components/_blog/ImageBanner'))
+const Toc = lazy(() => import('@/components/_blog/TableOfContents'))
 
 const findPost = (slug, posts) => posts.find((post) => post.slug === slug)
 
@@ -31,7 +31,7 @@ export default function Page({ params }: { params: { slug: string } }) {
                     {post.title}
                 </h1>
                 <div className="font-newsreader text-base text-primary dark:text-primary md:text-lg lg:text-xl">
-                    {post.summary}                                                      
+                    {post.summary}
                 </div>
                 <ul className="mb-4 flex select-none flex-wrap">
                     <div className="text-sm font-medium text-primary dark:text-primary md:text-base">
@@ -57,7 +57,7 @@ export default function Page({ params }: { params: { slug: string } }) {
                     <span>{post.readingTime.text}</span>
                 </div>
             </div>
-            <article className="text-pretty prose-md js-toc-content prose flex min-h-full w-full min-w-full flex-col font-newsreader prose-code:prose-sm dark:prose-invert sm:prose-lg sm:prose-code:prose-sm md:prose-lg md:prose-h2:prose-xl md:prose-code:prose-base lg:prose-xl lg:prose-h2:prose-2xl lg:prose-code:prose-base prose-code:font-code lg:max-w-6xl lg:flex-row lg:space-x-4 prose-p:text-black dark:prose-p:text-white">
+            <article className="text-pretty prose-md js-toc-content prose flex min-h-full w-full min-w-full flex-col font-newsreader prose-code:prose-sm dark:prose-invert sm:prose-lg sm:prose-code:prose-sm md:prose-lg md:prose-h2:prose-xl md:prose-code:prose-base lg:prose-xl lg:prose-h2:prose-2xl lg:prose-code:prose-base prose-p:text-black prose-code:font-code dark:prose-p:text-white lg:max-w-6xl lg:flex-row lg:space-x-4">
                 <div className="lg:w-3/4">
                     <MdxRenderer code={post.body.code} />
                 </div>

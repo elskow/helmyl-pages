@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import React, { useMemo } from 'react'
 
-const PostCard = dynamic(() => import('@/components/PostCard'))
+const PostCard = dynamic(() => import('@/components/_blog/PostCard'))
 
 export const metadata: Metadata = {
     title: 'Blog',

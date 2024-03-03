@@ -29,7 +29,7 @@ const TagsPage = () => {
 
     return (
         <PageLayout>
-            <ul className="mx-auto mt-10 w-full justify-center space-y-8 lg:max-w-5xl">
+            <ul className="mx-auto mt-10 min-h-[70vh] w-full justify-center space-y-8 lg:max-w-5xl">
                 <div className="space-y-3">
                     <h1 className="font-newsreader text-4xl font-bold lg:text-5xl">Tags</h1>
                 </div>

@@ -4,7 +4,7 @@ import { slug } from 'github-slugger'
 import type { Metadata } from 'next'
 import React, { lazy, useMemo } from 'react'
 
-const PostCard = lazy(() => import('@/components/PostCard'))
+const PostCard = lazy(() => import('@/components/_blog/PostCard'))
 
 export async function generateMetadata({ params }): Promise<Metadata> {
     const tag = params.tag
@@ -28,7 +28,7 @@ const Tag = ({ params }) => {
 
     return (
         <PageLayout>
-            <ul className="mx-auto mt-5 w-full justify-center space-y-4 lg:max-w-5xl">
+            <ul className="mx-auto mt-5 min-h-[70vh] w-full justify-center space-y-4 lg:max-w-5xl">
                 <h1 className="mb-5 border-b border-gray-200 pb-5 text-base dark:border-gray-700 lg:text-xl">
                     {filteredPosts.length} posts tagged with{' '}
                     <span className="font-newsreader font-bold">{params.tag}</span>
