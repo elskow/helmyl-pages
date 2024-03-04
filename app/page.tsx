@@ -51,7 +51,7 @@ export default async function Page() {
                     {posts.map((post) => (
                         <ul
                             key={post.slug}
-                            className="mt-4 space-y-2 rounded-lg bg-white px-4 py-6 shadow-md transition-all duration-200 hover:bg-slate-50 hover:shadow-lg dark:bg-slate-800 dark:hover:bg-slate-900"
+                            className="mt-4 space-y-2 rounded-lg bg-white bg-opacity-60 px-4 py-6 shadow-md backdrop-blur-lg backdrop-filter transition-all duration-200 hover:bg-slate-50 hover:bg-opacity-20 hover:shadow-lg dark:bg-slate-800 dark:bg-opacity-60 dark:hover:bg-slate-900"
                         >
                             <Link
                                 href={`/blog/${post.slug}`}

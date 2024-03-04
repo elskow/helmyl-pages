@@ -9,14 +9,14 @@ import { SiApachekafka, SiMicrosoftazure, SiPowerbi } from 'react-icons/si'
 import { motion } from 'framer-motion'
 
 const logos = [
-    { Icon: BiLogoGoLang, link: 'https://golang.org/' },
-    { Icon: BiLogoJava, link: 'https://www.java.com/' },
-    { Icon: BiLogoPython, link: 'https://www.python.org/' },
-    { Icon: FaReact, link: 'https://reactjs.org/' },
-    { Icon: SiApachekafka, link: 'https://kafka.apache.org/' },
-    { Icon: SiMicrosoftazure, link: 'https://azure.microsoft.com/' },
-    { Icon: FaDocker, link: 'https://www.docker.com/' },
-    { Icon: SiPowerbi, link: 'https://powerbi.microsoft.com/' },
+    { Icon: BiLogoGoLang, link: 'https://golang.org/', text: 'GoLang' },
+    { Icon: BiLogoJava, link: 'https://www.java.com/', text: 'Java' },
+    { Icon: BiLogoPython, link: 'https://www.python.org/', text: 'Python' },
+    { Icon: FaReact, link: 'https://reactjs.org/', text: 'React' },
+    { Icon: SiApachekafka, link: 'https://kafka.apache.org/', text: 'Apache Kafka' },
+    { Icon: SiMicrosoftazure, link: 'https://azure.microsoft.com/', text: 'Microsoft Azure' },
+    { Icon: FaDocker, link: 'https://www.docker.com/', text: 'Docker' },
+    { Icon: SiPowerbi, link: 'https://powerbi.microsoft.com/', text: 'Power BI' },
 ]
 
 const Skillset = () => {
@@ -57,7 +57,13 @@ const Skillset = () => {
         >
             <ul className="flex max-w-none md:justify-start">
                 {logos.concat(logos).map((logo, index) => (
-                    <Link key={index} href={logo.link} target="_blank">
+                    <Link
+                        key={index}
+                        href={logo.link}
+                        target="_blank"
+                        title={logo.text}
+                        rel="noopener noreferrer"
+                    >
                         <motion.li
                             className={`mx-8 ${hoveredLogo === index ? 'cursor-pointer text-teal-500' : ''} ${hoveredLogo !== null && hoveredLogo !== index ? 'opacity-60' : ''}`}
                             onMouseEnter={() => {

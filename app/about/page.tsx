@@ -17,6 +17,7 @@ const AboutPage = () => {
                             width={500}
                             height={500}
                             className="aspect-square rotate-3 scale-100 rounded-2xl bg-zinc-100 object-cover blur-0 transition duration-1000 dark:bg-zinc-800"
+                            loading="lazy"
                         />
                     </div>
                 </div>
@@ -30,8 +31,8 @@ const AboutPage = () => {
                     </h1>
                     <div className="mt-12 text-base ">
                         <section className="space-y-8 md:space-y-10">
-                            <div>
-                                <h2 className="mb-3 text-xl font-bold lg:mb-5 lg:text-3xl">
+                            <div className="lg:mt-10">
+                                <h2 className="mb-3 font-newsreader text-xl font-bold lg:mb-5 lg:text-3xl">
                                     Who am I?
                                 </h2>
                                 <p className="font-normal lg:text-lg">
@@ -41,6 +42,8 @@ const AboutPage = () => {
                                         passHref
                                         aria-label="Universitas Negeri Surabaya"
                                         className="transition hover:text-teal-600 dark:hover:text-teal-500"
+                                        title="See more about Universitas Negeri Surabaya"
+                                        target="_blank"
                                     >
                                         <u>Universitas Negeri Surabaya</u>
                                     </Link>
@@ -52,8 +55,8 @@ const AboutPage = () => {
                                     thrill of exploring and mastering new technologies.
                                 </p>
                             </div>
-                            <div>
-                                <h2 className="mb-8 text-xl font-bold lg:mb-10 lg:text-3xl">
+                            <div className="lg:mt-10">
+                                <h2 className="mb-8 font-newsreader text-xl font-bold lg:mb-10 lg:text-3xl">
                                     What am I using?
                                 </h2>
                                 <Skillset />
