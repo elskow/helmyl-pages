@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -8,8 +9,10 @@ interface ProjectProps {
     href: string
     title: string
     description: string
+    tech?: string
+    date?: string
     image: string
-    index: number // Add an index prop
+    index: number
 }
 
 export const LinkIcon = () => {
@@ -31,58 +34,85 @@ export const LinkIcon = () => {
     )
 }
 
-const ProjectCard = ({ title, description, image, href, index }: ProjectProps) => {
+const TechStack = ({ tech }: { tech: string }) => {
+    const [showAll, setShowAll] = React.useState(false);
+    const techStacks = tech.split(',');
+
+    return (
+        <div className="mt-4 flex flex-wrap">
+            {(showAll ? techStacks : techStacks.slice(0, 2)).map((item, index) => (
+                <span key={index} className="mr-2 mb-2 bg-gray-200 rounded px-2 py-1 text-sm text-gray-700 hover:bg-gray-300 transition hover:bg-opacity-80">
+                    {item.trim()}
+                </span>
+            ))}
+            {techStacks.length > 2 && !showAll && (
+                <button onClick={() => setShowAll(true)} className="mr-2 mb-2 bg-green-200 rounded px-2 py-1 text-sm text-green-700 hover:bg-green-300 transition hover:bg-opacity-80 dark:bg-blue-200 dark:text-blue-700 dark:hover:bg-blue-300 dark:hover:bg-opacity-80">
+                    More
+                </button>
+            )}
+        </div>
+    )
+}
+
+const ProjectCard = ({ title, description, image, href, tech, date, index }: ProjectProps) => {
     const cardVariants = {
-        hidden: { opacity: 0, scale: 0.9 },
+        hidden: { opacity: 0, scale: 0.95 },
         visible: {
             opacity: 1,
             scale: 1,
             transition: {
                 type: 'spring',
-                stiffness: 100,
-                damping: 20,
-                delay: 0.1 * index, // Use the index to calculate the delay
-                duration: 0.8,
+                stiffness: 50,
+                damping: 30,
+                delay: 0.1 * index,
+                duration: 1,
             },
         },
         hover: {
-            scale: 1.02,
+            scale: 1.01,
             transition: {
                 type: 'spring',
-                stiffness: 200,
-                damping: 20,
-                duration: 0.3,
+                stiffness: 100,
+                damping: 30,
+                duration: 0.5,
             },
         },
     }
 
     return (
-        <Link href={href} target="_blank">
-            <motion.div
-                className="delay-50 flex flex-col justify-between rounded-lg p-6 text-black transition hover:bg-white hover:text-slate-700 dark:text-primary dark:hover:bg-primary dark:hover:bg-opacity-5 dark:hover:text-secondary"
+        <Link href={href} target="_blank" rel="noopener noreferrer" >
+            <motion.li
+                className="group relative flex flex-col items-start bg-white rounded-lg shadow-md overflow-hidden select-none"
+                variants={cardVariants}
                 initial="hidden"
                 animate="visible"
                 whileHover="hover"
-                variants={cardVariants}
             >
-                <div className="mb-5 flex max-h-[20vh] justify-center overflow-hidden">
+                <div className="relative w-full h-48">
                     <Image
                         src={image}
-                        width={300}
-                        height={300}
-                        className="my-5 w-full rounded-lg object-cover"
                         alt={description}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        layout="fill"
                     />
                 </div>
-                <h1 className="mb-4 mt-2 text-xl font-semibold">{title}</h1>
-                <p className="mb-6 mt-4 text-sm">{description}</p>
-                <p className="text-dark mt-6 flex items-center">
-                    <LinkIcon />
-                    <span className="ml-2 text-sm font-semibold">
-                        {href.replace(/^https?:\/\//, '')}
-                    </span>
-                </p>
-            </motion.div>
+                <div className="p-6">
+                    <p className="mt-2 text-xs font-semibold text-zinc-700">
+                        {date}
+                    </p>
+                    <h2 className="mt-2 text-base font-semibold text-zinc-800">
+                        <h2 className="hover:underline">
+                            {title}
+                        </h2>
+                    </h2>
+                    <p className="mt-2 text-sm text-zinc-600 line-clamp-2">{description}</p>
+                    {tech && <TechStack tech={tech} />}
+                    <p className="mt-6 flex items-center text-sm font-medium text-zinc-800 transition group-hover:text-teal-900">
+                        <LinkIcon />
+                        <span className="ml-2">{href.replace(/^https?:\/\//, '')}</span>
+                    </p>
+                </div>
+            </motion.li>
         </Link>
     )
 }
