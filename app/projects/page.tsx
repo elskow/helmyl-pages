@@ -17,6 +17,7 @@ interface Project {
     description: string
     tech?: string
     date?: string
+    link_text: string
 }
 
 const Projects: React.FC = () => {
@@ -34,12 +35,13 @@ const Projects: React.FC = () => {
                             <h1 className="mb-5 font-newsreader text-xl font-bold md:text-2xl lg:mb-10 lg:text-3xl">
                                 {category}
                             </h1>
-                            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 px-4 max-w-[90vw]">
+                            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3 px-4 max-w-[90vw]">
                                 {projects[category].map((project) => (
                                     <ProjectCard
                                         key={project.name}
                                         title={project.name}
                                         href={project.href}
+                                        link_text={project.link_text}
                                         image={project.imgSrc}
                                         description={project.description}
                                         tech={project.tech}

@@ -7,6 +7,7 @@ import Image from 'next/image'
 
 interface ProjectProps {
     href: string
+    link_text: string
     title: string
     description: string
     tech?: string
@@ -39,22 +40,24 @@ const TechStack = ({ tech }: { tech: string }) => {
     const techStacks = tech.split(',');
 
     return (
-        <div className="mt-4 flex flex-wrap">
-            {(showAll ? techStacks : techStacks.slice(0, 2)).map((item, index) => (
-                <span key={index} className="mr-2 mb-2 bg-gray-200 rounded px-2 py-1 text-sm text-gray-700 hover:bg-gray-300 transition hover:bg-opacity-80">
-                    {item.trim()}
-                </span>
-            ))}
-            {techStacks.length > 2 && !showAll && (
-                <button onClick={() => setShowAll(true)} className="mr-2 mb-2 bg-green-200 rounded px-2 py-1 text-sm text-green-700 hover:bg-green-300 transition hover:bg-opacity-80 dark:bg-blue-200 dark:text-blue-700 dark:hover:bg-blue-300 dark:hover:bg-opacity-80">
-                    More
-                </button>
-            )}
+        <div className='min-h-[8vh]'>
+            <div className="mt-4 flex flex-wrap">
+                {(showAll ? techStacks : techStacks.slice(0, 6)).map((item, index) => (
+                    <span key={index} className="mr-2 mb-2 bg-gray-200 rounded px-2 py-1 text-sm text-gray-700 hover:bg-gray-300 transition hover:bg-opacity-80">
+                        {item.trim()}
+                    </span>
+                ))}
+                {techStacks.length > 6 && !showAll && (
+                    <button onClick={() => setShowAll(true)} className="mr-2 mb-2 bg-green-200 rounded px-2 py-1 text-sm text-green-700 hover:bg-green-300 transition hover:bg-opacity-80 dark:bg-blue-200 dark:text-blue-700 dark:hover:bg-blue-300 dark:hover:bg-opacity-80">
+                        More
+                    </button>
+                )}
+            </div>
         </div>
     )
 }
 
-const ProjectCard = ({ title, description, image, href, tech, date, index }: ProjectProps) => {
+const ProjectCard = ({ title, description, image, href, tech, date, link_text, index }: ProjectProps) => {
     const cardVariants = {
         hidden: { opacity: 0, scale: 0.95 },
         visible: {
@@ -82,34 +85,36 @@ const ProjectCard = ({ title, description, image, href, tech, date, index }: Pro
     return (
         <Link href={href} target="_blank" rel="noopener noreferrer" >
             <motion.li
-                className="group relative flex flex-col items-start bg-white rounded-lg shadow-md overflow-hidden select-none"
+                className="group relative flex flex-col items-start bg-white rounded-lg shadow-md select-none w-[300px] h-[500px]"
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"
                 whileHover="hover"
             >
-                <div className="relative w-full h-48">
+                <div className="relative w-full h-[250px]">
                     <Image
                         src={image}
                         alt={description}
-                        className="absolute inset-0 w-full h-full object-cover"
-                        layout="fill"
+                        className="absolute w-full h-full object-cover fill-white"
+                        width={300}
+                        height={200}
+                        loading='lazy'
                     />
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex-grow flex flex-col">
                     <p className="mt-2 text-xs font-semibold text-zinc-700">
                         {date}
                     </p>
                     <h2 className="mt-2 text-base font-semibold text-zinc-800">
-                        <h2 className="hover:underline">
+                        <p className="hover:underline">
                             {title}
-                        </h2>
+                        </p>
                     </h2>
-                    <p className="mt-2 text-sm text-zinc-600 line-clamp-2">{description}</p>
+                    <p className="mt-2 text-sm text-zinc-600 flex-grow">{description}</p>
                     {tech && <TechStack tech={tech} />}
                     <p className="mt-6 flex items-center text-sm font-medium text-zinc-800 transition group-hover:text-teal-900">
                         <LinkIcon />
-                        <span className="ml-2">{href.replace(/^https?:\/\//, '')}</span>
+                        <span className="ml-2">{link_text}</span>
                     </p>
                 </div>
             </motion.li>
