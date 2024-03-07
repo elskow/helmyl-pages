@@ -1,20 +1,20 @@
 const experiences = [
     {
         id: 1,
-        title: 'Software Engineer',
-        company: 'PT. Telkom Indonesia',
-        period: 'June 2021 - Present',
+        title: 'Dummy Data 1',
+        company: 'Dummy Company 1',
+        period: 'January 2022 - Present',
         description:
-            'Working on a project to develop a web-based application for the company’s internal use. The application is built using React and Tailwind CSS for the frontend, and Node.js for the backend.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
         present: true,
     },
     {
         id: 2,
-        title: 'Data Analyst',
-        company: 'PT. Telkom Indonesia',
-        period: 'June 2020 - June 2021',
+        title: 'Dummy Data 2',
+        company: 'Dummy Company 2',
+        period: 'August 2021 - December 2021',
         description:
-            'Developed a data visualization dashboard for the company’s data warehouse. The dashboard is built using Power BI and SQL Server.',
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     },
 ]
 

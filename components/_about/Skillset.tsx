@@ -1,5 +1,6 @@
 'use client'
 
+import { useCallback, memo } from 'react'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { BiLogoGoLang, BiLogoJava, BiLogoPython } from 'react-icons/bi'
@@ -50,6 +51,16 @@ const Skillset = () => {
         return () => stopScroll()
     }, [])
 
+    const handleMouseEnter = useCallback((index: number) => {
+        stopScroll();
+        setHoveredLogo(index);
+    }, []);
+
+    const handleMouseLeave = useCallback(() => {
+        startScroll();
+        setHoveredLogo(null);
+    }, []);
+
     return (
         <div
             ref={scrollRef}
@@ -58,7 +69,7 @@ const Skillset = () => {
             <ul className="flex max-w-none md:justify-start">
                 {logos.concat(logos).map((logo, index) => (
                     <Link
-                        key={index}
+                        key={`${logo.text}-${index}`}
                         href={logo.link}
                         target="_blank"
                         title={logo.text}
@@ -66,14 +77,8 @@ const Skillset = () => {
                     >
                         <motion.li
                             className={`mx-8 ${hoveredLogo === index ? 'cursor-pointer text-teal-500' : ''} ${hoveredLogo !== null && hoveredLogo !== index ? 'opacity-60' : ''}`}
-                            onMouseEnter={() => {
-                                stopScroll()
-                                setHoveredLogo(index)
-                            }}
-                            onMouseLeave={() => {
-                                startScroll()
-                                setHoveredLogo(null)
-                            }}
+                            onMouseEnter={() => handleMouseEnter(index)}
+                            onMouseLeave={handleMouseLeave}
                             animate={{ scale: 1 }}
                             whileHover={{ scale: 1.1, color: '#38b2ac' }}
                         >
@@ -86,4 +91,4 @@ const Skillset = () => {
     )
 }
 
-export default Skillset
+export default memo(Skillset);

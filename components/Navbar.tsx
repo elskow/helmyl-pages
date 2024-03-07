@@ -13,30 +13,55 @@ import {
     DropdownMenuContent,
 } from '@/components/ui/dropdown-menu'
 
-const menuItems: Record<string, { name: string; href: string }> = {
-    about: {
-        name: 'About',
-        href: '/about',
-    },
-    projects: {
-        name: 'Projects',
-        href: '/projects',
-    },
-    blog: {
-        name: 'Blog',
-        href: '/blog',
-    },
-}
+import menuItems from '@/const/MenuItems'
 
 export interface NavbarProps {
     className?: string
 }
 
+interface AnimatedLinkProps {
+    href: string;
+    children: React.ReactNode;
+    getClassName: (href: string) => string;
+}
+
+const AnimatedLink = memo(({ href, children, getClassName }: AnimatedLinkProps) => {
+    const controls = useAnimation()
+
+    const handleMouseEnter = useCallback(async () => {
+        await controls.start({
+            scale: 1.1,
+            transition: { duration: 0.5 },
+        })
+    }, [controls])
+
+    const handleMouseLeave = useCallback(async () => {
+        await controls.start({
+            scale: 1.0,
+            transition: { duration: 0.5 },
+        })
+    }, [controls])
+
+    const className = getClassName(href)
+
+    return (
+        <Link href={href} className={className}>
+            <motion.span
+                animate={controls}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+            >
+                {children}
+            </motion.span>
+        </Link>
+    )
+})
+
 const Navbar = memo(({ className }: NavbarProps) => {
     const pathname = usePathname()
     const controls = useAnimation()
 
-    const getClassName = (href: string) => {
+    const getClassName = useCallback((href: string) => {
         const baseClass =
             'item-menu-hover self-center transition duration-200 ease-in-out hover:font-bold'
         let activeClass = 'font-medium'
@@ -46,52 +71,21 @@ const Navbar = memo(({ className }: NavbarProps) => {
             activeClass = 'font-bold'
         }
         return `${baseClass} ${activeClass}`
-    }
+    }, [pathname])
 
-    const handleMouseEnter = async () => {
+    const handleMouseEnter = useCallback(async () => {
         await controls.start({
             scale: 1.1,
             transition: { duration: 0.5 },
         })
-    }
+    }, [controls])
 
-    const handleMouseLeave = async () => {
+    const handleMouseLeave = useCallback(async () => {
         await controls.start({
             scale: 1.0,
             transition: { duration: 0.5 },
         })
-    }
-
-    const AnimatedLink = ({ href, children }) => {
-        const controls = useAnimation()
-        const className = getClassName(href)
-
-        const handleMouseEnter = useCallback(async () => {
-            await controls.start({
-                scale: 1.1,
-                transition: { duration: 0.5 },
-            })
-        }, [controls])
-
-        const handleMouseLeave = useCallback(async () => {
-            await controls.start({
-                scale: 1.0,
-                transition: { duration: 0.5 },
-            })
-        }, [controls])
-
-        return (
-            <Link href={href} className={className}>
-                <motion.span
-                    animate={controls}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                >
-                    {children}
-                </motion.span>
-            </Link>
-        )
-    }
+    }, [controls])
 
     return (
         <nav className={`flex select-none items-center justify-between py-4 ${className}`}>
@@ -102,7 +96,7 @@ const Navbar = memo(({ className }: NavbarProps) => {
                 </Link>
                 <div className="hidden items-center gap-4 align-middle sm:flex lg:gap-6 lg:text-lg">
                     {Object.entries(menuItems).map(([key, item]) => (
-                        <AnimatedLink key={key} href={item.href}>
+                        <AnimatedLink key={key} href={item.href} getClassName={getClassName}>
                             {item.name}
                         </AnimatedLink>
                     ))}
