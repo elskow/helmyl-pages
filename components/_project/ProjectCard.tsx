@@ -5,6 +5,9 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
+import LinkIcon from '@/components/_project/LinkIcon'
+import TechStack from '@/components/_project/TechStackBadge'
+
 interface ProjectProps {
     href: string
     link_text: string
@@ -15,52 +18,6 @@ interface ProjectProps {
     image: string
     index: number
 }
-
-export const LinkIcon = React.memo(() => {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 25 25"
-            strokeWidth="2"
-            stroke="currentColor"
-            className="h-4 w-4"
-        >
-            <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
-            />
-        </svg>
-    )
-})
-
-const TechStack = React.memo(({ tech }: { tech: string }) => {
-    const [showAll, setShowAll] = React.useState(false);
-    const techStacks = tech.split(',');
-
-    const handleShowAll = React.useCallback(() => {
-        setShowAll(true);
-    }, []);
-
-    return (
-        <div className='min-h-[8vh]'>
-            <div className="mt-4 flex flex-wrap">
-                {(showAll ? techStacks : techStacks.slice(0, 6)).map((item, index) => (
-                    <span key={index} className="mr-2 mb-2 bg-gray-200 rounded px-2 py-1 text-sm text-gray-700 hover:bg-gray-300 transition hover:bg-opacity-80">
-                        {item.trim()}
-                    </span>
-                ))}
-                {techStacks.length > 6 && !showAll && (
-                    <button onClick={handleShowAll}
-                        className="mr-2 mb-2 bg-green-200 rounded px-2 py-1 text-sm text-green-700 hover:bg-green-300 transition hover:bg-opacity-80 dark:bg-blue-200 dark:text-blue-700 dark:hover:bg-blue-300 dark:hover:bg-opacity-80">
-                        More
-                    </button>
-                )}
-            </div>
-        </div>
-    )
-})
 
 const ProjectCard = ({ title, description, image, href, tech, date, link_text, index }: ProjectProps) => {
     const cardVariants = {

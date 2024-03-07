@@ -14,48 +14,11 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 import menuItems from '@/const/MenuItems'
+import AnimatedLink from '@/components/AnimatedLink-Navbar'
 
 export interface NavbarProps {
     className?: string
 }
-
-interface AnimatedLinkProps {
-    href: string;
-    children: React.ReactNode;
-    getClassName: (href: string) => string;
-}
-
-const AnimatedLink = memo(({ href, children, getClassName }: AnimatedLinkProps) => {
-    const controls = useAnimation()
-
-    const handleMouseEnter = useCallback(async () => {
-        await controls.start({
-            scale: 1.1,
-            transition: { duration: 0.5 },
-        })
-    }, [controls])
-
-    const handleMouseLeave = useCallback(async () => {
-        await controls.start({
-            scale: 1.0,
-            transition: { duration: 0.5 },
-        })
-    }, [controls])
-
-    const className = getClassName(href)
-
-    return (
-        <Link href={href} className={className}>
-            <motion.span
-                animate={controls}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-            >
-                {children}
-            </motion.span>
-        </Link>
-    )
-})
 
 const Navbar = memo(({ className }: NavbarProps) => {
     const pathname = usePathname()
