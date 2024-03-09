@@ -20,7 +20,7 @@ export default function Page({ params }: { params: { slug: string } }) {
     }
 
     return (
-        <section className="mx-auto px-2 pb-16 pt-10 lg:max-w-5xl lg:pt-14">
+        <section className="mx-auto pb-16 pt-10 lg:max-w-5xl lg:pt-14">
             <div className="space-y-4 pb-5">
                 <Suspense
                     fallback={<div style={{ height: 200 }} className="animate-pulse bg-gray-200" />}
