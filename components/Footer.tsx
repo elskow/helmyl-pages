@@ -1,3 +1,4 @@
+import React from 'react'
 import Link from 'next/link'
 
 interface FooterProps {
@@ -33,7 +34,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                 © 2022 – {new Date().getFullYear()}{' '}
                 <Link
                     href="https://github.com/elskow/helmyl-pages"
-                    className=" transition-all duration-300 hover:text-teal-600 hover:underline dark:hover:text-teal-400 dark:hover:underline"
+                    className="transition-all duration-300 hover:text-teal-600 hover:underline dark:hover:text-teal-400 dark:hover:underline"
                     target="_blank"
                 >
                     Helmy LuqmanulHakim

@@ -64,7 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body className="bg-light dark:bg-dark min-h-screen">
                 <ThemeProviders>
                     <div
-                        className="z-10 min-h-screen bg-gradient-to-tr from-green-50 to-neutral-200 bg-fixed px-4 dark:from-slate-900 dark:to-slate-800"
+                        className="z-10 min-h-screen bg-gradient-to-tr from-green-50 to-neutral-200 bg-fixed px-8 py-2 dark:from-slate-900 dark:to-slate-800"
                         style={{ position: 'relative', zIndex: '20' }}
                     >
                         <Navbar className="mx-auto pt-6 md:pt-8 lg:max-w-5xl lg:pt-14" />

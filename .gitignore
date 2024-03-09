@@ -41,3 +41,5 @@ next-env.d.ts
 
 #rss
 public/rss.xml
+
+.idea

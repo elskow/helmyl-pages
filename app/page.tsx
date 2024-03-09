@@ -4,7 +4,7 @@ import { allPosts } from '@/.contentlayer/generated'
 import WorkExperiences from '@/components/_root/WorkExperiences'
 
 const posts = allPosts
-    .filter((post) => post.draft !== true)
+    .filter((post) => !post.draft)
     .sort((a, b) => b.date.localeCompare(a.date))
     .slice(0, 3)
 
@@ -45,37 +45,41 @@ export default async function Page() {
             </section>
             <section className="grid grid-cols-1 gap-24 lg:grid-cols-2">
                 <div className="space-y-6">
-                    <h1 className="font-semibold text-slate-900 dark:text-slate-50 sm:text-xl">
+                    <h1 className="mb-10 text-xl font-semibold text-slate-900 dark:text-slate-50 sm:text-2xl">
                         Latest Posts
                     </h1>
-                    {posts.map((post) => (
-                        <ul
-                            key={post.slug}
-                            className="mt-4 space-y-2 rounded-lg bg-white bg-opacity-60 px-4 py-6 shadow-md backdrop-blur-lg backdrop-filter transition-all duration-200 hover:bg-slate-50 hover:bg-opacity-20 hover:shadow-lg dark:bg-slate-800 dark:bg-opacity-60 dark:hover:bg-slate-900"
-                        >
-                            <Link
-                                href={`/blog/${post.slug}`}
-                                passHref
-                                className="group cursor-pointer"
+                    <div
+                        className={`mx-auto flex max-w-[80vw] flex-col items-center lg:max-w-none`}
+                    >
+                        {posts.map((post) => (
+                            <ul
+                                key={post.slug}
+                                className="mt-4 space-y-2 rounded-lg bg-white bg-opacity-20 px-4 py-6 shadow-md backdrop-blur-lg backdrop-filter transition-all duration-200 hover:bg-slate-50 hover:bg-opacity-10 hover:shadow-lg dark:bg-slate-800 dark:bg-opacity-60 dark:hover:bg-slate-900"
                             >
-                                <h1 className="mb-6 font-semibold text-slate-900 transition-all duration-200 group-hover:pointer-events-none group-hover:text-lime-600 dark:text-slate-50 dark:group-hover:text-lime-400">
-                                    {post.title}
-                                </h1>
-                                <p className="mb-4 text-slate-800 dark:text-slate-100">
-                                    {post.summary}
-                                </p>
-                                <p className="text-sm text-slate-600 dark:text-slate-400">
-                                    {post.date}
-                                </p>
-                            </Link>
-                        </ul>
-                    ))}
+                                <Link
+                                    href={`/blog/${post.slug}`}
+                                    passHref
+                                    className="group cursor-pointer"
+                                >
+                                    <h1 className="mb-6 font-semibold text-slate-900 text-opacity-90 transition-all duration-200 group-hover:pointer-events-none group-hover:text-opacity-100 dark:text-slate-50 sm:text-lg">
+                                        {post.title}
+                                    </h1>
+                                    <p className="mb-6 text-sm text-slate-800 text-opacity-80 dark:text-slate-100 sm:text-base">
+                                        {post.summary}
+                                    </p>
+                                    <p className="text-xs text-slate-600 text-opacity-80 dark:text-slate-400 sm:text-sm">
+                                        {post.date}
+                                    </p>
+                                </Link>
+                            </ul>
+                        ))}
+                    </div>
                 </div>
                 <div className="space-y-6">
-                    <h1 className="font-semibold text-slate-900 dark:text-slate-50 sm:text-xl">
+                    <h1 className="mb-10 text-xl font-semibold text-slate-900 dark:text-slate-50 sm:text-2xl">
                         Work Experience
                     </h1>
-                    <div className="pl-4 pt-4">
+                    <div className="mx-auto flex max-w-[80vw] flex-col items-center pl-4 pt-4 lg:max-w-none">
                         <WorkExperiences experiences={experiences} />
                     </div>
                 </div>

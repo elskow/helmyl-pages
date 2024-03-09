@@ -24,7 +24,7 @@ const AboutPage = () => {
                 <div className="lg:order-first lg:row-span-2">
                     <h1 className="font-newsreader text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl lg:mb-16 lg:mt-10">
                         I&apos;m{' '}
-                        <span className="text-teal-700 dark:text-cyan-100">
+                        <span className="text-teal-700 dark:text-teal-300">
                             Helmy Luqmanulhakim
                         </span>
                         , a software engineer from Surabaya, Indonesia.
@@ -65,7 +65,7 @@ const AboutPage = () => {
                     </div>
                 </div>
                 <div className="lg:pl-32">
-                    <ul role="list" className="space-y-8 select-none">
+                    <ul role="list" className="select-none space-y-8">
                         {SocialMedia.map((item, index) => (
                             <li key={index}>
                                 <Link
