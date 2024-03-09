@@ -219,10 +219,23 @@ pre[class*="language-"] {
 
 
 .toc-link {
-	@apply text-lg font-normal;
+	@apply text-base font-semibold font-newsreader;
 	text-decoration: none !important;
 }
 
+.toc-list-item {
+    @apply border-b-2 border-solid border-l-0 border-r-0 border-slate-900 dark:border-slate-100 hover:border-lime-500 dark:hover:border-lime-500;
+}
+
+.toc-link:hover {
+    @apply dark:text-lime-100 text-lime-900 transition-colors duration-300;
+}
+
+.toc-list {
+    list-style-type: none;
+    padding-left: 1em;
+    gap: 0.2rem;
+}
 
 pre {
   overflow-x: auto;

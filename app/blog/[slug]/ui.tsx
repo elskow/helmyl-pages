@@ -57,7 +57,7 @@ export default function Page({ params }: { params: { slug: string } }) {
                     <span>{post.readingTime.text}</span>
                 </div>
             </div>
-            <article className="text-pretty prose-md js-toc-content prose flex min-h-full w-full min-w-full flex-col font-newsreader prose-code:prose-sm dark:prose-invert sm:prose-lg sm:prose-code:prose-sm md:prose-lg md:prose-h2:prose-xl md:prose-code:prose-base lg:prose-xl lg:prose-h2:prose-2xl lg:prose-code:prose-base prose-p:text-black prose-code:font-code dark:prose-p:text-white lg:max-w-6xl lg:flex-row lg:space-x-4">
+            <article className="text-pretty prose-md js-toc-content prose flex min-h-full w-full min-w-full flex-col font-sans prose-code:prose-sm dark:prose-invert sm:prose-lg sm:prose-code:prose-sm md:prose-lg md:prose-h2:prose-xl md:prose-code:prose-base lg:prose-lg lg:prose-h2:prose-2xl lg:prose-code:prose-base prose-p:text-black prose-code:font-code dark:prose-p:text-white lg:max-w-6xl lg:flex-row lg:space-x-4">
                 <div className="lg:w-3/4">
                     <MdxRenderer code={post.body.code} />
                 </div>

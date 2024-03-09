@@ -38,20 +38,6 @@ const Navbar = memo(({ className }: NavbarProps) => {
         [pathname]
     )
 
-    const handleMouseEnter = useCallback(async () => {
-        await controls.start({
-            scale: 1.1,
-            transition: { duration: 0.5 },
-        })
-    }, [controls])
-
-    const handleMouseLeave = useCallback(async () => {
-        await controls.start({
-            scale: 1.0,
-            transition: { duration: 0.5 },
-        })
-    }, [controls])
-
     return (
         <nav className={`flex select-none items-center justify-between py-4 ${className}`}>
             <header className="flex items-center gap-4 lg:gap-6">
@@ -71,14 +57,9 @@ const Navbar = memo(({ className }: NavbarProps) => {
                 <div className="block items-center gap-2 sm:hidden">
                     <DropdownMenu>
                         <DropdownMenuTrigger>
-                            <motion.span
-                                className="flex items-center gap-1 text-sm"
-                                animate={controls}
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}
-                            >
+                            <span className="flex items-center gap-1 text-sm">
                                 Menu <ChevronDownIcon />
-                            </motion.span>
+                            </span>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className="flex flex-col gap-2 transition duration-300 ease-in-out">
                             {Object.values(menuItems).map((item) => (
@@ -90,13 +71,7 @@ const Navbar = memo(({ className }: NavbarProps) => {
                             ))}
                             <Link href="/contact">
                                 <DropdownMenuItem className={getClassName('/contact')}>
-                                    <motion.span
-                                        animate={controls}
-                                        onMouseEnter={handleMouseEnter}
-                                        onMouseLeave={handleMouseLeave}
-                                    >
-                                        Contact Me
-                                    </motion.span>
+                                    <span>Contact Me</span>
                                 </DropdownMenuItem>
                             </Link>
                         </DropdownMenuContent>

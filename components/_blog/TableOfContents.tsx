@@ -2,7 +2,6 @@
 
 import { useEffect } from 'react'
 import tocbot from 'tocbot'
-import { MdFormatListBulleted } from 'react-icons/md'
 
 export default function Toc() {
     useEffect(() => {
@@ -19,15 +18,9 @@ export default function Toc() {
     }, [])
 
     return (
-        <div className="toc-card select-none">
-            <div className="toc-head mb-2 flex items-center">
-                <div className="toc-icon mr-2">
-                    <MdFormatListBulleted size={24} />
-                </div>
-                <span className="text-lg font-bold">Table of Contents</span>
-            </div>
+        <div className="toc-card">
             <div className="toc-content">
-                <div className="js-toc list-inside text-lg" />
+                <div className="js-toc" />
             </div>
         </div>
     )

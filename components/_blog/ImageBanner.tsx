@@ -1,19 +1,8 @@
-'use client'
-
-import { useScroll, useTransform } from 'framer-motion'
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 
 const ImageBanner = ({ image, title }) => {
-    const { scrollYProgress } = useScroll()
-    const height = useTransform(scrollYProgress, [0, 1], ['18rem', '8rem'])
-
     return (
-        <motion.div
-            style={{ height }}
-            className="w-full overflow-hidden rounded-lg transition-all duration-700"
-            transition={{ type: 'spring', stiffness: 10, damping: 30, mass: 1 }}
-        >
+        <div className="h-[18rem] w-full overflow-hidden rounded-lg pb-4 transition-all duration-700 lg:h-[20rem]">
             <Image
                 src={image}
                 alt={title}
@@ -21,9 +10,9 @@ const ImageBanner = ({ image, title }) => {
                 height={400}
                 className="h-full w-full object-cover"
                 loading="lazy"
-                quality={50}
+                quality={100}
             />
-        </motion.div>
+        </div>
     )
 }
 
