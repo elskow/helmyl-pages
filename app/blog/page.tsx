@@ -40,7 +40,7 @@ const Blog = () => {
 
     return (
         <PageLayout>
-            <ul className="mx-auto mt-10 w-full justify-center space-y-8 lg:max-w-5xl">
+            <ul className="mx-auto mb-10 mt-10 w-full justify-center space-y-8 lg:max-w-5xl">
                 <div className="space-y-3">
                     <h1 className="font-newsreader text-4xl font-bold lg:text-5xl">Blog</h1>
                     <p className="font-light lg:text-lg">

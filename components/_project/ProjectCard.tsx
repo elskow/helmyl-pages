@@ -56,7 +56,7 @@ const ProjectCard = ({
     return (
         <Link href={href} target="_blank" rel="noopener noreferrer">
             <motion.li
-                className="group relative flex h-[500px] w-[300px] select-none flex-col items-start rounded-lg bg-white bg-opacity-20 shadow-md backdrop-blur-lg backdrop-filter hover:bg-opacity-10 hover:shadow-lg dark:bg-slate-800 dark:bg-opacity-60 dark:hover:bg-slate-900"
+                className="group relative flex h-[500px] w-[300px] select-none flex-col items-start rounded-lg bg-white bg-opacity-20 shadow-md hover:bg-opacity-10 hover:shadow-lg dark:bg-slate-800 dark:bg-opacity-60 dark:hover:bg-slate-900"
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"

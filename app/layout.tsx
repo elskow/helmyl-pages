@@ -61,32 +61,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 src="https://us.umami.is/script.js"
                 data-website-id="80b9e23d-c5ef-463d-9f8a-fca203abdc5a"
             />
-            <body className="bg-light dark:bg-dark min-h-screen">
+            <body className="min-h-screen bg-gradient-to-tr from-green-50 to-neutral-200 dark:from-slate-900 dark:to-slate-800">
                 <ThemeProviders>
                     <div
-                        className="z-10 min-h-screen bg-gradient-to-tr from-green-50 to-neutral-200 bg-fixed px-4 dark:from-slate-900 dark:to-slate-800 sm:px-8 lg:py-2"
-                        style={{ position: 'relative', zIndex: '20' }}
+                        className={`dark:bg-dot-large-slate-100/[0.05] bg-dot-large-neutral-500/[0.2]`}
                     >
-                        <Navbar className="mx-auto pt-6 md:pt-8 lg:max-w-5xl lg:pt-14" />
-                        {children}
-                        <Footer className="mx-auto pb-6 pt-6 lg:max-w-5xl lg:pb-12 lg:pt-14" />
+                        <div
+                            className="z-10 min-h-screen px-4 sm:px-8 lg:py-2"
+                            style={{ position: 'relative', zIndex: '20' }}
+                        >
+                            <Navbar className="mx-auto pt-6 md:pt-8 lg:max-w-5xl lg:pt-14" />
+                            {children}
+                            <Footer className="mx-auto pb-6 pt-6 lg:max-w-5xl lg:pb-12 lg:pt-14" />
+                        </div>
                     </div>
-                    <div
-                        className="absolute h-2/5 w-4/12 max-w-full overflow-clip rounded-full bg-white opacity-25 blur-6xl dark:bg-slate-800"
-                        style={{
-                            top: '0',
-                            right: '0',
-                            zIndex: '0',
-                        }}
-                    />
-                    <div
-                        className="absolute z-10 h-3/4 w-4/12 max-w-full overflow-clip rounded-full bg-green-100 opacity-25 blur-6xl dark:bg-slate-900 dark:opacity-10"
-                        style={{
-                            bottom: '0',
-                            left: '0',
-                            zIndex: '0',
-                        }}
-                    />
                 </ThemeProviders>
             </body>
         </html>
