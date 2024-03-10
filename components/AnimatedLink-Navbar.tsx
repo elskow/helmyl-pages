@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 interface AnimatedLinkProps {
     children: React.ReactNode
-    getClassName: (href: string) => string
+    getClassName: (_: string) => string
     href: string
 }
 

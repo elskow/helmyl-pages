@@ -3,10 +3,10 @@
 import { motion } from 'framer-motion'
 import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 
 import LinkIcon from '@/components/_project/LinkIcon'
 import TechStack from '@/components/_project/TechStackBadge'
+import BlurImage from '@/components/BlurImage'
 
 interface ProjectProps {
     href: string
@@ -63,14 +63,7 @@ const ProjectCard = ({
                 whileHover="hover"
             >
                 <div className="relative h-[250px] w-full">
-                    <Image
-                        src={image}
-                        alt={description}
-                        className="absolute h-full w-full fill-white object-cover"
-                        width={300}
-                        height={200}
-                        loading="lazy"
-                    />
+                    <BlurImage src={image} alt={description} className="absolute h-full w-full" />
                 </div>
                 <div className="flex flex-grow flex-col p-6">
                     <p className="mt-2 text-xs font-semibold text-zinc-700 dark:text-zinc-300">

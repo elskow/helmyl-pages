@@ -1,9 +1,11 @@
 import PageLayout from '@/layouts/PageLayout'
-import Image from 'next/image'
 import Link from 'next/link'
 import Skillset from '@/components/_about/Skillset'
 
+import helmyAvatar from '@/public/helmy-avatar.webp'
+
 import SocialMedia from '@/const/SocialMedia'
+import BlurImage from '@/components/BlurImage'
 
 const AboutPage = () => {
     return (
@@ -11,13 +13,10 @@ const AboutPage = () => {
             <div className="mx-auto mb-12 mt-12 grid w-full grid-cols-1 justify-center gap-y-8 space-y-10 lg:max-w-5xl lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-20">
                 <div className="lg:pl-32">
                     <div className="max-w-xs px-2.5 lg:max-w-none">
-                        <Image
-                            src={'/helmy-avatar.webp'}
+                        <BlurImage
+                            src={helmyAvatar.src}
                             alt="Profile Picture"
-                            width={500}
-                            height={500}
-                            className="aspect-square rotate-3 scale-100 rounded-2xl bg-zinc-100 object-cover blur-0 transition duration-1000 dark:bg-zinc-800"
-                            loading="lazy"
+                            className="aspect-square rotate-2 rounded-2xl bg-zinc-100 object-cover shadow-lg blur-0 drop-shadow-xl backdrop-contrast-200 transition duration-1000 dark:bg-zinc-800 dark:shadow-2xl dark:backdrop-contrast-200"
                         />
                     </div>
                 </div>

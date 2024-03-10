@@ -4,7 +4,6 @@ import { memo, useCallback } from 'react'
 import { ChevronDownIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { motion, useAnimation } from 'framer-motion'
 import ThemeSwitcher from '@/components/ThemeSwitcher'
 import {
     DropdownMenu,
@@ -22,7 +21,6 @@ export interface NavbarProps {
 
 const Navbar = memo(({ className }: NavbarProps) => {
     const pathname = usePathname()
-    const controls = useAnimation()
 
     const getClassName = useCallback(
         (href: string) => {
