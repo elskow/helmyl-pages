@@ -32,12 +32,16 @@ export default async function Page() {
                     <Link
                         className="inline-flex items-center rounded-md font-semibold hover:font-bold hover:underline"
                         href="/contact"
+                        draggable={false}
+                        unselectable={'on'}
                     >
                         Hire Me! <ChevronRightIcon />
                     </Link>
                     <Link
                         className="mt-2 inline-flex items-center rounded-md font-semibold hover:font-bold hover:underline sm:mt-0 sm:pl-4"
                         href="/projects"
+                        draggable={false}
+                        unselectable={'on'}
                     >
                         Explore My Work <ChevronRightIcon />
                     </Link>
@@ -49,17 +53,19 @@ export default async function Page() {
                         Latest Posts
                     </h1>
                     <div
-                        className={`mx-auto flex max-w-[80vw] flex-col items-center lg:max-w-none`}
+                        className={`mx-auto flex max-w-[80vw] flex-col items-center space-y-6 lg:max-w-none`}
                     >
                         {posts.map((post) => (
                             <ul
                                 key={post.slug}
-                                className="mt-4 space-y-2 rounded-lg bg-white bg-opacity-20 px-4 py-6 shadow-md backdrop-blur-lg backdrop-filter transition-all duration-200 hover:bg-slate-50 hover:bg-opacity-10 hover:shadow-lg dark:bg-slate-800 dark:bg-opacity-60 dark:hover:bg-slate-900"
+                                className="mt-4 space-y-2 rounded-lg bg-white bg-opacity-10 px-4 py-6 shadow-md backdrop-blur-lg backdrop-filter transition-all duration-200 hover:bg-slate-50 hover:bg-opacity-5 hover:shadow-lg dark:bg-slate-900 dark:bg-opacity-60 dark:hover:bg-slate-950"
                             >
                                 <Link
                                     href={`/blog/${post.slug}`}
                                     passHref
                                     className="group cursor-pointer"
+                                    draggable={false}
+                                    unselectable={'off'}
                                 >
                                     <h1 className="mb-6 font-semibold text-slate-900 text-opacity-90 transition-all duration-200 group-hover:pointer-events-none group-hover:text-opacity-100 dark:text-slate-50 sm:text-lg">
                                         {post.title}

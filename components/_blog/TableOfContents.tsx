@@ -12,6 +12,7 @@ export default function Toc() {
             scrollSmoothOffset: -100,
             scrollSmooth: true,
             orderedList: false,
+            activeLinkClass: 'is-active-link',
         })
 
         return () => tocbot.destroy()

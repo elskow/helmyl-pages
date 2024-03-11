@@ -15,10 +15,13 @@ const BlurImage = (props: { src: string; alt: string; className?: string }) => {
                 objectFit="cover"
                 className={`
               duration-1000 ease-in-out
-              ${isLoaded ? 'scale-100 rounded-2xl blur-0 grayscale-0' : 'scale-105 blur-lg grayscale-[100%]'})`}
+              ${isLoaded ? 'scale-100 blur-0 grayscale-0' : 'scale-105 blur-lg grayscale-[100%]'})`}
                 onLoadingComplete={() => setIsLoaded(true)}
                 loading={'lazy'}
                 quality={100}
+                placeholder={'blur'}
+                blurDataURL={props.src}
+                draggable={false}
             />
         </div>
     )

@@ -43,7 +43,12 @@ export default function Page({ params }: { params: { slug: string } }) {
                             key={tag}
                             title={slug(tag)}
                         >
-                            <Link className="px-2" href={`/tags/${slug(tag)}`}>
+                            <Link
+                                className="px-2"
+                                href={`/tags/${slug(tag)}`}
+                                unselectable={'on'}
+                                draggable={'false'}
+                            >
                                 {slug(tag)}
                             </Link>
                         </li>

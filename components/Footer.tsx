@@ -14,18 +14,24 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                 <Link
                     className="transition hover:font-bold hover:text-teal-600 dark:hover:text-teal-400"
                     href="/about"
+                    draggable={false}
+                    unselectable={'on'}
                 >
                     About
                 </Link>
                 <Link
                     className="transition hover:font-bold hover:text-teal-600 dark:hover:text-teal-400"
                     href="/blog"
+                    draggable={false}
+                    unselectable={'on'}
                 >
                     Blog
                 </Link>
                 <Link
                     className="transition hover:font-bold hover:text-teal-600 dark:hover:text-teal-400"
                     href="/projects"
+                    draggable={false}
+                    unselectable={'on'}
                 >
                     Projects
                 </Link>
@@ -36,6 +42,8 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                     href="https://github.com/elskow/helmyl-pages"
                     className="transition-all duration-300 hover:text-teal-600 hover:underline dark:hover:text-teal-400 dark:hover:underline"
                     target="_blank"
+                    draggable={false}
+                    unselectable={'on'}
                 >
                     Helmy LuqmanulHakim
                 </Link>

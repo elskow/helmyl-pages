@@ -52,14 +52,14 @@ const Skillset = () => {
     }, [])
 
     const handleMouseEnter = useCallback((index: number) => {
-        stopScroll();
-        setHoveredLogo(index);
-    }, []);
+        stopScroll()
+        setHoveredLogo(index)
+    }, [])
 
     const handleMouseLeave = useCallback(() => {
-        startScroll();
-        setHoveredLogo(null);
-    }, []);
+        startScroll()
+        setHoveredLogo(null)
+    }, [])
 
     return (
         <div
@@ -74,6 +74,8 @@ const Skillset = () => {
                         target="_blank"
                         title={logo.text}
                         rel="noopener noreferrer"
+                        draggable={false}
+                        unselectable={'on'}
                     >
                         <motion.li
                             className={`mx-8 ${hoveredLogo === index ? 'cursor-pointer text-teal-500' : ''} ${hoveredLogo !== null && hoveredLogo !== index ? 'opacity-60' : ''}`}
@@ -91,4 +93,4 @@ const Skillset = () => {
     )
 }
 
-export default memo(Skillset);
+export default memo(Skillset)

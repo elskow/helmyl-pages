@@ -28,7 +28,7 @@ const AnimatedLink = memo(({ children, getClassName, href }: AnimatedLinkProps) 
     const className = getClassName(href) + ' item-menu-hover'
 
     return (
-        <Link href={href}>
+        <Link href={href} draggable={false} unselectable={'on'}>
             <motion.span
                 className={className}
                 animate={controls}

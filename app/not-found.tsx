@@ -32,7 +32,9 @@ const NotFound = () => {
             </motion.h1>
             <p className="mb-4 text-neutral-700 dark:text-neutral-300 lg:text-lg">Page not found</p>
             <Button className="text-neutral-100 dark:text-neutral-900 lg:font-medium">
-                <Link href="/">Back to home</Link>
+                <Link href="/" unselectable={'on'} draggable={false}>
+                    Back to home
+                </Link>
             </Button>
         </div>
     )

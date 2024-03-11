@@ -49,7 +49,12 @@ const Card: React.FC<CardProps> = (props) => {
     return (
         <motion.div initial="hidden" animate="visible" exit="exit" variants={variants}>
             <div className="flex w-full flex-col md:flex-row">
-                <Link href={href} className="group flex w-full flex-col">
+                <Link
+                    href={href}
+                    className="group flex w-full flex-col"
+                    draggable={false}
+                    unselectable={'on'}
+                >
                     <motion.h1 className="flex cursor-pointer items-center font-newsreader text-lg font-semibold transition-colors duration-300 group-hover:text-green-900 group-hover:underline dark:group-hover:text-green-300 lg:text-2xl">
                         {title}
                         <span className="text-gray dark:text-slate ml-3 hidden font-sans text-sm font-light sm:inline-block">

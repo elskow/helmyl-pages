@@ -88,7 +88,7 @@ const CustomLink = (props: any) => {
 
     if (href.startsWith('/')) {
         return (
-            <Link href={href} {...props}>
+            <Link href={href} {...props} draggable={false} unselectable={'on'}>
                 {props.children}
             </Link>
         )

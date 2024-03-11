@@ -11,10 +11,7 @@ export const metadata: Metadata = {
     title: 'Blog',
 }
 
-const posts = allPosts
-    .filter((post) => post.draft !== true)
-    .sort((a, b) => b.date.localeCompare(a.date))
-
+const posts = allPosts.filter((post) => !post.draft).sort((a, b) => b.date.localeCompare(a.date))
 const MemoizedPostCard = React.memo(PostCard)
 
 const Blog = () => {
@@ -54,7 +51,12 @@ const Blog = () => {
                             key={tag}
                             className="mb-2 mr-2 rounded bg-green-50 px-3 py-1 text-sm font-medium capitalize text-green-900 transition-all duration-300 hover:bg-green-900 hover:text-white dark:bg-gray-800 dark:text-white dark:hover:bg-gray-600 md:text-base"
                         >
-                            <Link className="px-2" href={`/tags/${tag}`}>
+                            <Link
+                                className="px-2"
+                                href={`/tags/${tag}`}
+                                draggable={false}
+                                unselectable={'on'}
+                            >
                                 {tag}
                             </Link>
                         </li>
@@ -64,6 +66,8 @@ const Blog = () => {
                             <Link
                                 href="/tags"
                                 className="mb-2 mr-2 rounded bg-green-900 px-1 py-1 text-xs font-medium capitalize text-green-50 transition-all duration-300  dark:bg-gray-300 dark:text-gray-900"
+                                draggable={false}
+                                unselectable={'on'}
                             >
                                 +{tags.length - 2} more
                             </Link>

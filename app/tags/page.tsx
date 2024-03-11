@@ -4,7 +4,7 @@ import { slug } from 'github-slugger'
 import Link from 'next/link'
 import { useMemo } from 'react'
 
-const posts = allPosts.filter((post) => post.draft !== true)
+const posts = allPosts.filter((post) => !post.draft)
 
 const TagsPage = () => {
     const tags = useMemo(() => {
@@ -39,7 +39,12 @@ const TagsPage = () => {
                             key={tag}
                             className="mb-2 mr-2 rounded bg-green-50 px-3 py-1 font-medium capitalize text-green-900 transition-all duration-300 hover:bg-green-900 hover:text-white dark:bg-gray-800 dark:text-white dark:hover:bg-gray-600"
                         >
-                            <Link className="px-2" href={`/tags/${slug(tag)}`}>
+                            <Link
+                                className="px-2"
+                                href={`/tags/${slug(tag)}`}
+                                draggable={false}
+                                unselectable={'on'}
+                            >
                                 {slug(tag)}
                             </Link>
                         </li>

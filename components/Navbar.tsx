@@ -39,7 +39,12 @@ const Navbar = memo(({ className }: NavbarProps) => {
     return (
         <nav className={`flex select-none items-center justify-between py-4 ${className}`}>
             <header className="flex items-center gap-4 lg:gap-6">
-                <Link href="/" className="flex items-center lg:text-lg">
+                <Link
+                    href="/"
+                    className="flex items-center lg:text-lg"
+                    draggable={false}
+                    unselectable={'on'}
+                >
                     <h1 className={`${getClassName('/')} item-menu-hover hidden sm:flex`}>Home</h1>
                     <h1 className={`self-center font-bold sm:hidden`}>helmyl.com</h1>
                 </Link>
@@ -61,13 +66,19 @@ const Navbar = memo(({ className }: NavbarProps) => {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className="flex flex-col gap-2 transition duration-300 ease-in-out">
                             {Object.values(menuItems).map((item) => (
-                                <Link href={item.href} key={item.name} className="flex w-full">
+                                <Link
+                                    href={item.href}
+                                    key={item.name}
+                                    className="flex w-full"
+                                    draggable={false}
+                                    unselectable={'on'}
+                                >
                                     <DropdownMenuItem className={getClassName(item.href)}>
                                         <span>{item.name}</span>
                                     </DropdownMenuItem>
                                 </Link>
                             ))}
-                            <Link href="/contact">
+                            <Link href="/contact" draggable={false} unselectable={'on'}>
                                 <DropdownMenuItem className={getClassName('/contact')}>
                                     <span>Contact Me</span>
                                 </DropdownMenuItem>
@@ -78,6 +89,8 @@ const Navbar = memo(({ className }: NavbarProps) => {
                 <Link
                     href="/contact"
                     className={`hidden sm:flex ${getClassName('/contact')} item-menu-hover `}
+                    draggable={false}
+                    unselectable={'on'}
                 >
                     <span>Contact Me</span>
                 </Link>
