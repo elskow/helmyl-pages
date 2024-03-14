@@ -1,12 +1,12 @@
 'use client'
 
 import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, memo } from 'react'
 import { BiSolidSun } from 'react-icons/bi'
 import { FaRegMoon } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 
-const ThemeSwitcher = () => {
+const ThemeSwitcher = memo(() => {
     const [mounted, setMounted] = useState(false)
     const { theme, setTheme } = useTheme()
 
@@ -42,6 +42,7 @@ const ThemeSwitcher = () => {
             )}
         </motion.button>
     )
-}
+})
+ThemeSwitcher.displayName = 'ThemeSwitcher'
 
 export default ThemeSwitcher

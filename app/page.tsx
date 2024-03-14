@@ -56,13 +56,13 @@ export default async function Page() {
                         className={`mx-auto flex max-w-[80vw] flex-col items-center space-y-6 lg:max-w-none`}
                     >
                         {posts.map((post) => (
-                            <ul
+                            <Link
+                                href={`/blog/${post.slug}`}
+                                passHref
                                 key={post.slug}
                                 className="mt-4 space-y-2 rounded-lg bg-white bg-opacity-10 px-4 py-6 shadow-md backdrop-blur-lg backdrop-filter transition-all duration-200 hover:bg-slate-50 hover:bg-opacity-5 hover:shadow-lg dark:bg-slate-900 dark:bg-opacity-60 dark:hover:bg-slate-950"
                             >
-                                <Link
-                                    href={`/blog/${post.slug}`}
-                                    passHref
+                                <div
                                     className="group cursor-pointer"
                                     draggable={false}
                                     unselectable={'off'}
@@ -76,8 +76,8 @@ export default async function Page() {
                                     <p className="text-xs text-slate-600 text-opacity-80 dark:text-slate-400 sm:text-sm">
                                         {post.date}
                                     </p>
-                                </Link>
-                            </ul>
+                                </div>
+                            </Link>
                         ))}
                     </div>
                 </div>

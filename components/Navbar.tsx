@@ -1,6 +1,6 @@
 'use client'
 
-import { memo, useCallback } from 'react'
+import React, { memo } from 'react'
 import { ChevronDownIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -13,28 +13,42 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 import menuItems from '@/const/MenuItems'
-import AnimatedLink from '@/components/AnimatedLink-Navbar'
+// import AnimatedLink from '@/components/AnimatedLink-Navbar'
 
 export interface NavbarProps {
     className?: string
 }
 
+const getClassName = (pathname: string, href: string) => {
+    const baseClass = 'self-center transition duration-200 ease-in-out'
+    let activeClass = 'font-medium'
+    if (href !== '/' && pathname.startsWith(href)) {
+        activeClass = 'font-bold'
+    } else if (href === '/' && pathname === '/') {
+        activeClass = 'font-bold'
+    }
+    return `${baseClass} ${activeClass}`
+}
+
+interface AnimatedLinkProps {
+    href: string;
+    getClassName: (_pathname: string, _href: string) => string;
+    children: React.ReactNode;
+}
+
+const AnimatedLink = memo(({ href, getClassName, children }: AnimatedLinkProps) => {
+    const pathname = usePathname()
+    return (
+        <Link href={href} className={`${getClassName(pathname, href)} item-menu-hover`} draggable={false} unselectable={'on'}>
+            {children}
+        </Link>
+    )
+})
+
+AnimatedLink.displayName = 'AnimatedLink'
+
 const Navbar = memo(({ className }: NavbarProps) => {
     const pathname = usePathname()
-
-    const getClassName = useCallback(
-        (href: string) => {
-            const baseClass = 'self-center transition duration-200 ease-in-out'
-            let activeClass = 'font-medium'
-            if (href !== '/' && pathname.startsWith(href)) {
-                activeClass = 'font-bold'
-            } else if (href === '/' && pathname === '/') {
-                activeClass = 'font-bold'
-            }
-            return `${baseClass} ${activeClass}`
-        },
-        [pathname]
-    )
 
     return (
         <nav className={`flex select-none items-center justify-between py-4 ${className}`}>
@@ -45,7 +59,7 @@ const Navbar = memo(({ className }: NavbarProps) => {
                     draggable={false}
                     unselectable={'on'}
                 >
-                    <h1 className={`${getClassName('/')} item-menu-hover hidden sm:flex`}>Home</h1>
+                    <h1 className={`${getClassName(pathname, '/')} item-menu-hover hidden sm:flex`}>Home</h1>
                     <h1 className={`self-center font-bold sm:hidden`}>helmyl.com</h1>
                 </Link>
                 <div className="hidden items-center gap-4 align-middle sm:flex lg:gap-6 lg:text-lg">
@@ -73,13 +87,13 @@ const Navbar = memo(({ className }: NavbarProps) => {
                                     draggable={false}
                                     unselectable={'on'}
                                 >
-                                    <DropdownMenuItem className={getClassName(item.href)}>
+                                    <DropdownMenuItem className={getClassName(pathname, item.href)}>
                                         <span>{item.name}</span>
                                     </DropdownMenuItem>
                                 </Link>
                             ))}
                             <Link href="/contact" draggable={false} unselectable={'on'}>
-                                <DropdownMenuItem className={getClassName('/contact')}>
+                                <DropdownMenuItem className={getClassName(pathname, '/contact')}>
                                     <span>Contact Me</span>
                                 </DropdownMenuItem>
                             </Link>
@@ -88,7 +102,7 @@ const Navbar = memo(({ className }: NavbarProps) => {
                 </div>
                 <Link
                     href="/contact"
-                    className={`hidden sm:flex ${getClassName('/contact')} item-menu-hover `}
+                    className={`hidden sm:flex ${getClassName(pathname, '/contact')} item-menu-hover `}
                     draggable={false}
                     unselectable={'on'}
                 >
