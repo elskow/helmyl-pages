@@ -1,6 +1,6 @@
-import { Inclusive_Sans } from "next/font/google";
-import { Newsreader } from "next/font/google";
-import { JetBrains_Mono } from "next/font/google";
+import { Inclusive_Sans } from 'next/font/google'
+import { Newsreader } from 'next/font/google'
+import { JetBrains_Mono } from 'next/font/google'
 
 /**
  * Inclusive Sans font configuration
@@ -10,11 +10,11 @@ import { JetBrains_Mono } from "next/font/google";
  * For example: `<div class="font-sans">This is Inclusive Sans</div>`
  */
 export const inclusiveSans = Inclusive_Sans({
-	weight: "400",
-	subsets: ["latin-ext"],
-	display: "swap",
-	variable: "--font-sans",
-});
+    weight: '400',
+    subsets: ['latin-ext'],
+    display: 'swap',
+    variable: '--font-sans',
+})
 
 /**
  * Newsreader font configuration
@@ -24,11 +24,11 @@ export const inclusiveSans = Inclusive_Sans({
  * For example: `<div class="font-newsreader">This is Newsreader</div>`
  */
 export const newsreader = Newsreader({
-	weight: ["400", "200", "300", "500", "600", "700", "800"],
-	subsets: ["latin-ext"],
-	display: "swap",
-	variable: "--font-newsreader",
-});
+    weight: ['400', '200', '300', '500', '600', '700', '800'],
+    subsets: ['latin-ext'],
+    display: 'swap',
+    variable: '--font-newsreader',
+})
 
 /**
  * JetBrains Mono font configuration
@@ -38,8 +38,8 @@ export const newsreader = Newsreader({
  * For example: `<div class="font-code">This is JetBrains Mono</div>`
  */
 export const jetBrainsMono = JetBrains_Mono({
-	weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
-	subsets: ["latin-ext"],
-	display: "swap",
-	variable: "--font-jetbrains-mono",
-});
+    weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
+    subsets: ['latin-ext'],
+    display: 'swap',
+    variable: '--font-jetbrains-mono',
+})

@@ -8,10 +8,10 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'via.placeholder.com',
-                port:''
-            }
+                port: '',
+            },
         ],
-    }
+    },
 }
 
 module.exports = withContentlayer(nextConfig)

@@ -1,7 +1,6 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import readingTime from 'reading-time'
 
-
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeKatex from 'rehype-katex'
 import rehypePrism from 'rehype-prism-plus'
@@ -70,10 +69,13 @@ export default makeSource({
             [rehypeKatex, { output: 'mathml' }],
             rehypeCodeTitles,
             rehypeSlug,
-            [rehypePrism, {
-                showLineNumbers: true,
-                ignoreMissing: true,
-            }],
+            [
+                rehypePrism,
+                {
+                    showLineNumbers: true,
+                    ignoreMissing: true,
+                },
+            ],
             [
                 rehypeAutolinkHeadings,
                 {

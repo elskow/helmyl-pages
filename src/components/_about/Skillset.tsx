@@ -78,7 +78,9 @@ const Skillset = () => {
                         unselectable={'on'}
                     >
                         <motion.li
-                            className={`mx-8 ${hoveredLogo === index ? 'cursor-pointer text-teal-500' : ''} ${hoveredLogo !== null && hoveredLogo !== index ? 'opacity-60' : ''}`}
+                            className={`mx-8 ${
+                                hoveredLogo === index ? 'cursor-pointer text-teal-500' : ''
+                            } ${hoveredLogo !== null && hoveredLogo !== index ? 'opacity-60' : ''}`}
                             onMouseEnter={() => handleMouseEnter(index)}
                             onMouseLeave={handleMouseLeave}
                             animate={{ scale: 1 }}

@@ -30,15 +30,20 @@ const getClassName = (pathname: string, href: string) => {
 }
 
 interface AnimatedLinkProps {
-    href: string;
-    getClassName: (_pathname: string, _href: string) => string;
-    children: React.ReactNode;
+    href: string
+    getClassName: (_pathname: string, _href: string) => string
+    children: React.ReactNode
 }
 
 const AnimatedLink = memo(({ href, getClassName, children }: AnimatedLinkProps) => {
     const pathname = usePathname()
     return (
-        <Link href={href} className={`${getClassName(pathname, href)} item-menu-hover`} draggable={false} unselectable={'on'}>
+        <Link
+            href={href}
+            className={`${getClassName(pathname, href)} item-menu-hover`}
+            draggable={false}
+            unselectable={'on'}
+        >
             {children}
         </Link>
     )
@@ -58,7 +63,9 @@ const Navbar = memo(({ className }: NavbarProps) => {
                     draggable={false}
                     unselectable={'on'}
                 >
-                    <h1 className={`${getClassName(pathname, '/')} item-menu-hover hidden sm:flex`}>Home</h1>
+                    <h1 className={`${getClassName(pathname, '/')} item-menu-hover hidden sm:flex`}>
+                        Home
+                    </h1>
                     <h1 className={`self-center font-bold sm:hidden`}>helmyl.com</h1>
                 </Link>
                 <div className="hidden items-center gap-4 align-middle sm:flex lg:gap-6 lg:text-lg">
@@ -101,7 +108,10 @@ const Navbar = memo(({ className }: NavbarProps) => {
                 </div>
                 <Link
                     href="/contact"
-                    className={`hidden sm:flex ${getClassName(pathname, '/contact')} item-menu-hover `}
+                    className={`hidden sm:flex ${getClassName(
+                        pathname,
+                        '/contact'
+                    )} item-menu-hover `}
                     draggable={false}
                     unselectable={'on'}
                 >
