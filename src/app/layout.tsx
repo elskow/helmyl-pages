@@ -1,11 +1,11 @@
-import '@/styles/globals.css'
-import '@/styles/prism.css'
+import 'styles/globals.css'
+import 'styles/prism.css'
 
 import Navbar from '@/components/Navbar'
 import { inclusiveSans, newsreader, jetBrainsMono } from '@/lib/fonts'
 import { ThemeProviders } from './providers'
 
-import CONFIG from '@/blog.config'
+import CONFIG from '../../blog.config'
 
 import type { Metadata } from 'next'
 import Footer from '@/components/Footer'

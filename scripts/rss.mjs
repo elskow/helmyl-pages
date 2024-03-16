@@ -5,7 +5,7 @@ import CONFIG from '../blog.config.js'
 
 const site_url = process.env.NODE_ENV === 'production' ? CONFIG.url : 'http://localhost:3000'
 
-const currentDate = new Date();
+const currentDate = new Date()
 
 const feedOptions = {
     title: CONFIG.title,

@@ -1,5 +1,5 @@
 import PageLayout from '@/layouts/PageLayout'
-import { allPosts } from '@/.contentlayer/generated'
+import { allPosts } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
 import Link from 'next/link'
 import { useMemo } from 'react'

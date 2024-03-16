@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react'
-import { allPosts } from '@/.contentlayer/generated'
+import { allPosts } from 'contentlayer/generated'
 import Link from 'next/link'
 import { slug } from 'github-slugger'
 import { MdxRenderer } from '@/components/_blog/Mdx'

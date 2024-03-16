@@ -1,4 +1,4 @@
-import { Post, allPosts } from '@/.contentlayer/generated'
+import { Post, allPosts } from 'contentlayer/generated'
 import PageLayout from '@/layouts/PageLayout'
 import { slug } from 'github-slugger'
 import type { Metadata } from 'next'

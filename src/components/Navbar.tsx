@@ -13,7 +13,6 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 import menuItems from '@/const/MenuItems'
-// import AnimatedLink from '@/components/AnimatedLink-Navbar'
 
 export interface NavbarProps {
     className?: string

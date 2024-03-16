@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
-import { allPosts } from '@/.contentlayer/generated'
-import CONFIG from '@/blog.config'
+import { allPosts } from 'contentlayer/generated'
+import CONFIG from '../../../../blog.config'
 import Page from './ui'
 
 export async function generateMetadata({

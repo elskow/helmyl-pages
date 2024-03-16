@@ -1,4 +1,4 @@
-import { allProjects } from '@/.contentlayer/generated'
+import { allProjects } from 'contentlayer/generated'
 import PageLayout from '@/layouts/PageLayout'
 import { Metadata } from 'next'
 import { lazy } from 'react'

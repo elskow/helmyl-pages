@@ -1,6 +1,6 @@
 import { ChevronRightIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
-import { allPosts } from '@/.contentlayer/generated'
+import { allPosts } from 'contentlayer/generated'
 import WorkExperiences from '@/components/_root/WorkExperiences'
 
 const posts = allPosts

@@ -1,4 +1,4 @@
-import { allPosts } from '@/.contentlayer/generated'
+import { allPosts } from 'contentlayer/generated'
 import PageLayout from '@/layouts/PageLayout'
 import { Metadata } from 'next'
 import dynamic from 'next/dynamic'

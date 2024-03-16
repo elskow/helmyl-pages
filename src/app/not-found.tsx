@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Metadata } from 'next'
-import CONFIG from '@/blog.config'
+import CONFIG from '../../blog.config'
 import { motion } from 'framer-motion'
 
 export const metadata: Metadata = {

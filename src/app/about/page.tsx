@@ -2,7 +2,7 @@ import PageLayout from '@/layouts/PageLayout'
 import Link from 'next/link'
 import Skillset from '@/components/_about/Skillset'
 
-import HelmyAvatar from '@/public/helmy-avatar.webp'
+import HelmyAvatar from 'public/helmy-avatar.webp'
 
 import SocialMedia from '@/const/SocialMedia'
 import RoundBlurImage from '@/components/Round-BlurImage'
