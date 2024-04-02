@@ -26,14 +26,14 @@ const ThemeSwitcher = memo(() => {
     return (
         <motion.button
             aria-label="theme toggle button"
-            className="p-2"
+            className="rounded-full bg-neutral-200 p-2 transition-all duration-300 ease-in-out hover:bg-neutral-300 hover:focus:outline-none hover:focus:ring-2 hover:focus:ring-slate-500 hover:focus:ring-opacity-50 dark:bg-slate-800 dark:hover:bg-slate-700 dark:hover:focus:ring-slate-400 dark:hover:focus:ring-opacity-50"
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             initial={false}
             animate={theme}
         >
             {theme === 'dark' ? (
                 <motion.div variants={iconVariants}>
-                    <BiSolidSun className="theme-icon dark:hover:fill-white" />
+                    <BiSolidSun className="theme-icon" />
                 </motion.div>
             ) : (
                 <motion.div variants={iconVariants}>
