@@ -9,14 +9,14 @@ type WorkExperience = {
     present?: boolean
 }
 
-const WorkExperiences = ({ experiences }: { experiences: WorkExperience[] }) => {
-    if (experiences.length === 0)
+const WorkExperiences = ({ experiences }: { experiences?: WorkExperience[] }) => {
+    if (!experiences)
         return (
             <ol className="relative border-l border-slate-200 dark:border-slate-700">
                 <li className="mb-10 ml-6">
                     <div className="space-y-3">
                         <p className="pt-8 text-center text-base font-normal text-slate-500 dark:text-slate-400">
-                            No work experience to show.
+                            Hmm, i haven&apos;t worked anywhere yet :(
                         </p>
                     </div>
                 </li>

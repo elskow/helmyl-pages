@@ -1,10 +1,12 @@
 import PageLayout from '@/layouts/PageLayout'
 import Link from 'next/link'
 import Skillset from '@/components/_about/Skillset'
+import WorkExperiences from '@/components/_root/WorkExperiences'
 
 import HelmyAvatar from 'public/helmy-avatar.webp'
 
 import SocialMedia from '@/const/SocialMedia'
+
 import RoundBlurImage from '@/components/Round-BlurImage'
 
 const AboutPage = () => {
@@ -33,7 +35,7 @@ const AboutPage = () => {
                     <div className="mt-12 text-base ">
                         <section className="space-y-8 md:space-y-10">
                             <div className="lg:mt-10">
-                                <h2 className="mb-3 font-newsreader text-xl font-bold lg:mb-5 lg:text-3xl">
+                                <h2 className="mb-3 font-newsreader text-xl font-bold lg:mb-5 lg:text-2xl">
                                     Who am I?
                                 </h2>
                                 <p className="font-normal lg:text-lg">
@@ -58,11 +60,19 @@ const AboutPage = () => {
                                     thrill of exploring and mastering new technologies.
                                 </p>
                             </div>
-                            <div className="lg:mt-10">
-                                <h2 className="mb-8 font-newsreader text-xl font-bold lg:mb-10 lg:text-3xl">
+                            <div className="lg:mt-20">
+                                <h2 className="mb-8 font-newsreader text-xl font-bold lg:mb-10 lg:text-2xl">
                                     What am I using?
                                 </h2>
                                 <Skillset />
+                            </div>
+                            <div className="lg:mt-20">
+                                <h2 className="mb-8 font-newsreader text-xl font-bold lg:mb-10 lg:text-2xl">
+                                    Where have I worked?
+                                </h2>
+                                <div className={`pl-5`}>
+                                    <WorkExperiences />
+                                </div>
                             </div>
                         </section>
                     </div>
