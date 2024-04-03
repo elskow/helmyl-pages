@@ -27,7 +27,7 @@ const Blog = () => {
     if (posts.length === 0) {
         return (
             <PageLayout>
-                <div className="flex min-h-[60vh] flex-col items-center justify-center pt-28 text-center">
+                <div className="flex min-h-screen flex-col items-center justify-center pt-28 text-center ">
                     <h1 className="font-bold">Author has not written any posts yet.</h1>
                     <p>Please check back later.</p>
                 </div>
@@ -37,7 +37,7 @@ const Blog = () => {
 
     return (
         <PageLayout>
-            <ul className="mx-auto mb-10 mt-10 w-full justify-center space-y-8 lg:max-w-5xl">
+            <ul className="mx-auto mb-10 mt-10 min-h-screen w-full justify-center space-y-8 lg:max-w-5xl">
                 <div className="space-y-3">
                     <h1 className="font-newsreader text-4xl font-bold lg:text-5xl">Blog</h1>
                     <p className="font-light lg:text-lg">

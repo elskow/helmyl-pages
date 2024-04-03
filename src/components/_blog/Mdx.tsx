@@ -57,7 +57,7 @@ const Pre = ({ children, className }: { children: ReactNode; className?: string 
                 <motion.button
                     aria-label="Copy code"
                     className={cn(
-                        'border-1 absolute right-2 top-2 z-10 rounded-xl p-1 text-slate-300 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 dark:border-slate-800 dark:bg-slate-900',
+                        'border-1 absolute right-2 top-2 z-10 rounded-xl bg-slate-800 p-1 text-slate-300 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-50 dark:border-slate-800 dark:bg-slate-900',
                         copied
                             ? 'border-green-400 focus:border-green-400 focus:outline-none'
                             : 'border-slate-300'
@@ -70,9 +70,9 @@ const Pre = ({ children, className }: { children: ReactNode; className?: string 
                 >
                     <>
                         {copied ? (
-                            <LuCopyCheck size={20} className="text-green-400" />
+                            <LuCopyCheck size={18} className="text-green-400" />
                         ) : (
-                            <LuCopy size={20} />
+                            <LuCopy size={18} />
                         )}
                     </>
                 </motion.button>
@@ -105,18 +105,17 @@ function Images({ src, alt }: { src: string; alt: string }) {
     return (
         <div className="flex justify-center">
             <figure className="mb:p-5 relative z-0 w-fit rounded-lg bg-white p-2 px-10 dark:bg-slate-900">
-                <div className="flex justify-center">
+                <div className="flex w-full justify-center">
                     <Image
                         src={src}
                         alt={alt}
-                        className="max-h-[60vh] max-w-full rounded-lg object-cover object-center lg:rounded-xl"
-                        width={500}
-                        height={500}
+                        className="max-h-[60vh] max-w-full rounded-lg object-cover object-center drop-shadow-lg lg:max-h-[80vh] lg:rounded-xl"
+                        width={800}
+                        height={800}
                         loading="lazy"
-                        quality={50}
                     />
                 </div>
-                <p className="text-center text-sm text-gray-500 dark:text-gray-400">{alt}</p>
+                <p className="py-5 text-center text-sm text-gray-500 dark:text-gray-400">{alt}</p>
             </figure>
         </div>
     )
