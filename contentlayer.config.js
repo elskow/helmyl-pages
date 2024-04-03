@@ -8,8 +8,6 @@ import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import rehypeCodeTitles from 'rehype-code-titles'
-import remarkEmbedImages from 'remark-embed-images'
-import remarkImages from 'remark-images'
 
 export const Post = defineDocumentType(() => ({
     name: 'Post',
@@ -64,7 +62,7 @@ export default makeSource({
     contentDirPath: 'content',
     documentTypes: [Post, Projects],
     mdx: {
-        remarkPlugins: [remarkGfm, remarkMath, remarkImages, remarkEmbedImages],
+        remarkPlugins: [remarkGfm, remarkMath],
         rehypePlugins: [
             [rehypeKatex, { output: 'mathml' }],
             rehypeCodeTitles,

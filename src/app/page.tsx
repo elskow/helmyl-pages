@@ -1,11 +1,5 @@
 import { ChevronRightIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
-import { allPosts } from 'contentlayer/generated'
-
-const posts = allPosts
-    .filter((post) => !post.draft)
-    .sort((a, b) => b.date.localeCompare(a.date))
-    .slice(0, 3)
 
 export default async function Page() {
     return (

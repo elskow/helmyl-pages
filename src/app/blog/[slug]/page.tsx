@@ -1,8 +1,12 @@
 import type { Metadata } from 'next'
-
 import { allPosts } from 'contentlayer/generated'
 import CONFIG from '../../../../blog.config'
-import Page from './ui'
+import dynamic from 'next/dynamic'
+import { memo } from 'react'
+
+const Page = dynamic(() => import('./ui'))
+
+const MemoizedPage = memo(Page);
 
 export async function generateMetadata({
     params,
@@ -33,4 +37,4 @@ export async function generateMetadata({
     }
 }
 
-export default Page
+export default MemoizedPage

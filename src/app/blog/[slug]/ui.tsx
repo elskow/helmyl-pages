@@ -1,23 +1,23 @@
-import { Suspense, lazy } from 'react'
+import React, { Suspense, lazy, useMemo, memo } from 'react'
 import { allPosts } from 'contentlayer/generated'
-import Link from 'next/link'
-import { slug } from 'github-slugger'
-import { MdxRenderer } from '@/components/_blog/Mdx'
-
 import { notFound } from 'next/navigation'
 import dynamic from 'next/dynamic'
 
-const FormatDate = dynamic(() => import('@/components/_blog/FormatDate'))
-const ImageBanner = dynamic(() => import('@/components/_blog/ImageBanner'))
-const Toc = lazy(() => import('@/components/_blog/TableOfContents'))
+const ImageBanner = dynamic(() => import('@/components/_blog/ImageBanner'), { ssr: false })
+const TagsList = lazy(() => import('@/app/blog/[slug]/tag-list'))
+const PostMeta = lazy(() => import('@/app/blog/[slug]/post-meta'))
+const Article = lazy(() => import('@/app/blog/[slug]/article'))
 
 const findPost = (slug, posts) => posts.find((post) => post.slug === slug)
 
-export default function Page({ params }: { params: { slug: string } }) {
-    const post = findPost(params.slug, allPosts)
+const Page = ({ params }: { params: { slug: string } }) => {
+    const post = useMemo(() => findPost(params.slug, allPosts), [params.slug])
+
     if (!post) {
         return notFound()
     }
+
+    const banner = post.banner ? <ImageBanner image={post.banner} title={post.title} /> : null
 
     return (
         <section className="mx-auto pb-16 pt-10 lg:max-w-5xl lg:pt-14">
@@ -25,7 +25,7 @@ export default function Page({ params }: { params: { slug: string } }) {
                 <Suspense
                     fallback={<div style={{ height: 200 }} className="animate-pulse bg-gray-200" />}
                 >
-                    {post.banner && <ImageBanner image={post.banner} title={post.title} />}
+                    {banner}
                 </Suspense>
                 <h1 className="font-newsreader text-4xl font-bold text-primary dark:text-primary">
                     {post.title}
@@ -33,43 +33,19 @@ export default function Page({ params }: { params: { slug: string } }) {
                 <div className="font-newsreader text-base text-primary dark:text-primary md:text-lg lg:text-xl">
                     {post.summary}
                 </div>
-                <ul className="mb-4 flex select-none flex-wrap">
-                    <div className="text-sm font-medium text-primary dark:text-primary md:text-base">
-                        Tags: &nbsp;
-                    </div>
-                    {post.tags?.map((tag) => (
-                        <li
-                            className="mb-2 mr-2 rounded bg-green-50 px-3 py-1 text-xs font-medium capitalize text-green-900 transition-all duration-300 hover:bg-green-900 hover:text-white dark:bg-gray-800 dark:text-white dark:hover:bg-gray-600 md:text-sm"
-                            key={tag}
-                            title={slug(tag)}
-                        >
-                            <Link
-                                className="px-2"
-                                href={`/tags/${slug(tag)}`}
-                                unselectable={'on'}
-                                draggable={'false'}
-                            >
-                                {slug(tag)}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-                <div className="pt-2 text-sm text-[#858585]">
-                    <span>
-                        <FormatDate dateString={post.date} />
-                    </span>
-                    <span className="mx-2">·</span>
-                    <span>{post.readingTime.text}</span>
-                </div>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <TagsList tags={post.tags} />
+                </Suspense>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <PostMeta date={post.date} readingTime={post.readingTime.text} />
+                </Suspense>
             </div>
-            <article className="js-toc-content prose prose-base prose-neutral flex min-h-full w-full min-w-full flex-col font-sans font-light leading-relaxed prose-h1:prose-base prose-h2:prose-base prose-h3:prose-base prose-h4:prose-base prose-h5:prose-base prose-h6:prose-base prose-code:prose-sm dark:prose-invert sm:prose-sm sm:prose-code:prose-sm md:prose-lg md:prose-h1:prose-lg md:prose-h2:prose-lg md:prose-code:prose-base lg:prose-lg lg:prose-h1:prose-xl lg:prose-h2:prose-xl lg:prose-code:prose-base prose-p:text-black prose-code:font-code dark:prose-p:text-white lg:max-w-5xl lg:flex-row lg:space-x-4">
-                <div className="lg:w-4/5">
-                    <MdxRenderer code={post.body.code} />
-                </div>
-                <div className="hidden lg:block lg:w-1/5 lg:pl-4">
-                    <Toc />
-                </div>
-            </article>
+            <Suspense fallback={<div>Loading...</div>}>
+                <Article body={post.body.code} />
+            </Suspense>
         </section>
     )
 }
+
+Page.displayName = 'BlogPostPage'
+export default memo(Page)
