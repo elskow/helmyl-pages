@@ -1,4 +1,4 @@
-import { ImageResponse } from 'next/server'
+import { ImageResponse } from 'next/og'
 import OpenGraphImage from '@/components/OpenGraphImage/BlogsOG'
 import { loadGoogleFont } from '@/lib/load-google-font'
 import { allPosts } from 'contentlayer/generated'

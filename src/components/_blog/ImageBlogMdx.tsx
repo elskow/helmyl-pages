@@ -15,9 +15,9 @@ const Images = memo(({ src, alt }: { src: string; alt: string }) => {
                         src={srcSet}
                         alt={alt}
                         className={`max-h-screen max-w-full rounded-lg object-cover object-center drop-shadow-lg duration-1000 ease-in-out md:max-h-[60vh] lg:max-h-[80vh] lg:rounded-xl
-                        
+
                         ${isLoaded ? 'scale-100 blur-0 grayscale-0' : 'scale-105 blur-lg grayscale-[100%]'})`}
-                        onLoadingComplete={() => setIsLoaded(true)}
+                        onLoad={() => setIsLoaded(true)}
                         width={800}
                         height={800}
                         loading="lazy"

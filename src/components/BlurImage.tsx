@@ -16,7 +16,7 @@ const BlurImage = (props: { src: string; alt: string; className?: string }) => {
                 className={`
               duration-1000 ease-in-out
               ${isLoaded ? 'scale-100 blur-0 grayscale-0' : 'scale-105 blur-lg grayscale-[100%]'})`}
-                onLoadingComplete={() => setIsLoaded(true)}
+                onLoad={() => setIsLoaded(true)}
                 loading={'lazy'}
                 quality={100}
                 placeholder={'blur'}

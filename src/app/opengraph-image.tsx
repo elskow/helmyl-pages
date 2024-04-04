@@ -1,4 +1,4 @@
-import { ImageResponse } from 'next/server'
+import { ImageResponse } from 'next/og'
 import { loadGoogleFont } from '@/lib/load-google-font'
 import OpenGraphImage from '@/components/OpenGraphImage/RootOG'
 

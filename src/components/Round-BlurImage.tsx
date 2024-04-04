@@ -17,7 +17,7 @@ const RoundBlurImage = ({ src, alt, ...props }) => {
               ${isLoaded ? 'scale-100 blur-0 grayscale-0' : 'scale-105 blur-lg grayscale-[100%]'})
               ${props.className}
               `}
-            onLoadingComplete={() => setIsLoaded(true)}
+            onLoad={() => setIsLoaded(true)}
             loading={'lazy'}
             quality={100}
             draggable={false}
