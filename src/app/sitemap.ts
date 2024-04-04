@@ -25,12 +25,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
             lastModified: new Date(),
             changeFrequency: 'daily',
             priority: 0.8,
-        },
-        {
-            url: 'https://helmyl.com/contact',
-            lastModified: new Date(),
-            changeFrequency: 'daily',
-            priority: 0.8,
-        },
+        }
     ]
 }
