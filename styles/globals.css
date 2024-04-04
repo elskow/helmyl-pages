@@ -81,6 +81,7 @@
         @apply bg-background text-foreground;
     }
 }
+
 .prose .anchor {
     @apply invisible absolute;
     margin-left: -0.8em;
@@ -110,8 +111,8 @@
 }
 
 ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    width: 10px;
+    height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -120,7 +121,7 @@
 
 ::-webkit-scrollbar-thumb {
     background: hsl(var(--secondary));
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {

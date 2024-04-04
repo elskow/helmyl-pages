@@ -70,7 +70,7 @@ const AboutPage = () => {
                                 <h2 className="mb-8 font-newsreader text-xl font-bold lg:mb-10 lg:text-2xl">
                                     Where have I worked?
                                 </h2>
-                                <div className={`pl-5`}>
+                                <div>
                                     <WorkExperiences />
                                 </div>
                             </div>

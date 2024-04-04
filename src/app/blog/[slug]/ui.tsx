@@ -1,14 +1,14 @@
-import React, { Suspense, lazy, useMemo, memo } from 'react'
+import React, { useMemo, memo } from 'react'
 import { allPosts } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 import dynamic from 'next/dynamic'
 
 const ImageBanner = dynamic(() => import('@/components/_blog/ImageBanner'), { ssr: false })
-const TagsList = lazy(() => import('@/app/blog/[slug]/tag-list'))
-const PostMeta = lazy(() => import('@/app/blog/[slug]/post-meta'))
-const Article = lazy(() => import('@/app/blog/[slug]/article'))
+const TagsList = dynamic(() => import('@/app/blog/[slug]/tag-list'), { ssr: false })
+const PostMeta = dynamic(() => import('@/app/blog/[slug]/post-meta'), { ssr: false })
+const Article = dynamic(() => import('@/app/blog/[slug]/article'), { ssr: false })
 
-const findPost = (slug, posts) => posts.find((post) => post.slug === slug)
+const findPost = (slug: string, posts: any) => posts.find((post: any) => post.slug === slug)
 
 const Page = ({ params }: { params: { slug: string } }) => {
     const post = useMemo(() => findPost(params.slug, allPosts), [params.slug])
@@ -20,29 +20,19 @@ const Page = ({ params }: { params: { slug: string } }) => {
     const banner = post.banner ? <ImageBanner image={post.banner} title={post.title} /> : null
 
     return (
-        <section className="mx-auto pb-16 pt-10 lg:max-w-5xl lg:pt-14">
+        <section className="mx-auto pb-16 pt-10 lg:max-w-5xl lg:pt-14" suppressHydrationWarning>
             <div className="space-y-4 pb-5">
-                <Suspense
-                    fallback={<div style={{ height: 200 }} className="animate-pulse bg-gray-200" />}
-                >
-                    {banner}
-                </Suspense>
+                {banner}
                 <h1 className="font-newsreader text-4xl font-bold text-primary dark:text-primary">
                     {post.title}
                 </h1>
                 <div className="font-newsreader text-base text-primary dark:text-primary md:text-lg lg:text-xl">
                     {post.summary}
                 </div>
-                <Suspense fallback={<div>Loading...</div>}>
-                    <TagsList tags={post.tags} />
-                </Suspense>
-                <Suspense fallback={<div>Loading...</div>}>
-                    <PostMeta date={post.date} readingTime={post.readingTime.text} />
-                </Suspense>
+                <TagsList tags={post.tags} />
+                <PostMeta date={post.date} readingTime={post.readingTime.text} />
             </div>
-            <Suspense fallback={<div>Loading...</div>}>
-                <Article body={post.body.code} />
-            </Suspense>
+            <Article body={post.body.code} />
         </section>
     )
 }

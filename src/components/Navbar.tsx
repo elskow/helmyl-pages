@@ -34,13 +34,19 @@ const Navbar = memo((props: { className?: string; highlight?: string }) => {
                                     className="flex w-full"
                                     draggable={false}
                                     unselectable={'on'}
+                                    prefetch={false}
                                 >
                                     <DropdownMenuItem className={``}>
                                         <span>{item.name}</span>
                                     </DropdownMenuItem>
                                 </Link>
                             ))}
-                            <Link href="/contact" draggable={false} unselectable={'on'}>
+                            <Link
+                                href="/contact"
+                                draggable={false}
+                                unselectable={'on'}
+                                prefetch={false}
+                            >
                                 <DropdownMenuItem>
                                     <span>Contact Me</span>
                                 </DropdownMenuItem>

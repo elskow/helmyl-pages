@@ -54,6 +54,7 @@ const Card: React.FC<CardProps> = (props) => {
                     className="group flex w-full flex-col"
                     draggable={false}
                     unselectable={'on'}
+                    prefetch={false}
                 >
                     <motion.h1 className="flex cursor-pointer items-center font-newsreader text-lg font-semibold transition-colors duration-300 group-hover:text-green-900 group-hover:underline dark:group-hover:text-green-300 lg:text-2xl">
                         {title}
