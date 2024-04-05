@@ -38,7 +38,7 @@ pre[class*='language-'] ::selection {
 /* Properties specific to code blocks */
 pre[class*='language-'] {
     padding: 1em; /* this is standard */
-    margin: 0em 0em 0.5em 0em; /* this is standard */
+    margin: 0 0 0.5em 0; /* this is standard */
     overflow: auto; /* this is standard */
     border-radius: 0.5em;
     @apply border-l-0 border-r-0 border-t-4 border-solid border-blue-900 dark:border-white;
@@ -217,22 +217,34 @@ pre[class*='language-'] {
     @apply text-sm md:text-base lg:text-base;
 }
 
+.toc-card {
+    @apply sticky top-10 pl-4 max-h-[80vh] overflow-y-scroll;
+}
+
+.toc-card::-webkit-scrollbar {
+    width: 0;
+}
+
 .toc-link {
     @apply font-newsreader text-base font-semibold;
     text-decoration: none !important;
 }
 
-.toc-list-item {
-    @apply border-b-2 border-l-0 border-r-0 border-solid border-slate-900 hover:border-lime-500 dark:border-slate-100 dark:hover:border-lime-500;
+.toc-link {
+    display: inline-block;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s;
+    scroll-margin-top: 3rem;
+    @apply text-slate-800 dark:text-slate-100 font-sans font-light text-base hover:font-semibold;
 }
 
-.toc-link:hover {
-    @apply text-lime-900 transition-colors duration-300 dark:text-lime-100;
+.is-active-link {
+    @apply font-semibold;
 }
 
 .toc-list {
     list-style-type: none;
-    padding-left: 1em;
+    padding-left: 0.5em;
     gap: 0.2rem;
 }
 

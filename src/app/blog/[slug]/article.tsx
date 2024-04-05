@@ -8,7 +8,7 @@ const Article = React.memo(({ body }: { body: string }) => (
         <div className="lg:w-4/5">
             <MdxRenderer code={body} />
         </div>
-        <div className="hidden lg:block lg:w-1/5 lg:pl-4">
+        <div className="hidden lg:block lg:w-1/5">
             <Toc />
         </div>
     </article>

@@ -120,12 +120,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: hsl(var(--secondary));
+    background: hsl(var(--accent));
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--secondary-foreground));
+    background: hsl(var(--accent-foreground));
 }
 
 .select-none {

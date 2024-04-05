@@ -26,7 +26,7 @@ Beberapa kunci utama kenapa Hadoop menjadi populer adalah:
 
 Dalam tutorial ini, kita akan belajar cara menginstal dan mengkonfigurasi Apache Hadoop. Penulis akan menggunakan Apache Hadoop versi 3.4.0. Penulis juga akan memberikan skrip shell otomatis untuk memudahkan proses instalasi dan konfigurasi.
 
-## Persyaratan
+# Persyaratan
 
 Sebelum kita mulai, pastikan Anda telah memenuhi persyaratan berikut:
 
@@ -35,7 +35,7 @@ Sebelum kita mulai, pastikan Anda telah memenuhi persyaratan berikut:
 - Ruang penyimpanan yang cukup untuk menginstal Hadoop (minimal 10 GB).
 - Koneksi internet untuk mengunduh paket Hadoop.
 
-## Langkah 1: Melakukan *Cloning* Repositori Skrip
+# Langkah 1: Melakukan *Cloning* Repositori Skrip
 
 Pertama, kita akan melakukan *cloning* repositori GitHub yang berisi skrip shell otomatis untuk menginstal dan mengkonfigurasi Apache Hadoop. Skrip ini akan memudahkan proses instalasi dan konfigurasi Hadoop.
 
@@ -53,7 +53,7 @@ Setelah melakukan *cloning* repositori, kita akan melihat struktur direktori ber
 .
 ```
 
-## Langkah 2: Menjalankan Skrip Instalasi
+# Langkah 2: Menjalankan Skrip Instalasi
 
 Selanjutnya, kita akan menjalankan skrip `setup.sh` untuk menginstal dan mengkonfigurasi Apache Hadoop. Skrip ini akan mengunduh paket Hadoop, mengatur variabel lingkungan, dan mengonfigurasi Hadoop untuk menjalankan *single node cluster*.
 
@@ -90,7 +90,7 @@ su - hadoop
 
 ![Switch User Hadoop](images/Hadoop-Tutor/switch-user-hadoop.png)
 
-## Langkah 3: Menjalankan Hadoop
+# Langkah 3: Menjalankan Hadoop
 
 Setelah instalasi selesai, Anda perlu untuk memformat HDFS sebelum menjalankan Hadoop. Anda dapat melakukannya dengan perintah berikut:
 
@@ -119,11 +119,11 @@ Perintah ini akan memulai semua layanan Hadoop, termasuk HDFS, YARN, dan tampila
 Anda sekarang telah berhasil menginstal dan menjalankan Apache Hadoop. Anda dapat mulai menggunakan Hadoop untuk memproses data besar dan menjalankan aplikasi yang memanfaatkan ekosistem Hadoop.
 
 
-## Mencoba Penggunaan Hadoop : WordCount
+# Mencoba Penggunaan Hadoop : WordCount
 
 Untuk mencoba penggunaan Hadoop, kita akan menggunakan contoh program WordCount yang merupakan program klasik dalam pemrograman MapReduce. Program ini akan menghitung jumlah kemunculan setiap kata dalam sebuah file teks.
 
-### Langkah 1: Buatlah Folder User
+## Langkah 1: Buatlah Folder User
 
 Pertama, kita akan membuat folder user di HDFS untuk menyimpan file input dan output program WordCount. Disini kita akan menggunakan tampilan web Hadoop untuk membuat folder.
 
@@ -139,7 +139,7 @@ Pertama, kita akan membuat folder user di HDFS untuk menyimpan file input dan ou
 7. Klik icon **Create** untuk membuat folder baru di dalam folder `user`.
 8. Masukkan nama folder baru bernama `hadoop` dan klik **Create**.
 
-### Langkah 2: Menyiapkan File Input
+## Langkah 2: Menyiapkan File Input
 
 Untuk menguji program WordCount, kita akan menggunakan file teks sederhana sebagai input. Anda dapat membuat file teks dengan teks acak atau menggunakan file contoh yang disediakan. Disini kita akan menggunakan file contoh dari Kaggle yang berisi teks dari novel "Alice's Adventures in Wonderland" oleh Lewis Carroll. File ini dapat diunduh dari [tautan berikut](https://www.kaggle.com/datasets/roblexnana/alice-wonderland-dataset).
 
@@ -147,7 +147,7 @@ Untuk menguji program WordCount, kita akan menggunakan file teks sederhana sebag
 2. Unggah file `alice_in_wonderland.txt` ke folder `user/hadoop` di HDFS menggunakan tampilan web Hadoop.
 ![Upload File](images/Hadoop-Tutor/add-input-data.png)
 
-### Langkah 3: Menjalankan Program WordCount
+## Langkah 3: Menjalankan Program WordCount
 
 Setelah file input disiapkan, kita akan menjalankan program WordCount menggunakan Hadoop. Program WordCount terdiri dari dua bagian yaitu *mapper* dan *reducer* yang akan dijalankan oleh Hadoop.
 
@@ -160,7 +160,7 @@ hadoop jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.4.0.j
 ![Run WordCount](images/Hadoop-Tutor/running-mapreduce.png)
 Perintah ini akan menjalankan program WordCount pada file `alice_in_wonderland.txt` dan menyimpan hasilnya di folder `user/hadoop/output` di HDFS.
 
-### Langkah 4: Melihat Hasil WordCount
+## Langkah 4: Melihat Hasil WordCount
 
 Setelah program WordCount selesai dijalankan, Anda dapat melihat hasilnya di folder `user/hadoop/output` di HDFS menggunakan tampilan web Hadoop.
 
@@ -174,12 +174,12 @@ Setelah program WordCount selesai dijalankan, Anda dapat melihat hasilnya di fol
 
 Anda telah berhasil menjalankan program WordCount menggunakan Hadoop dan melihat hasilnya. Program WordCount adalah contoh sederhana dari penggunaan Hadoop untuk memproses data besar menggunakan pemrograman MapReduce.
 
-## Penutup
+# Penutup
 
 Dalam tutorial ini, Anda telah belajar cara menginstal dan mengkonfigurasi Apache Hadoop menggunakan skrip shell otomatis. Anda juga telah mencoba menjalankan program WordCount menggunakan Hadoop untuk memproses data besar. Dengan Apache Hadoop, Anda dapat memproses, menganalisis, dan mengelola data besar dengan mudah dan efisien. Selamat mencoba!
 
 
-## Referensi
+# Referensi
 
 - [Apache Hadoop](https://hadoop.apache.org/)
 - [Hadoop Single Node Cluster Setup](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html)
