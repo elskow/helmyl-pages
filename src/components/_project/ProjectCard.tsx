@@ -62,7 +62,7 @@ const ProjectCard = ({
             unselectable={'on'}
         >
             <motion.li
-                className="group relative flex h-[500px] w-[300px] select-none flex-col items-start rounded-lg bg-white bg-opacity-20 shadow-lg hover:bg-opacity-10 hover:shadow-xl dark:bg-slate-900 dark:bg-opacity-60 dark:hover:bg-slate-950 dark:hover:shadow-xl"
+                className="group relative flex h-[500px] w-[300px] select-none flex-col items-start rounded-lg bg-white bg-opacity-20 shadow-lg hover:bg-opacity-10 hover:shadow-xl dark:bg-slate-800 dark:bg-opacity-60 dark:hover:bg-gray-900 dark:hover:shadow-xl border border-transparent dark:border-gray-700"
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"

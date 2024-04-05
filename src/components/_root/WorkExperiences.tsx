@@ -12,7 +12,7 @@ type WorkExperience = {
 const WorkExperiences = ({ experiences }: { experiences?: WorkExperience[] }) => {
     if (!experiences)
         return (
-            <ol className="relative border-l border-slate-200 py-8 dark:border-slate-700">
+            <ol>
                 <li className="mb-10">
                     <div className="space-y-3">
                         <p className="text-center text-base font-normal text-slate-500 dark:text-slate-400">

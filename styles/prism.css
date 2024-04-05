@@ -41,7 +41,7 @@ pre[class*='language-'] {
     margin: 0em 0em 0.5em 0em; /* this is standard */
     overflow: auto; /* this is standard */
     border-radius: 0.5em;
-    @apply border-l-0 border-r-0 border-t-4 border-solid border-blue-900 dark:border-green-700;
+    @apply border-l-0 border-r-0 border-t-4 border-solid border-blue-900 dark:border-white;
 }
 
 /* Properties specific to inline code */

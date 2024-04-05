@@ -37,7 +37,7 @@ const TagsPage = () => {
                     {tags.map((tag) => (
                         <li
                             key={tag}
-                            className="mb-2 mr-2 rounded bg-green-50 px-3 py-1 font-medium capitalize text-green-900 transition-all duration-300 hover:bg-green-900 hover:text-white dark:bg-gray-800 dark:text-white dark:hover:bg-gray-600"
+                            className="mb-2 mr-2 rounded bg-green-50 px-3 py-1 font-medium capitalize text-green-900 transition-all duration-300 hover:bg-green-900 hover:text-white dark:bg-gray-700 dark:text-white dark:hover:bg-slate-500"
                         >
                             <Link
                                 className="px-2"

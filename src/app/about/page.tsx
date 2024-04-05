@@ -18,7 +18,7 @@ const AboutPage = () => {
                         <RoundBlurImage
                             src={HelmyAvatar.src}
                             alt="Profile Picture"
-                            className="aspect-square rotate-2 rounded-2xl object-cover shadow-lg shadow-emerald-950 blur-0 drop-shadow-2xl backdrop-contrast-200 transition duration-1000 dark:shadow-2xl dark:shadow-slate-700 dark:drop-shadow-2xl dark:backdrop-contrast-200"
+                            className="aspect-square rotate-2 rounded-2xl object-cover shadow-lg shadow-emerald-950 blur-0 drop-shadow-2xl backdrop-contrast-200 transition duration-1000 dark:shadow-2xl dark:shadow-green-900 dark:drop-shadow-2xl dark:backdrop-contrast-200"
                             blurDataURL={HelmyAvatar.blurDataURL}
                             placeholder="blur"
                         />
@@ -27,7 +27,7 @@ const AboutPage = () => {
                 <div className="lg:order-first lg:row-span-2">
                     <h1 className="font-newsreader text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl lg:mb-16 lg:mt-10">
                         I&apos;m{' '}
-                        <span className="text-teal-700 dark:text-teal-300">
+                        <span className="text-teal-700 dark:text-teal-400">
                             Helmy Luqmanulhakim
                         </span>
                         , a software engineer from Surabaya, Indonesia.

@@ -60,10 +60,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 src="https://us.umami.is/script.js"
                 data-website-id="80b9e23d-c5ef-463d-9f8a-fca203abdc5a"
             />
-            <body className="min-h-screen bg-gradient-to-tr from-green-50 to-neutral-200 dark:bg-gradient-to-tr dark:from-slate-800 dark:to-slate-800">
+            <body className="min-h-screen bg-gradient-to-tr from-green-50 to-neutral-200 dark:bg-gradient-to-tr dark:from-gray-800 dark:to-gray-800">
                 <ThemeProviders>
                     <div
-                        className={`bg-dot-large-neutral-500/[0.2] dark:bg-dot-large-slate-100/[0.07]`}
                     >
                         <div
                             className="z-10 min-h-screen px-4 sm:px-8 lg:py-2"
