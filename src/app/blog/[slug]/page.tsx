@@ -6,7 +6,13 @@ import { memo } from 'react'
 
 const Page = dynamic(() => import('./ui'))
 
-const MemoizedPage = memo(Page);
+const MemoizedPage = memo(Page)
+
+export async function generateStaticParams() {
+    return allPosts.map((post) => ({
+        slug: post.slug.split('/').join('%2F'),
+    }))
+}
 
 export async function generateMetadata({
     params,
