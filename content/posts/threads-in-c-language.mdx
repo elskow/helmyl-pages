@@ -2,8 +2,8 @@
 title: 'Understanding Threads in C Language'
 date: '2023-08-29'
 tags:
-    - C
-    - Multithreading
+- C
+- Multithreading
 summary: Explore the concept of threads in the C programming language, their use cases, and how they enable parallel execution for improved performance.
 draft: false
 ---
@@ -30,7 +30,7 @@ Threads are particularly valuable in scenarios where tasks can be executed concu
 
 In C, you can create threads using libraries like POSIX Threads (pthread) or Windows Threads. Here's a simplified example using POSIX Threads:
 
-```c:threadsExample.c
+```c title="thread_example.c"
 #include <stdio.h>
 #include <pthread.h>
 

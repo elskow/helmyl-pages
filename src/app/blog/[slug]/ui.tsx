@@ -1,10 +1,11 @@
-"use client"
+'use client'
 
 import React, { useEffect, useMemo, memo } from 'react'
 import { useAnimation, motion } from 'framer-motion'
 import { allPosts } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 import dynamic from 'next/dynamic'
+import { useTheme } from 'next-themes'
 
 const ImageBanner = dynamic(() => import('@/components/_blog/ImageBanner'), { ssr: false })
 const TagsList = dynamic(() => import('@/app/blog/[slug]/tag-list'), { ssr: false })
@@ -16,14 +17,15 @@ const findPost = (slug: string, posts: any) => posts.find((post: any) => post.sl
 const Page = ({ params }: { params: { slug: string } }) => {
     const post = useMemo(() => findPost(params.slug, allPosts), [params.slug])
     const controls = useAnimation()
+    const { theme } = useTheme()
 
     useEffect(() => {
-        controls.start(i => ({
+        controls.start((i) => ({
             opacity: 1,
             transition: {
                 delay: i * 0.1,
                 duration: 0.5,
-                ease: "easeOut",
+                ease: 'easeOut',
             },
         }))
     }, [controls])
@@ -35,7 +37,10 @@ const Page = ({ params }: { params: { slug: string } }) => {
     const banner = post.banner ? <ImageBanner image={post.banner} title={post.title} /> : null
 
     return (
-        <section className="mx-auto pb-16 pt-10 lg:max-w-5xl lg:pt-14 min-h-screen" suppressHydrationWarning>
+        <section
+            className="mx-auto min-h-screen pb-16 pt-10 lg:max-w-5xl lg:pt-14"
+            suppressHydrationWarning
+        >
             <div className="space-y-4 pb-5">
                 {banner}
                 <motion.h1
@@ -61,12 +66,8 @@ const Page = ({ params }: { params: { slug: string } }) => {
                     <PostMeta date={post.date} readingTime={post.readingTime.text} />
                 </motion.div>
             </div>
-            <motion.div
-                animate={controls}
-                initial={{ opacity: 0 }}
-                custom={4}
-            >
-                <Article body={post.body.code} />
+            <motion.div animate={controls} initial={{ opacity: 0 }} custom={4}>
+                <Article body={post.body.code} theme={theme} />
             </motion.div>
         </section>
     )

@@ -3,11 +3,18 @@ import readingTime from 'reading-time'
 
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeKatex from 'rehype-katex'
-import rehypePrism from 'rehype-prism-plus'
+import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
-import rehypeCodeTitles from 'rehype-code-titles'
+
+const rehypePrettyOptions = {
+    theme: 'dracula-soft',
+    onVisitHighlightedLine(node) {
+        node.properties.className.push('line--highlighted')
+    },
+    keepBackground: false,
+}
 
 export const Post = defineDocumentType(() => ({
     name: 'Post',
@@ -62,18 +69,10 @@ export default makeSource({
     contentDirPath: 'content',
     documentTypes: [Post, Projects],
     mdx: {
-        remarkPlugins: [remarkGfm, remarkMath],
         rehypePlugins: [
             [rehypeKatex, { output: 'mathml' }],
-            rehypeCodeTitles,
+            [rehypePrettyCode, rehypePrettyOptions],
             rehypeSlug,
-            [
-                rehypePrism,
-                {
-                    showLineNumbers: true,
-                    ignoreMissing: true,
-                },
-            ],
             [
                 rehypeAutolinkHeadings,
                 {
@@ -83,5 +82,6 @@ export default makeSource({
                 },
             ],
         ],
+        remarkPlugins: [remarkGfm, remarkMath],
     },
 })

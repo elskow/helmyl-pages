@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Skillset from '@/components/_about/Skillset'
 import WorkExperiences from '@/components/_root/WorkExperiences'
 
-import HelmyAvatar from 'public/helmy-avatar.webp'
+import HelmyAvatar from 'public/helmy-avatar-bw.webp'
 
 import SocialMedia from '@/const/SocialMedia'
 
