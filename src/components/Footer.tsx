@@ -35,7 +35,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                         Projects
                     </Link>
                 </div>
-                <p className="text-sm text-zinc-600 dark:text-zinc-300">
+                <p className="text-xs text-zinc-600 dark:text-zinc-300 md:text-sm">
                     © 2022 – {new Date().getFullYear()}{' '}
                     <Link
                         href="https://github.com/elskow/helmyl-pages"

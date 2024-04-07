@@ -13,7 +13,7 @@ import SpotifyNowPlayin from '@/components/SpotifyNowPlayin'
 const AboutPage = () => {
     return (
         <PageLayout>
-            <div className="mx-auto mb-12 mt-12 grid w-full grid-cols-1 justify-center gap-y-8 space-y-10 lg:max-w-5xl lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-20">
+            <div className="mx-auto mb-12 mt-8 grid w-full grid-cols-1 justify-center gap-y-8 space-y-10 lg:mt-12 lg:max-w-5xl lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-20">
                 <div className="lg:pl-32">
                     <div className="max-w-xs px-2.5 lg:max-w-none">
                         <RoundBlurImage
@@ -88,12 +88,12 @@ const AboutPage = () => {
                                 <Link
                                     href={item.href}
                                     aria-label={item.name}
-                                    className="group flex items-center text-sm font-medium text-zinc-800 transition hover:text-teal-600 dark:text-zinc-200 dark:hover:text-teal-500"
+                                    className="group flex items-center text-xs font-medium text-zinc-800 transition hover:text-teal-600 dark:text-zinc-200 dark:hover:text-teal-500 lg:text-sm"
                                     draggable={false}
                                     unselectable={'on'}
                                 >
                                     <item.icon
-                                        className="h-6 w-6 flex-none fill-zinc-800 transition group-hover:fill-teal-500 dark:fill-zinc-200 dark:group-hover:fill-teal-500"
+                                        className="h-5 w-5 flex-none fill-zinc-800 transition group-hover:fill-teal-500 dark:fill-zinc-200 dark:group-hover:fill-teal-500 lg:h-6 lg:w-6"
                                         aria-hidden="true"
                                     />
                                     <span className="ml-4">{item.text}</span>

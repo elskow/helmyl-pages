@@ -15,7 +15,7 @@ const WorkExperiences = ({ experiences }: { experiences?: WorkExperience[] }) =>
             <ol className={`py-4 md:py-8`}>
                 <li>
                     <div className="space-y-3">
-                        <p className="text-center text-base font-normal text-slate-500 dark:text-slate-400">
+                        <p className="text-center text-sm font-normal text-slate-500 dark:text-slate-400 lg:text-base">
                             Hmm, i haven&apos;t worked anywhere yet :(
                         </p>
                     </div>

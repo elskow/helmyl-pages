@@ -59,11 +59,11 @@ const SpotifyNowPlayin = () => {
                     opacity: 1,
                 }}
             >
-                <div className="flex h-full w-full flex-col justify-center justify-items-center rounded-lg bg-green-300 bg-opacity-70 px-2 py-4 dark:bg-green-900 dark:bg-opacity-60 md:px-6 md:py-6">
-                    <h1 className="mb-1 line-clamp-1 items-center justify-self-center pt-2 text-sm font-bold text-gray-700 dark:text-gray-200 lg:text-lg">
+                <div className="flex h-full w-full flex-col justify-center justify-items-center rounded-lg bg-green-900 bg-opacity-60 px-4 py-4 md:px-6 md:py-6">
+                    <h1 className="mb-1 line-clamp-1 items-center justify-self-center pt-2 text-sm font-bold text-gray-200 lg:text-lg">
                         {nowPlaying.title}
                     </h1>
-                    <h2 className="mb-2 line-clamp-1 items-center justify-center text-sm font-medium text-gray-700 dark:text-gray-400 lg:text-base">
+                    <h2 className="mb-2 line-clamp-1 items-center justify-center text-sm font-medium text-gray-300 lg:text-base">
                         {nowPlaying.artist}
                     </h2>
                 </div>
