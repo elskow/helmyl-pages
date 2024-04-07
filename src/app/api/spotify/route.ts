@@ -1,4 +1,5 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
 
 const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN } = process.env
 
@@ -35,7 +36,10 @@ const getNowPlaying = async () => {
     })
 }
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+    const path = req.nextUrl.searchParams.get('path') || '/'
+    revalidatePath(path, 'page')
+    
     const response = await getNowPlaying()
 
     if (response.status === 204) {

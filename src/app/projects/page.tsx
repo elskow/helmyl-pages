@@ -24,7 +24,7 @@ const Projects: React.FC = () => {
     const projects: Record<string, Project[]> = allProjects[0].projects
     return (
         <PageLayout>
-            <div className="mx-auto mb-10 mt-10 w-full justify-center space-y-8 lg:max-w-5xl">
+            <div className="mx-auto mb-10 mt-6 min-h-screen w-full justify-center space-y-8 md:mt-10 lg:max-w-5xl">
                 <div className="space-y-3 border-b border-gray-200 pb-5 dark:border-gray-700">
                     <h1 className="font-newsreader text-4xl font-bold lg:text-5xl">Projects</h1>
                     <p className="font-light lg:text-lg">A list of all my personal projects</p>

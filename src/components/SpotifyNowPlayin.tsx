@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { FaSpotify } from 'react-icons/fa'
+import { AiOutlineLoading } from 'react-icons/ai'
 
 const SpotifyNowPlayin = () => {
     const [nowPlaying, setNowPlaying] = useState<any>({
@@ -34,8 +35,8 @@ const SpotifyNowPlayin = () => {
 
     if (loading) {
         return (
-            <div className="flex h-screen items-center justify-center">
-                <h1 className="text-2xl font-bold text-gray-500">Loading...</h1>
+            <div className="flex items-center justify-center">
+                <AiOutlineLoading className="animate-spin" />
             </div>
         )
     }
@@ -51,7 +52,7 @@ const SpotifyNowPlayin = () => {
                 <h1 className="text-sm font-bold lg:text-lg">Now Playing</h1>
             </div>
             <div
-                className="flex flex-row justify-items-start gap-6 rounded-lg bg-gray-100 dark:bg-gray-800"
+                className="flex flex-row justify-items-start gap-6 rounded-lg bg-gray-100 drop-shadow-md dark:bg-gray-800"
                 style={{
                     backgroundImage: `url(${nowPlaying.image})`,
                     backgroundSize: 'cover',
