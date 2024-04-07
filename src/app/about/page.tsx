@@ -8,6 +8,7 @@ import HelmyAvatar from 'public/helmy-avatar-bw.webp'
 import SocialMedia from '@/const/SocialMedia'
 
 import RoundBlurImage from '@/components/Round-BlurImage'
+import SpotifyNowPlayin from '@/components/SpotifyNowPlayin'
 
 const AboutPage = () => {
     return (
@@ -32,9 +33,9 @@ const AboutPage = () => {
                         </span>
                         , a software engineer from Surabaya, Indonesia.
                     </h1>
-                    <div className="mt-12 text-base ">
-                        <section className="space-y-8 md:space-y-10">
-                            <div className="lg:mt-10">
+                    <div className="pt-12 text-base ">
+                        <section className="space-y-12 md:space-y-16">
+                            <div>
                                 <h2 className="mb-3 font-newsreader text-xl font-bold lg:mb-5 lg:text-2xl">
                                     Who am I?
                                 </h2>
@@ -60,19 +61,22 @@ const AboutPage = () => {
                                     thrill of exploring and mastering new technologies.
                                 </p>
                             </div>
-                            <div className="lg:mt-20">
+                            <div>
                                 <h2 className="mb-8 font-newsreader text-xl font-bold lg:mb-10 lg:text-2xl">
                                     What am I using?
                                 </h2>
                                 <Skillset />
                             </div>
-                            <div className="lg:mt-20">
+                            <div>
                                 <h2 className="mb-8 font-newsreader text-xl font-bold lg:mb-10 lg:text-2xl">
                                     Where have I worked?
                                 </h2>
                                 <div>
                                     <WorkExperiences />
                                 </div>
+                            </div>
+                            <div>
+                                <SpotifyNowPlayin />
                             </div>
                         </section>
                     </div>

@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { useMemo } from 'react'
 
 const posts = allPosts.filter((post) => !post.draft)
-
 const TagsPage = () => {
     const tags = useMemo(() => {
         return posts

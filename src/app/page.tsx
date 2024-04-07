@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default async function Page() {
     return (
-        <main className="mx-auto flex min-h-screen space-y-6 lg:max-w-5xl">
+        <main className="mx-auto flex min-h-screen lg:max-w-5xl">
             <section className="my-auto justify-center space-y-6 pb-[35vh]">
                 <p className="font-medium text-slate-800 dark:text-slate-100 sm:text-xl">
                     Hello! I&apos;m <span className="font-semibold">Helmy Luqmanulhakim</span>

@@ -10,6 +10,11 @@ const nextConfig = {
                 hostname: 'via.placeholder.com',
                 port: '',
             },
+            {
+                protocol: 'https',
+                hostname: 'i.scdn.co',
+                port: '',
+            },
         ],
     },
 }
