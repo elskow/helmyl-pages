@@ -1,35 +1,45 @@
+'use client'
+
 import { FaSpotify } from 'react-icons/fa'
 import Image from 'next/image'
 import Link from 'next/link'
-import { getNowPlaying } from '@/lib/spotify'
-import { revalidatePath } from 'next/cache'
+import { getCurrentSong } from '@/components/_about/action-now-playin'
+import { useEffect, useState } from 'react'
 
-export default async function SpotifyNowPlayin() {
-    async function getCurrentSong() {
-        'use server'
+type Song = {
+    is_playing: boolean
+    response: number
+    error: any
+    title: string
+    artist: string
+    image: string
+    url: string
+} | null
 
-        const response = await getNowPlaying()
+export default function SpotifyNowPlayin() {
+    const [nowPlaying, setNowPlaying] = useState<Song>(null)
 
-        if (response.status === 204) return { is_playing: false }
+    useEffect(() => {
+        const fetchSong = async () => {
+            const song = await getCurrentSong()
+            setNowPlaying({
+                is_playing: song.is_playing ?? false,
+                response: song.response ?? 0,
+                error: song.error ?? null,
+                title: song.title ?? '',
+                artist: song.artist ?? '',
+                image: song.image ?? '',
+                url: song.url ?? '',
+            })
+        }
 
-        const data = await response.json()
+        fetchSong() // Fetch once immediately
+        const intervalId = setInterval(fetchSong, 10000)
 
-        if (response.status !== 200) return { response: response.status, error: data.error.message }
+        return () => clearInterval(intervalId)
+    }, [])
 
-        const { item } = data
-
-        const { name: title, artists, album, external_urls } = item
-        const artist = artists.map(({ name }) => name).join(', ')
-        const image = album.images[0].url
-        const url = external_urls.spotify
-
-        return { title, artist, image, url, is_playing: true }
-    }
-
-    revalidatePath('/about', 'page')
-    const nowPlaying = await getCurrentSong()
-
-    if (!nowPlaying.is_playing) return <></>
+    if (!nowPlaying || !nowPlaying.is_playing) return <></>
 
     return (
         <div className="rounded-lg transition-colors duration-500">

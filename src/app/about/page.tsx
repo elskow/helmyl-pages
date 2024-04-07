@@ -8,7 +8,7 @@ import HelmyAvatar from 'public/helmy-avatar-bw.webp'
 import SocialMedia from '@/const/SocialMedia'
 
 import RoundBlurImage from '@/components/Round-BlurImage'
-import SpotifyNowPlayin from '@/components/SpotifyNowPlayin'
+import SpotifyNowPlayin from '@/components/_about/SpotifyNowPlayin'
 
 const AboutPage = () => {
     return (
