@@ -1,45 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { revalidatePath } from 'next/cache'
-
-const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN } = process.env
-
-const NowPlayingEndpoint = 'https://api.spotify.com/v1/me/player/currently-playing'
-const TokenEndpoint = 'https://accounts.spotify.com/api/token'
-
-const getAccessToken = async () => {
-    if (!SPOTIFY_REFRESH_TOKEN) {
-        throw new Error('Refresh token is not defined')
-    }
-
-    const response = await fetch(TokenEndpoint, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            Authorization: `Basic ${Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString('base64')}`,
-        },
-        body: new URLSearchParams({
-            grant_type: 'refresh_token',
-            refresh_token: SPOTIFY_REFRESH_TOKEN,
-        }),
-    })
-
-    return response.json()
-}
-
-const getNowPlaying = async () => {
-    const { access_token } = await getAccessToken()
-
-    return fetch(NowPlayingEndpoint, {
-        headers: {
-            Authorization: `Bearer ${access_token}`,
-        },
-    })
-}
+import { getNowPlaying } from '@/lib/spotify'
 
 export async function GET(req: NextRequest) {
     const path = req.nextUrl.searchParams.get('path') || '/'
     revalidatePath(path, 'page')
-    
+
     const response = await getNowPlaying()
 
     if (response.status === 204) {

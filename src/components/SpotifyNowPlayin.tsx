@@ -1,57 +1,35 @@
-'use client'
-
-import { useEffect, useState } from 'react'
 import { FaSpotify } from 'react-icons/fa'
-import { AiOutlineLoading } from 'react-icons/ai'
 import Image from 'next/image'
 import Link from 'next/link'
+import { getNowPlaying } from '@/lib/spotify'
+import { revalidatePath } from 'next/cache'
 
-const SpotifyNowPlayin = () => {
-    const [nowPlaying, setNowPlaying] = useState<any>({
-        title: 'Not Playing',
-        artist: 'Not Playing',
-        image: '',
-        is_playing: false,
-    })
-    const [loading, setLoading] = useState<boolean>(true)
+export default async function SpotifyNowPlayin() {
+    async function getCurrentSong() {
+        'use server'
 
-    useEffect(() => {
-        const fetchNowPlaying = async () => {
-            try {
-                const response = await fetch('/api/spotify')
-                const data = await response.json()
-                setNowPlaying(data)
-                setLoading(false)
-            } catch (error) {
-                setNowPlaying({
-                    title: 'Error',
-                    artist: 'Error',
-                    image: '',
-                    is_playing: false,
-                })
-            }
-        }
+        const response = await getNowPlaying()
 
-        fetchNowPlaying().then((r) => r)
+        if (response.status === 204) return { is_playing: false }
 
-        const interval = setInterval(() => {
-            fetchNowPlaying().then((r) => r)
-        }, 5000) // 5 secs
+        const data = await response.json()
 
-        return () => clearInterval(interval)
-    }, [])
+        if (response.status !== 200) return { response: response.status, error: data.error.message }
 
-    if (loading) {
-        return (
-            <div className="flex items-center justify-center">
-                <AiOutlineLoading className="animate-spin" />
-            </div>
-        )
+        const { item } = data
+
+        const { name: title, artists, album, external_urls } = item
+        const artist = artists.map(({ name }) => name).join(', ')
+        const image = album.images[0].url
+        const url = external_urls.spotify
+
+        return { title, artist, image, url, is_playing: true }
     }
 
-    if (!nowPlaying.is_playing) {
-        return <></>
-    }
+    revalidatePath('/about', 'page')
+    const nowPlaying = await getCurrentSong()
+
+    if (!nowPlaying.is_playing) return <></>
 
     return (
         <div className="rounded-lg transition-colors duration-500">
@@ -91,5 +69,3 @@ const SpotifyNowPlayin = () => {
         </div>
     )
 }
-
-export default SpotifyNowPlayin

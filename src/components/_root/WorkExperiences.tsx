@@ -12,7 +12,7 @@ type WorkExperience = {
 const WorkExperiences = ({ experiences }: { experiences?: WorkExperience[] }) => {
     if (!experiences)
         return (
-            <ol className={`py-4 md:py-8`}>
+            <ol className={`py-8 md:py-12`}>
                 <li>
                     <div className="space-y-3">
                         <p className="text-center text-sm font-normal text-slate-500 dark:text-slate-400 lg:text-base">
