@@ -4,11 +4,14 @@ interface FormatDateProps {
     dateString: string
 }
 
-const FormatDate = ({ dateString }: FormatDateProps) => {
+const FormatDate = ({ dateString, ...props }: FormatDateProps) => {
     const date = parseISO(dateString)
     const formattedDate = format(date, 'MMM d, yyyy')
     return (
-        <time className="dark:text-primary-300 pr-4 text-xs text-primary md:w-1/5 md:text-right md:text-sm">
+        <time
+            className="dark:text-primary-300 pr-4 text-xs text-primary md:w-1/5 md:text-right md:text-sm"
+            {...props}
+        >
             {formattedDate}
         </time>
     )

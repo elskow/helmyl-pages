@@ -3,15 +3,15 @@
 import { useState } from 'react'
 import Image from 'next/image'
 
-const BlurImage = (props: { src: string; alt: string; className?: string }) => {
+const BlurImage = ({ src, alt, ...props }) => {
     const [isLoaded, setIsLoaded] = useState(false)
 
     return (
-        <div className={`${props.className} relative h-full w-full`}>
+        <div {...props.className} className={`relative h-full w-full`}>
             <Image
-                alt={props.alt}
-                src={props.src}
-                layout="fill"
+                src={src}
+                alt={alt}
+                layout={'fill'}
                 objectFit="cover"
                 className={`
               duration-1000 ease-in-out
@@ -20,7 +20,7 @@ const BlurImage = (props: { src: string; alt: string; className?: string }) => {
                 loading={'lazy'}
                 quality={100}
                 placeholder={'blur'}
-                blurDataURL={props.src}
+                blurDataURL={src}
                 draggable={false}
             />
         </div>

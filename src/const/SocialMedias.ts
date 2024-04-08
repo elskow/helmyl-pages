@@ -1,7 +1,7 @@
 import { GitHubLogoIcon, TwitterLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons'
 import { MdCallToAction } from 'react-icons/md'
 
-const socialMedia = [
+const socialMedias = [
     {
         name: 'LinkedIn',
         href: 'https://www.linkedin.com/in/helmyluqman/',
@@ -28,4 +28,4 @@ const socialMedia = [
     },
 ]
 
-export default socialMedia
+export default socialMedias

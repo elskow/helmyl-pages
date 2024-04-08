@@ -1,15 +1,6 @@
 import { MdWork } from 'react-icons/md'
 
-type WorkExperience = {
-    id: number
-    title: string
-    company: string
-    period: string
-    description: string
-    present?: boolean
-}
-
-const WorkExperiences = ({ experiences }: { experiences?: WorkExperience[] }) => {
+const WorkExperiences = ({ experiences, ...props }) => {
     if (!experiences)
         return (
             <ol className={`py-8 md:py-12`}>
@@ -24,7 +15,7 @@ const WorkExperiences = ({ experiences }: { experiences?: WorkExperience[] }) =>
         )
 
     return (
-        <ol className="relative border-l border-slate-200 dark:border-slate-700">
+        <ol className="relative border-l border-slate-200 dark:border-slate-700" {...props}>
             {experiences.map((experience) => (
                 <li key={experience.id} className="mb-10 ml-6">
                     <div className="space-y-3">

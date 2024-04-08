@@ -62,13 +62,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             />
             <body className="min-h-screen bg-gradient-to-tr from-green-50 to-neutral-200 dark:bg-gradient-to-tr dark:from-gray-800 dark:to-gray-800">
                 <ThemeProviders>
-                    <div
-                    >
+                    <div>
                         <div
                             className="z-10 min-h-screen px-4 sm:px-8 lg:py-2"
                             style={{ position: 'relative', zIndex: '20' }}
                         >
-                            <Navbar className="mx-auto pt-6 md:pt-8 lg:max-w-5xl lg:pt-14" />
+                            <Navbar
+                                className={`mx-auto flex select-none items-center justify-between py-4 pt-6 md:pt-8 lg:max-w-5xl lg:pt-14`}
+                            />
                             {children}
                             <Footer className="mx-auto pb-6 pt-6 lg:max-w-5xl lg:pb-12 lg:pt-14" />
                         </div>

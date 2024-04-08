@@ -12,9 +12,9 @@ import {
 import menuItems from '@/const/MenuItems'
 import { ContactHighlightNavbar, MainHighlightNavbar } from '@/components/Highlight-Navbar'
 
-const Navbar = memo((props: { className?: string; highlight?: string }) => {
+const Navbar = memo(({ ...props }) => {
     return (
-        <nav className={`${props?.className} flex select-none items-center justify-between py-4`}>
+        <nav {...props}>
             <header className="flex items-center gap-4 lg:gap-6">
                 <MainHighlightNavbar />
             </header>

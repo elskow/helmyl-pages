@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import tocbot from 'tocbot'
 
-export default function Toc() {
+export default function Toc({ ...props }) {
     const tocRef = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export default function Toc() {
     }, [])
 
     return (
-        <div className="toc-card">
+        <div className="toc-card" {...props}>
             <div className="toc-content">
                 <div className="js-toc" ref={tocRef} />
             </div>

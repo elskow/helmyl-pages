@@ -14,7 +14,7 @@ interface CardProps {
     index: number
 }
 
-const Card: React.FC<CardProps> = (props) => {
+const Card: React.FC<CardProps> = ({ ...props }) => {
     const { href, title, summary, date, readingTime, index } = props
 
     const variants = {

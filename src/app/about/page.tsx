@@ -2,10 +2,11 @@ import PageLayout from '@/layouts/PageLayout'
 import Link from 'next/link'
 import Skillset from '@/components/_about/Skillset'
 import WorkExperiences from '@/components/_root/WorkExperiences'
+import Experiences from '@/const/Experiences'
 
 import HelmyAvatar from 'public/helmy-avatar-bw.webp'
 
-import SocialMedia from '@/const/SocialMedia'
+import SocialMedia from '@/const/SocialMedias'
 
 import RoundBlurImage from '@/components/Round-BlurImage'
 import { lazy, Suspense } from 'react'
@@ -75,7 +76,7 @@ const AboutPage = () => {
                                     Where have I worked?
                                 </h2>
                                 <div>
-                                    <WorkExperiences />
+                                    <WorkExperiences experiences={Experiences} />
                                 </div>
                             </div>
                             <div>

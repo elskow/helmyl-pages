@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TechStack = React.memo(({ tech }: { tech: string }) => {
+const TechStack = React.memo(({ tech, ...props }: { tech: string }) => {
     const [showAll, setShowAll] = React.useState(false)
     const techStacks = tech.split(',')
 
@@ -9,7 +9,7 @@ const TechStack = React.memo(({ tech }: { tech: string }) => {
     }, [])
 
     return (
-        <div className="min-h-[8vh]">
+        <div className="min-h-[8vh]" {...props}>
             <div className="mt-4 flex flex-wrap">
                 {(showAll ? techStacks : techStacks.slice(0, 6)).map((item, index) => (
                     <span

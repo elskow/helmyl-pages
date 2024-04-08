@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import React from 'react'
 import Link from 'next/link'
 
-import LinkIcon from '@/components/_project/LinkIcon'
+import ProjectLinkIcon from '@/components/_project/ProjectLinkIcon'
 import TechStack from '@/components/_project/TechStackBadge'
 import BlurImage from '@/components/BlurImage'
 
@@ -28,6 +28,7 @@ const ProjectCard = ({
     date,
     link_text,
     index,
+    ...props
 }: ProjectProps) => {
     const cardVariants = {
         hidden: { opacity: 0, scale: 0.95 },
@@ -60,9 +61,10 @@ const ProjectCard = ({
             rel="noopener noreferrer"
             draggable={false}
             unselectable={'on'}
+            {...props}
         >
             <motion.li
-                className="group relative flex h-[500px] w-[300px] select-none flex-col items-start rounded-lg bg-white bg-opacity-20 shadow-lg hover:bg-opacity-10 hover:shadow-xl dark:bg-slate-800 dark:bg-opacity-60 dark:hover:bg-gray-900 dark:hover:shadow-xl border border-transparent dark:border-gray-700"
+                className="group relative flex h-[500px] w-[300px] select-none flex-col items-start rounded-lg border border-transparent bg-white bg-opacity-20 shadow-lg hover:bg-opacity-10 hover:shadow-xl dark:border-gray-700 dark:bg-slate-800 dark:bg-opacity-60 dark:hover:bg-gray-900 dark:hover:shadow-xl"
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"
@@ -83,7 +85,7 @@ const ProjectCard = ({
                     </p>
                     {tech && <TechStack tech={tech} />}
                     <p className="mt-6 flex items-center text-sm font-medium text-zinc-800 transition dark:text-zinc-50">
-                        <LinkIcon />
+                        <ProjectLinkIcon />
                         <span className="ml-2">{link_text}</span>
                     </p>
                 </div>

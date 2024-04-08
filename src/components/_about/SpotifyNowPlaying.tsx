@@ -5,7 +5,7 @@ import getLastPlayedSong from '@/server-action/last-played-spotify'
 import getCurrentSong from '@/server-action/now-playing-spotify'
 import { revalidatePath } from 'next/cache'
 
-export default async function SpotifyNowPlaying() {
+export default async function SpotifyNowPlaying({ ...props }) {
     revalidatePath('/about', 'page')
     const currentSong = await getCurrentSong()
     const lastPlayed = await getLastPlayedSong()
@@ -13,7 +13,7 @@ export default async function SpotifyNowPlaying() {
     if (!currentSong || !lastPlayed) return <></>
 
     return (
-        <div className="rounded-lg transition-colors duration-500">
+        <div className="rounded-lg transition-colors duration-500" {...props}>
             <div className="mb-4 flex items-center gap-2">
                 <FaSpotify className="text-green-500" />
                 <h1 className="text-sm font-bold lg:text-lg">

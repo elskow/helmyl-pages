@@ -3,24 +3,11 @@
 import { useCallback, memo } from 'react'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
-import { BiLogoGoLang, BiLogoJava, BiLogoPython } from 'react-icons/bi'
-import { FaReact, FaDocker } from 'react-icons/fa'
-import { SiApachekafka, SiMicrosoftazure, SiPowerbi } from 'react-icons/si'
+import Skills from '@/const/Skills'
 
 import { motion } from 'framer-motion'
 
-const logos = [
-    { Icon: BiLogoGoLang, link: 'https://golang.org/', text: 'GoLang' },
-    { Icon: BiLogoJava, link: 'https://www.java.com/', text: 'Java' },
-    { Icon: BiLogoPython, link: 'https://www.python.org/', text: 'Python' },
-    { Icon: FaReact, link: 'https://reactjs.org/', text: 'React' },
-    { Icon: SiApachekafka, link: 'https://kafka.apache.org/', text: 'Apache Kafka' },
-    { Icon: SiMicrosoftazure, link: 'https://azure.microsoft.com/', text: 'Microsoft Azure' },
-    { Icon: FaDocker, link: 'https://www.docker.com/', text: 'Docker' },
-    { Icon: SiPowerbi, link: 'https://powerbi.microsoft.com/', text: 'Power BI' },
-]
-
-const Skillset = () => {
+const Skillset = ({ ...props }) => {
     const scrollRef = useRef<HTMLDivElement>(null)
     const intervalId = useRef<number | null>(null)
     const [hoveredLogo, setHoveredLogo] = useState<number | null>(null)
@@ -65,9 +52,10 @@ const Skillset = () => {
         <div
             ref={scrollRef}
             className="mx-2 inline-flex w-full flex-nowrap overflow-hidden py-8 [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]"
+            {...props}
         >
             <ul className="flex max-w-none md:justify-start">
-                {logos.concat(logos).map((logo, index) => (
+                {Skills.concat(Skills).map((logo, index) => (
                     <Link
                         key={`${logo.text}-${index}`}
                         href={logo.link}
