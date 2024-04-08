@@ -12,9 +12,11 @@ import {
 import menuItems from '@/const/MenuItems'
 import { ContactHighlightNavbar, MainHighlightNavbar } from '@/components/Highlight-Navbar'
 
-const Navbar = memo(({ ...props }) => {
+type NavbarProps = React.ComponentProps<'nav'>
+
+const Navbar = memo(({ className, ...props }: NavbarProps) => {
     return (
-        <nav {...props}>
+        <nav {...props} className={className}>
             <header className="flex items-center gap-4 lg:gap-6">
                 <MainHighlightNavbar />
             </header>
