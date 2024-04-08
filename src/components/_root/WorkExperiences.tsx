@@ -1,7 +1,7 @@
 import { MdWork } from 'react-icons/md'
 
 const WorkExperiences = ({ experiences, ...props }) => {
-    if (!experiences)
+    if (experiences.length === 0)
         return (
             <ol className={`py-8 md:py-12`}>
                 <li>
