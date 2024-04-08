@@ -8,7 +8,10 @@ import HelmyAvatar from 'public/helmy-avatar-bw.webp'
 import SocialMedia from '@/const/SocialMedia'
 
 import RoundBlurImage from '@/components/Round-BlurImage'
-import SpotifyNowPlayin from '@/components/_about/SpotifyNowPlayin'
+import { lazy, Suspense } from 'react'
+import { AiOutlineLoading } from 'react-icons/ai'
+
+const SpotifyNowPlaying = lazy(() => import('@/components/_about/SpotifyNowPlaying'))
 
 const AboutPage = () => {
     return (
@@ -19,7 +22,7 @@ const AboutPage = () => {
                         <RoundBlurImage
                             src={HelmyAvatar.src}
                             alt="Profile Picture"
-                            className="aspect-square rotate-2 rounded-2xl object-cover shadow-lg shadow-emerald-950 blur-0 drop-shadow-2xl backdrop-contrast-200 transition duration-1000 dark:shadow-2xl dark:shadow-green-900 dark:drop-shadow-2xl dark:backdrop-contrast-200"
+                            className="aspect-square rotate-2 rounded-2xl object-cover shadow-lg shadow-emerald-950 blur-0 drop-shadow-2xl backdrop-contrast-200 transition duration-1000 dark:shadow-2xl dark:shadow-teal-900 dark:drop-shadow-2xl dark:backdrop-contrast-200"
                             blurDataURL={HelmyAvatar.blurDataURL}
                             placeholder="blur"
                         />
@@ -76,7 +79,15 @@ const AboutPage = () => {
                                 </div>
                             </div>
                             <div>
-                                <SpotifyNowPlayin />
+                                <Suspense
+                                    fallback={
+                                        <div className="flex h-32 items-center justify-center">
+                                            <AiOutlineLoading className="h-10 w-10 animate-spin text-teal-600 dark:text-teal-500" />
+                                        </div>
+                                    }
+                                >
+                                    <SpotifyNowPlaying />
+                                </Suspense>
                             </div>
                         </section>
                     </div>

@@ -1,6 +1,7 @@
 const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN } = process.env
 
 const NowPlayingEndpoint = 'https://api.spotify.com/v1/me/player/currently-playing'
+const LastPlayedEndpoint = 'https://api.spotify.com/v1/me/player/recently-played'
 const TokenEndpoint = 'https://accounts.spotify.com/api/token'
 
 const getAccessToken = async () => {
@@ -33,4 +34,14 @@ const getNowPlaying = async () => {
     })
 }
 
-export { getNowPlaying }
+const getLastPlayed = async () => {
+    const { access_token } = await getAccessToken()
+
+    return fetch(LastPlayedEndpoint, {
+        headers: {
+            Authorization: `Bearer ${access_token}`,
+        },
+    })
+}
+
+export { getNowPlaying, getLastPlayed }

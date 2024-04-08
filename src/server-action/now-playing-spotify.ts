@@ -2,7 +2,7 @@
 
 import { getNowPlaying } from '@/lib/spotify'
 
-export async function getCurrentSong() {
+const getCurrentSong = async () => {
     const response = await getNowPlaying()
 
     if (response.status === 204) return { is_playing: false }
@@ -21,3 +21,5 @@ export async function getCurrentSong() {
 
     return { title, artist, image, url, is_playing: true }
 }
+
+export default getCurrentSong

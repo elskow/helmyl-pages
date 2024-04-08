@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
 import { Metadata } from 'next'
 import CONFIG from '../../blog.config'
 import { motion } from 'framer-motion'
@@ -31,11 +30,11 @@ const NotFound = () => {
                 404
             </motion.h1>
             <p className="mb-4 text-neutral-700 dark:text-neutral-300 lg:text-lg">Page not found</p>
-            <Button className="text-neutral-100 dark:text-neutral-900 lg:font-medium">
+            <button className="rounded-md bg-zinc-900 px-4 py-2 text-neutral-100 hover:bg-zinc-800 dark:bg-zinc-100 dark:text-neutral-900 dark:hover:bg-zinc-200 lg:font-medium">
                 <Link href="/" unselectable={'on'} draggable={false}>
                     Back to home
                 </Link>
-            </Button>
+            </button>
         </div>
     )
 }
