@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 import menuItems from '@/const/MenuItems'
-import { ContactHighlightNavbar, MainHighlightNavbar } from '@/components/Highlight-Navbar'
+import { ContactHighlightNavbar, MainHighlightNavbar } from '@/components/Navbar-Items'
 
 type NavbarProps = React.ComponentProps<'nav'>
 

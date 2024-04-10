@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import Skills from '@/const/Skills'
 
-import { motion } from 'framer-motion'
+import { m, LazyMotion, domAnimation } from 'framer-motion'
 
 const Skillset = ({ ...props }) => {
     const scrollRef = useRef<HTMLDivElement>(null)
@@ -65,17 +65,19 @@ const Skillset = ({ ...props }) => {
                         draggable={false}
                         unselectable={'on'}
                     >
-                        <motion.li
-                            className={`mx-8 ${
-                                hoveredLogo === index ? 'cursor-pointer text-teal-500' : ''
-                            } ${hoveredLogo !== null && hoveredLogo !== index ? 'opacity-60' : ''}`}
-                            onMouseEnter={() => handleMouseEnter(index)}
-                            onMouseLeave={handleMouseLeave}
-                            animate={{ scale: 1 }}
-                            whileHover={{ scale: 1.1, color: '#38b2ac' }}
-                        >
-                            <logo.Icon className="text-4xl md:text-5xl" />
-                        </motion.li>
+                        <LazyMotion features={domAnimation}>
+                            <m.li
+                                className={`mx-8 ${
+                                    hoveredLogo === index ? 'cursor-pointer text-teal-500' : ''
+                                } ${hoveredLogo !== null && hoveredLogo !== index ? 'opacity-60' : ''}`}
+                                onMouseEnter={() => handleMouseEnter(index)}
+                                onMouseLeave={handleMouseLeave}
+                                animate={{ scale: 1 }}
+                                whileHover={{ scale: 1.1, color: '#38b2ac' }}
+                            >
+                                <logo.Icon className="text-4xl md:text-5xl" />
+                            </m.li>
+                        </LazyMotion>
                     </Link>
                 ))}
             </ul>

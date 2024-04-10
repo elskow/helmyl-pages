@@ -3,11 +3,12 @@
 import { useState } from 'react'
 import Image from 'next/image'
 
-const RoundBlurImage = ({ src, alt, ...props }) => {
+const BlurImageRounded = ({ src, alt, ...props }) => {
     const [isLoaded, setIsLoaded] = useState(false)
 
     return (
         <Image
+            {...props}
             src={src}
             alt={alt}
             width={500}
@@ -20,9 +21,8 @@ const RoundBlurImage = ({ src, alt, ...props }) => {
             loading={'lazy'}
             quality={100}
             draggable={false}
-            {...props}
         />
     )
 }
 
-export default RoundBlurImage
+export default BlurImageRounded

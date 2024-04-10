@@ -10,9 +10,6 @@ import remarkMath from 'remark-math'
 
 const rehypePrettyOptions = {
     theme: 'dracula-soft',
-    onVisitHighlightedLine(node) {
-        node.properties.className.push('line--highlighted')
-    },
     keepBackground: false,
 }
 
@@ -71,6 +68,7 @@ export default makeSource({
     mdx: {
         rehypePlugins: [
             [rehypeKatex, { output: 'mathml' }],
+            //@ts-ignore
             [rehypePrettyCode, rehypePrettyOptions],
             rehypeSlug,
             [

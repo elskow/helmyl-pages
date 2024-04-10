@@ -9,7 +9,7 @@ const Article = React.memo(({ body, theme }: { body: string; theme: any }) => (
         <div className="lg:w-4/5">
             <MdxRenderer code={body} />
             <div className={`pt-14  lg:pt-24`} />
-            <Comments theme={(theme as string) == 'dark' ? 'dark' : 'light'} />
+            <Comments theme={(theme as string) == 'dark' ? 'dark_dimmed' : 'light'} />
         </div>
         <div className="hidden lg:block lg:w-1/5">
             <Toc />

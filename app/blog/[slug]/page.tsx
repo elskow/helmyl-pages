@@ -1,29 +1,24 @@
 import type { Metadata } from 'next'
 import { allPosts } from 'contentlayer/generated'
-import CONFIG from '../../../../blog.config'
+import CONFIG from 'blog.config'
 import dynamic from 'next/dynamic'
 import { memo } from 'react'
 
-const Page = dynamic(() => import('./ui'))
-
+const Page = dynamic(() => import('app/blog/[slug]/blog-ui'), { ssr: false })
 const MemoizedPage = memo(Page)
 
 export async function generateStaticParams() {
-    return allPosts.map((post) => ({
-        slug: post.slug.split('/').join('%2F'),
+    return allPosts.map(({ slug }) => ({
+        slug: slug.split('/').join('%2F'),
     }))
 }
 
-export async function generateMetadata({
-    params,
-}: {
-    params: { slug: string }
-}): Promise<Metadata | undefined> {
-    const post = allPosts.find((post) => post.slug === params.slug)
+export async function generateMetadata({ params: { slug } }): Promise<Metadata | undefined> {
+    const post = allPosts.find((post) => post.slug === slug)
     if (!post) {
         return
     }
-    const { title, date: publishedTime, summary: description, slug } = post
+    const { title, date: publishedTime, summary: description } = post
 
     return {
         title,

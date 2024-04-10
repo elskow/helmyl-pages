@@ -1,5 +1,4 @@
 import { Post, allPosts } from 'contentlayer/generated'
-import PageLayout from '@/layouts/PageLayout'
 import { slug } from 'github-slugger'
 import type { Metadata } from 'next'
 import React, { lazy, useMemo } from 'react'
@@ -27,7 +26,7 @@ const Tag = ({ params }) => {
     )
 
     return (
-        <PageLayout>
+        <main>
             <ul className="mx-auto mt-5 min-h-[70vh] w-full justify-center space-y-4 lg:max-w-5xl">
                 <h1 className="mb-5 border-b border-gray-200 pb-5 text-base dark:border-gray-700 lg:text-xl">
                     {filteredPosts.length} posts tagged with{' '}
@@ -46,7 +45,7 @@ const Tag = ({ params }) => {
                     </li>
                 ))}
             </ul>
-        </PageLayout>
+        </main>
     )
 }
 
