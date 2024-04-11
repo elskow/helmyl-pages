@@ -1,7 +1,7 @@
-import { ImageResponse } from 'next/og'
 import OpenGraphImage from '@/components/OpenGraphImage/BlogsOG'
 import { loadGoogleFont } from '@/lib/load-google-font'
 import { allPosts } from 'contentlayer/generated'
+import { ImageResponse } from 'next/og'
 
 export const size = {
     width: 1200,

@@ -1,8 +1,8 @@
-import { allProjects } from 'contentlayer/generated'
-import { Metadata } from 'next'
+import ContentProjects from '@/page-module/projects/Content.projects'
 import HeaderProjects from '@/page-module/projects/Header.projects'
 import Project from '@/utils/ProjectInterface'
-import ContentProjects from '@/page-module/projects/Content.projects'
+import { allProjects } from 'contentlayer/generated'
+import { Metadata } from 'next'
 
 const projects: Record<string, Project[]> = allProjects[0].projects
 

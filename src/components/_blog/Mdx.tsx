@@ -1,9 +1,9 @@
+import Pre from '@/components/_blog/CopyBtn'
+import Image from '@/components/_blog/ImageBlogMdx'
 import type { MDXComponents } from 'mdx/types'
 import { useMDXComponent } from 'next-contentlayer/hooks'
-import Image from '@/components/_blog/ImageBlogMdx'
 import Link from 'next/link'
-import Pre from '@/components/_blog/CopyBtn'
-import React, { memo } from 'react'
+import { memo } from 'react'
 
 const CustomLink = memo((props: any) => {
     const href = props.href

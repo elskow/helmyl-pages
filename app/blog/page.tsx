@@ -1,10 +1,9 @@
-import { allPosts } from 'contentlayer/generated'
-import { Metadata } from 'next'
-import React from 'react'
+import ContentBlogs from '@/page-module/blog/Content.blogs'
 import HeaderBlogs from '@/page-module/blog/Header.blogs'
 import NotfoundBlogs from '@/page-module/blog/Notfound.blogs'
 import TagsBlogs from '@/page-module/blog/Tags.blogs'
-import ContentBlogs from '@/page-module/blog/Content.blogs'
+import { allPosts } from 'contentlayer/generated'
+import { Metadata } from 'next'
 
 export const metadata: Metadata = {
     title: 'Blog',

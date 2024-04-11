@@ -1,5 +1,5 @@
-import React from 'react'
 import dynamic from 'next/dynamic'
+import React from 'react'
 
 const PostCard = dynamic(() => import('@/components/_blog/PostCard'))
 
@@ -7,7 +7,7 @@ const MemoizedPostCard = React.memo(PostCard)
 
 const ContentBlogs = ({ posts }) => {
     return (
-        <div>
+        <div className={`space-y-4 md:space-y-8`}>
             {posts.map((post) => (
                 <ul key={post.slug} className="mt-4">
                     <MemoizedPostCard

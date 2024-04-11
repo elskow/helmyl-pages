@@ -1,16 +1,16 @@
-import React, { memo } from 'react'
-import { ChevronDownIcon } from '@radix-ui/react-icons'
-import Link from 'next/link'
 import ThemeSwitcher from '@/components/ThemeSwitcher'
 import {
     DropdownMenu,
-    DropdownMenuTrigger,
-    DropdownMenuItem,
     DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { ChevronDownIcon } from '@radix-ui/react-icons'
+import Link from 'next/link'
+import React, { memo } from 'react'
 
-import menuItems from '@/const/MenuItems'
 import { ContactHighlightNavbar, MainHighlightNavbar } from '@/components/Navbar-Items'
+import menuItems from '@/const/MenuItems'
 
 type NavbarProps = React.ComponentProps<'nav'>
 

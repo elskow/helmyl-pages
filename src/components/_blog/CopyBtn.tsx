@@ -1,7 +1,7 @@
 'use client'
 
 import { cn } from '@/lib/cn'
-import { m, LazyMotion, domAnimation } from 'framer-motion'
+import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { ReactNode, useRef, useState } from 'react'
 
 import { LuCopy, LuCopyCheck } from 'react-icons/lu'

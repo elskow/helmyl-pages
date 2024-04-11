@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { ChevronRightIcon } from '@radix-ui/react-icons'
+import Link from 'next/link'
 
 const Hero = () => {
     return (

@@ -1,6 +1,4 @@
-import { Inclusive_Sans } from 'next/font/google'
-import { Newsreader } from 'next/font/google'
-import { JetBrains_Mono } from 'next/font/google'
+import { Inclusive_Sans, JetBrains_Mono, Newsreader } from 'next/font/google'
 
 /**
  * Inclusive Sans font configuration

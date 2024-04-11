@@ -1,6 +1,6 @@
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { AiOutlineLoading } from 'react-icons/ai'
-import dynamic from 'next/dynamic'
 
 import Experiences from '@/const/Experiences'
 

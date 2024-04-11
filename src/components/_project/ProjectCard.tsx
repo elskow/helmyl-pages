@@ -1,7 +1,6 @@
 'use client'
 
-import { m, LazyMotion, domAnimation } from 'framer-motion'
-import React from 'react'
+import { domAnimation, LazyMotion, m } from 'framer-motion'
 import Link from 'next/link'
 
 import ProjectLinkIcon from '@/components/_project/ProjectLinkIcon'

@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { slug } from 'github-slugger'
+import Link from 'next/link'
 
 const ContentTags = ({ tags }) => {
     return (

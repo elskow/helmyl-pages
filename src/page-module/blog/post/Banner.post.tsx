@@ -1,6 +1,6 @@
 import BlurImage from '@/components/BlurImage'
 
-const ImageBanner = ({ image, title }) => {
+const BannerPost = ({ image, title }) => {
     return (
         <div className="h-[18rem] w-full overflow-hidden rounded-lg pb-4 transition-all duration-700 lg:h-[20rem]">
             <BlurImage src={image} alt={title} className="h-full w-full object-cover" width />
@@ -8,4 +8,4 @@ const ImageBanner = ({ image, title }) => {
     )
 }
 
-export default ImageBanner
+export default BannerPost

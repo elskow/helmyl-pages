@@ -1,11 +1,10 @@
 'use client'
 
-import { useCallback, memo } from 'react'
-import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
 import Skills from '@/const/Skills'
+import Link from 'next/link'
+import { memo, useCallback, useEffect, useRef, useState } from 'react'
 
-import { m, LazyMotion, domAnimation } from 'framer-motion'
+import { LazyMotion, domAnimation, m } from 'framer-motion'
 
 const Skillset = ({ ...props }) => {
     const scrollRef = useRef<HTMLDivElement>(null)

@@ -1,4 +1,4 @@
-import { GitHubLogoIcon, TwitterLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons'
+import { GitHubLogoIcon, LinkedInLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons'
 import { MdCallToAction } from 'react-icons/md'
 
 const socialMedias = [

@@ -44,4 +44,4 @@ const getLastPlayed = async () => {
     })
 }
 
-export { getNowPlaying, getLastPlayed }
+export { getLastPlayed, getNowPlaying }

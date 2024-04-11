@@ -1,10 +1,10 @@
 'use client'
 
+import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { useTheme } from 'next-themes'
-import { useEffect, useState, memo } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { BiSolidSun } from 'react-icons/bi'
 import { FaRegMoon } from 'react-icons/fa'
-import { m, LazyMotion, domAnimation } from 'framer-motion'
 
 const ThemeSwitcher = memo(() => {
     const [mounted, setMounted] = useState(false)

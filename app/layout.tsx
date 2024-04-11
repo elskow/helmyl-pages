@@ -2,12 +2,12 @@ import 'styles/globals.css'
 import 'styles/prism.css'
 
 import Navbar from '@/components/Navbar'
-import { inclusiveSans, newsreader, jetBrainsMono } from '@/lib/fonts'
-import { ThemeProviders } from './providers'
+import { inclusiveSans, jetBrainsMono, newsreader } from '@/lib/fonts'
 import CONFIG from 'blog.config'
+import { ThemeProviders } from './providers'
 
-import type { Metadata } from 'next'
 import Footer from '@/components/Footer'
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
     metadataBase: new URL(CONFIG.url),

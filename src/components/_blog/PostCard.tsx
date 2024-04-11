@@ -1,9 +1,9 @@
 'use client'
 
-import { m, LazyMotion, domAnimation } from 'framer-motion'
+import FormatDate from '@/components/_blog/FormatDate'
+import { LazyMotion, domAnimation, m } from 'framer-motion'
 import Link from 'next/link'
 import React from 'react'
-import FormatDate from '@/components/_blog/FormatDate'
 
 interface CardProps {
     href: string

@@ -8,7 +8,7 @@ pre [data-line] {
 }
 
 .toc-card {
-    @apply sticky top-10 pl-4 max-h-[80vh] overflow-y-scroll;
+    @apply sticky top-10 max-h-[80vh] overflow-y-scroll pl-4;
 }
 
 .toc-card::-webkit-scrollbar {
@@ -25,7 +25,7 @@ pre [data-line] {
     border-radius: 0.25rem;
     transition: background-color 0.2s;
     scroll-margin-top: 3rem;
-    @apply text-slate-800 dark:text-slate-100 font-sans font-light text-base hover:font-semibold;
+    @apply font-sans text-base font-light text-slate-800 hover:font-semibold dark:text-slate-100;
 }
 
 .is-active-link {
@@ -60,17 +60,16 @@ pre [data-line] {
     text-align: right;
 }
 
-
 [data-rehype-pretty-code-figure] > div {
-    @apply bg-zinc-800 rounded-none;
+    @apply rounded-none bg-zinc-800;
 }
 
 [data-rehype-pretty-code-figure] > div > pre {
-    @apply rounded-b-lg m-0;
+    @apply m-0 rounded-b-lg;
 }
 
 [data-rehype-pretty-code-title] {
-    @apply bg-zinc-700 text-zinc-200 font-sans font-semibold text-sm py-3 rounded-t-lg px-4 dark:bg-zinc-800 dark:text-zinc-300;
+    @apply rounded-t-lg bg-zinc-700 px-4 py-3 font-sans text-sm font-semibold text-zinc-200 dark:bg-zinc-800 dark:text-zinc-300;
 }
 
 [data-rehype-pretty-code-title] + pre {

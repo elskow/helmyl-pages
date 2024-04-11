@@ -1,5 +1,3 @@
-import React from 'react'
-
 const HeaderBlogs = () => {
     return (
         <div className="space-y-3">

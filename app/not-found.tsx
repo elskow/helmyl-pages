@@ -1,9 +1,9 @@
 'use client'
 
-import Link from 'next/link'
-import { Metadata } from 'next'
 import CONFIG from 'blog.config'
-import { m, LazyMotion, domAnimation } from 'framer-motion'
+import { LazyMotion, domAnimation, m } from 'framer-motion'
+import { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
     metadataBase: new URL(CONFIG.url),

@@ -1,11 +1,9 @@
-import type { Metadata } from 'next'
-import { allPosts } from 'contentlayer/generated'
 import CONFIG from 'blog.config'
+import { allPosts } from 'contentlayer/generated'
+import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import { memo } from 'react'
 
 const Page = dynamic(() => import('app/blog/[slug]/blog-ui'), { ssr: false })
-const MemoizedPage = memo(Page)
 
 export async function generateStaticParams() {
     return allPosts.map(({ slug }) => ({
@@ -38,4 +36,4 @@ export async function generateMetadata({ params: { slug } }): Promise<Metadata |
     }
 }
 
-export default MemoizedPage
+export default Page

@@ -1,9 +1,9 @@
+import ContentTags from '@/page-module/tags/Content.tags'
 import HeaderTags from '@/page-module/tags/Header.tags'
 import NotFoundTags from '@/page-module/tags/NotFound.tags'
-import ContentTags from '@/page-module/tags/Content.tags'
 
-import { useMemo } from 'react'
 import { allPosts } from 'contentlayer/generated'
+import { useMemo } from 'react'
 
 const posts = allPosts.filter((post) => !post.draft)
 const TagsPage = () => {

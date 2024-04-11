@@ -1,8 +1,7 @@
 'use client'
 
-import Link from 'next/link'
 import menuItems from '@/const/MenuItems'
-import React from 'react'
+import Link from 'next/link'
 
 import { usePathname } from 'next/navigation'
 
@@ -57,4 +56,4 @@ const ContactHighlightNavbar = () => {
     )
 }
 
-export { MainHighlightNavbar, ContactHighlightNavbar }
+export { ContactHighlightNavbar, MainHighlightNavbar }

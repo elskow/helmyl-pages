@@ -1,5 +1,3 @@
-import React from 'react'
-
 const NotfoundBlogs = () => {
     return (
         <div className="flex min-h-screen flex-col items-center justify-center pt-28 text-center ">

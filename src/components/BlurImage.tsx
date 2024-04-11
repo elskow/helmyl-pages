@@ -1,13 +1,13 @@
 'use client'
 
+import Image from 'next/legacy/image'
 import { useState } from 'react'
-import Image from 'next/image'
 
 const BlurImage = ({ src, alt, ...props }) => {
     const [isLoaded, setIsLoaded] = useState(false)
 
     return (
-        <div {...props.className} className={`relative h-full w-full`}>
+        <div {...props} className={`relative h-full w-full`}>
             <Image
                 src={src}
                 alt={alt}

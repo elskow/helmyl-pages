@@ -1,6 +1,6 @@
-import { ImageResponse } from 'next/og'
-import { loadGoogleFont } from '@/lib/load-google-font'
 import OpenGraphImage from '@/components/OpenGraphImage/PageOG'
+import { loadGoogleFont } from '@/lib/load-google-font'
+import { ImageResponse } from 'next/og'
 
 export const size = {
     width: 1200,
