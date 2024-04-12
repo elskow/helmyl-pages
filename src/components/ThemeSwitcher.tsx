@@ -2,11 +2,11 @@
 
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { useTheme } from 'next-themes'
-import { memo, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BiSolidSun } from 'react-icons/bi'
 import { FaRegMoon } from 'react-icons/fa'
 
-const ThemeSwitcher = memo(() => {
+const ThemeSwitcher = () => {
     const [mounted, setMounted] = useState(false)
     const { theme, setTheme } = useTheme()
 
@@ -44,7 +44,5 @@ const ThemeSwitcher = memo(() => {
             </m.button>
         </LazyMotion>
     )
-})
-ThemeSwitcher.displayName = 'ThemeSwitcher'
-
+}
 export default ThemeSwitcher

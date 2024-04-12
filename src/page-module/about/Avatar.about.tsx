@@ -1,16 +1,46 @@
-import BlurImageRounded from '@/components/BlurImage-Rounded'
+'use client'
+
+import Image from 'next/image'
 import HelmyAvatar from 'public/helmy-avatar-bw.webp'
+import { useEffect, useState } from 'react'
+
+const getBase64Image = async (imgpath: string) => {
+    const response = await fetch(imgpath)
+    const blob = await response.blob()
+    return await new Promise<string>((resolve) => {
+        const reader = new FileReader()
+        reader.readAsDataURL(blob)
+        reader.onloadend = () => {
+            resolve(reader.result as string)
+        }
+    })
+}
 
 const AvatarAbout = () => {
+    const [isLoaded, setIsLoaded] = useState(false)
+    const [placeholder, setPlaceholder] = useState('')
+
+    useEffect(() => {
+        getBase64Image(HelmyAvatar.src).then((data) => {
+            setPlaceholder(data)
+        })
+    }, [])
+
     return (
         <div className="lg:pl-32">
             <div className="max-w-xs px-2.5 lg:max-w-none">
-                <BlurImageRounded
-                    src={HelmyAvatar.src}
+                <Image
+                    src={HelmyAvatar}
                     alt="Profile Picture"
-                    className="aspect-square rotate-2 rounded-2xl object-cover shadow-lg shadow-emerald-950 blur-0 drop-shadow-2xl backdrop-contrast-200 transition duration-1000 dark:shadow-2xl dark:shadow-teal-900 dark:drop-shadow-2xl dark:backdrop-contrast-200"
-                    blurDataURL={HelmyAvatar.blurDataURL}
+                    width={500}
+                    height={500}
+                    className={`aspect-square rotate-2 rounded-2xl transition duration-1000 ${isLoaded ? 'scale-100 blur-0 grayscale-0 shadow-lg shadow-emerald-950 drop-shadow-2xl dark:shadow-teal-900 dark:drop-shadow-2xl dark:backdrop-contrast-200 dark:shadow-2xl object-cover backdrop-contrast-200' : 'scale-105 blur-lg'}`}
+                    draggable={false}
+                    onLoad={() => setIsLoaded(true)}
                     placeholder="blur"
+                    blurDataURL={placeholder}
+                    loading={'lazy'}
+                    quality={100}
                 />
             </div>
         </div>
