@@ -1,30 +1,42 @@
-import { MetadataRoute } from 'next'
+import { allPosts } from 'contentlayer/generated'
+import { slug } from 'github-slugger'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-    return [
-        {
-            url: 'https://helmyl.com/',
-            lastModified: new Date(),
-            changeFrequency: 'daily',
-            priority: 1,
-        },
-        {
-            url: 'https://helmyl.com/blog',
-            lastModified: new Date(),
-            changeFrequency: 'daily',
-            priority: 0.8,
-        },
-        {
-            url: 'https://helmyl.com/projects',
-            lastModified: new Date(),
-            changeFrequency: 'daily',
-            priority: 0.8,
-        },
-        {
-            url: 'https://helmyl.com/about',
-            lastModified: new Date(),
-            changeFrequency: 'daily',
-            priority: 0.8,
-        },
+type SitemapEntry = {
+    url: string
+    lastModified: Date | string
+    changeFrequency: string
+    priority: number
+}
+
+function createSitemapEntry(
+    url: string,
+    lastModified: Date | string,
+    changeFrequency: string,
+    priority: number
+): SitemapEntry {
+    return {
+        url,
+        lastModified,
+        changeFrequency,
+        priority,
+    }
+}
+
+function createPostEntries(posts: any[]): SitemapEntry[] {
+    return posts.map((post) =>
+        createSitemapEntry(`https://helmyl.com/blog/${slug(post.slug)}`, post.date, 'daily', 1)
+    )
+}
+
+export default function sitemap(): Promise<SitemapEntry[]> {
+    const postsEntries = createPostEntries(allPosts)
+
+    const staticEntries: SitemapEntry[] = [
+        createSitemapEntry('https://helmyl.com/', new Date(), 'daily', 1),
+        createSitemapEntry('https://helmyl.com/blog', new Date(), 'daily', 0.8),
+        createSitemapEntry('https://helmyl.com/projects', new Date(), 'daily', 0.8),
+        createSitemapEntry('https://helmyl.com/about', new Date(), 'daily', 0.8),
     ]
+
+    return Promise.resolve([...staticEntries, ...postsEntries])
 }
