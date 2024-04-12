@@ -4,8 +4,9 @@ import { useEffect, useState } from 'react'
 
 const Images = ({ src, alt }) => {
     const [isLoaded, setIsLoaded] = useState(false)
-    const srcSet = '/blog/' + src
     const controls = useAnimation()
+
+    const srcSet = '/blog/' + src
 
     useEffect(() => {
         if (isLoaded) {
@@ -34,6 +35,7 @@ const Images = ({ src, alt }) => {
                                 width={800}
                                 height={800}
                                 loading="lazy"
+                                quality={100}
                             />
                         </m.div>
                     </LazyMotion>

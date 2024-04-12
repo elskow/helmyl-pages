@@ -1,9 +1,9 @@
-import { FaSpotify } from 'react-icons/fa'
+import getLastPlayedSong from '@/hook/last-played-spotify'
+import getCurrentSong from '@/hook/now-playing-spotify'
+import { revalidatePath } from 'next/cache'
 import Image from 'next/image'
 import Link from 'next/link'
-import getLastPlayedSong from '@/server-action/last-played-spotify'
-import getCurrentSong from '@/server-action/now-playing-spotify'
-import { revalidatePath } from 'next/cache'
+import { FaSpotify } from 'react-icons/fa'
 
 export default async function SpotifyNowPlaying({ ...props }) {
     revalidatePath('/about', 'page')

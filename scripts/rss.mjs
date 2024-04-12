@@ -1,19 +1,18 @@
 import fs from 'fs'
 import RSS from 'rss'
 import { allPosts } from '../.contentlayer/generated/index.mjs'
-import CONFIG from '../blog.config.js'
 
-const site_url = process.env.NODE_ENV === 'production' ? CONFIG.url : 'http://localhost:3000'
+const site_url = process.env.NODE_ENV === 'production' ? 'https://helmyl.com' : 'http://localhost:3000'
 
 const currentDate = new Date()
 
 const feedOptions = {
-    title: CONFIG.title,
-    description: CONFIG.siteDescription,
+    title: 'Helmy Luqmanulhakim',
+    description: 'A personal website.',
     site_url: site_url,
     feed_url: `${site_url}/rss.xml`,
     pubDate: currentDate,
-    copyright: `All rights reserved ${currentDate.getFullYear()} ${CONFIG.author}`,
+    copyright: `All rights reserved ${currentDate.getFullYear()} Helmy Luqmanulhakim`,
 }
 
 const feed = new RSS(feedOptions)

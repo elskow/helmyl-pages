@@ -3,20 +3,9 @@
 import { domAnimation, LazyMotion, m } from 'framer-motion'
 import Link from 'next/link'
 
+import ImageProjectMdx from '@/components/_project/ImageProjectMdx'
 import ProjectLinkIcon from '@/components/_project/ProjectLinkIcon'
 import TechStack from '@/components/_project/TechStackBadge'
-import BlurImage from '@/components/BlurImage'
-
-interface ProjectProps {
-    href: string
-    link_text: string
-    title: string
-    description: string
-    tech?: string
-    date?: string
-    image: string
-    index: number
-}
 
 const ProjectCard = ({
     title,
@@ -28,12 +17,11 @@ const ProjectCard = ({
     link_text,
     index,
     ...props
-}: ProjectProps) => {
+}) => {
     const cardVariants = {
-        hidden: { opacity: 0, scale: 0.95 },
+        hidden: { opacity: 0 },
         visible: {
             opacity: 1,
-            scale: 1,
             transition: {
                 type: 'spring',
                 stiffness: 50,
@@ -43,7 +31,7 @@ const ProjectCard = ({
             },
         },
         hover: {
-            scale: 1.01,
+            boxShadow: '0px 0px 10px 0px rgba(0, 0, 0, 0.1)',
             transition: {
                 type: 'spring',
                 stiffness: 100,
@@ -64,18 +52,14 @@ const ProjectCard = ({
         >
             <LazyMotion features={domAnimation}>
                 <m.li
-                    className="group relative flex h-[500px] w-[300px] select-none flex-col items-start rounded-lg border border-transparent bg-white bg-opacity-20 shadow-lg hover:bg-opacity-10 hover:shadow-xl dark:border-gray-700 dark:bg-slate-800 dark:bg-opacity-60 dark:hover:bg-gray-900 dark:hover:shadow-xl"
+                    className="group relative flex h-[500px] w-[300px] select-none flex-col items-start rounded-lg border border-transparent bg-white bg-opacity-20 hover:bg-opacity-10 dark:border-gray-700 dark:bg-slate-800 dark:bg-opacity-60 dark:hover:bg-gray-900 border-gray-300"
                     variants={cardVariants}
                     initial="hidden"
                     animate="visible"
                     whileHover="hover"
                 >
                     <div className="relative h-[250px] w-full">
-                        <BlurImage
-                            src={image}
-                            alt={description}
-                            className="absolute h-full w-full"
-                        />
+                        <ImageProjectMdx src={image} alt={description} />
                     </div>
                     <div className="flex flex-grow flex-col p-6">
                         <p className="mt-2 text-xs font-semibold text-zinc-700 dark:text-zinc-300">

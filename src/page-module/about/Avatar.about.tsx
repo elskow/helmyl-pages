@@ -1,20 +1,9 @@
 'use client'
 
+import getBase64Image from '@/hook/get-base64-image'
 import Image from 'next/image'
 import HelmyAvatar from 'public/helmy-avatar-bw.webp'
 import { useEffect, useState } from 'react'
-
-const getBase64Image = async (imgpath: string) => {
-    const response = await fetch(imgpath)
-    const blob = await response.blob()
-    return await new Promise<string>((resolve) => {
-        const reader = new FileReader()
-        reader.readAsDataURL(blob)
-        reader.onloadend = () => {
-            resolve(reader.result as string)
-        }
-    })
-}
 
 const AvatarAbout = () => {
     const [isLoaded, setIsLoaded] = useState(false)

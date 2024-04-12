@@ -1,19 +1,18 @@
 'use client'
 
-import CONFIG from 'blog.config'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-    metadataBase: new URL(CONFIG.url),
-    title: `404 | ${CONFIG.title}`,
-    description: CONFIG.siteDescription,
+    metadataBase: new URL(`https://helmyl.com`),
+    title: `404 | Helmy Luqmanulhakim`,
+    description: 'Page not found',
     openGraph: {
-        title: CONFIG.title,
-        description: CONFIG.siteDescription,
-        url: CONFIG.url,
-        locale: CONFIG.lang,
+        title: '404 | Helmy Luqmanulhakim',
+        description: 'Page not found',
+        url: 'https://helmyl.com',
+        locale: 'en_US',
         type: 'website',
     },
 }

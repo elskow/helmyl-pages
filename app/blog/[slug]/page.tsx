@@ -1,4 +1,3 @@
-import CONFIG from 'blog.config'
 import { allPosts } from 'contentlayer/generated'
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
@@ -26,7 +25,7 @@ export async function generateMetadata({ params: { slug } }): Promise<Metadata |
             description,
             type: 'article',
             publishedTime,
-            url: `${CONFIG.url}/blog/${slug}`,
+            url: `https://helmyl.com/blog/${slug}`,
         },
         twitter: {
             title,

@@ -3,7 +3,6 @@ import 'styles/prism.css'
 
 import Navbar from '@/components/Navbar'
 import { inclusiveSans, jetBrainsMono, newsreader } from '@/lib/fonts'
-import CONFIG from 'blog.config'
 import { ThemeProviders } from './providers'
 
 import Footer from '@/components/Footer'
@@ -11,17 +10,17 @@ import ProgressbarProvider from '@/components/Progressbar-Provider'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    metadataBase: new URL(CONFIG.url),
+    metadataBase: new URL(`https://helmyl.com`),
     title: {
-        default: CONFIG.title,
-        template: `%s | ${CONFIG.title}`,
+        default: 'Helmy Luqmanulhakim',
+        template: `%s | Helmy Luqmanulhakim`,
     },
-    description: CONFIG.siteDescription,
+    description: 'A personal website.',
     openGraph: {
-        title: CONFIG.title,
-        description: CONFIG.siteDescription,
-        url: CONFIG.url,
-        locale: CONFIG.lang,
+        title: 'Helmy Luqmanulhakim',
+        description: 'A personal website.',
+        url: 'https://helmyl.com',
+        locale: 'en_US',
         type: 'website',
     },
 }
@@ -30,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html
             className={`${inclusiveSans.variable} ${newsreader.variable} ${jetBrainsMono.variable} font-sans`}
-            lang={CONFIG.lang}
+            lang={`en_US`}
             suppressHydrationWarning
         >
             <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png" />

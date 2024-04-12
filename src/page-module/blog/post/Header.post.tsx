@@ -8,7 +8,7 @@ const HeaderPost = ({ post, controls }) => {
     return (
         <LazyMotion features={domAnimation}>
             <div className="space-y-4 pb-5">
-                {post.banner && <BannerPost image={post.banner} title={post.title} />}
+                {post.banner && <BannerPost src={post.banner} alt={post.title} />}
                 <m.h1
                     className="font-newsreader text-4xl font-bold text-primary dark:text-primary"
                     animate={controls}
