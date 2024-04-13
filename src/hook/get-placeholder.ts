@@ -1,6 +1,6 @@
 'use server'
 
-import fs from 'fs'
+import fs from 'node:fs/promises'
 import { getPlaiceholder } from 'plaiceholder'
 
 const getPlaceholder = async (imageUrl: string) => {
@@ -18,11 +18,11 @@ const getPlaceholder = async (imageUrl: string) => {
      * const base64 = await getPlaceholder(imageUrl)
      */
     
-    const { base64 } = await getPlaiceholder(
-        imageUrl.startsWith('http')
-            ? await fetch(imageUrl).then(async (res) => Buffer.from(await res.arrayBuffer()))
-            : fs.readFileSync(`./public${imageUrl}`)
-    )
+    const imageBuffer = imageUrl.startsWith('http')
+        ? await fetch(imageUrl).then(async (res) => Buffer.from(await res.arrayBuffer()))
+        : await fs.readFile(`./public${imageUrl}`)
+
+    const { base64 } = await getPlaiceholder(imageBuffer)
 
     return base64
 }
