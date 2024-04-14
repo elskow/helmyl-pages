@@ -2,7 +2,8 @@ import fs from 'fs'
 import RSS from 'rss'
 import { allPosts } from '../.contentlayer/generated/index.mjs'
 
-const site_url = process.env.NODE_ENV === 'production' ? 'https://helmyl.com' : 'http://localhost:3000'
+const site_url =
+    process.env.NODE_ENV === 'production' ? 'https://helmyl.com' : 'http://localhost:3000'
 
 const currentDate = new Date()
 

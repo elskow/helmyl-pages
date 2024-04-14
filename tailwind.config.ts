@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+
 require('tailwindcss/defaultTheme')
 const svgToDataUri = require('mini-svg-data-uri')
 require('tailwindcss/colors')
@@ -21,7 +22,7 @@ const config = {
         './pages/**/*.{ts,tsx}',
         './components/**/*.{ts,tsx}',
         './app/**/*.{ts,tsx}',
-        './src/**/*.{ts,tsx}',
+        './modules/**/*.{ts,tsx}',
     ],
     prefix: '',
     theme: {

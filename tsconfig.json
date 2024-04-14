@@ -17,7 +17,7 @@
         "jsx": "preserve",
         "baseUrl": ".",
         "paths": {
-            "@/*": ["./src/*"],
+            "@/*": ["./modules/*"],
             "contentlayer/generated": ["./.contentlayer/generated"],
             "styles/*": ["./styles/*"],
             "public/*": ["./public/*"]
@@ -36,7 +36,7 @@
         "**/*.ts",
         "**/*.tsx",
         "**/*.json",
-        "src/components/_blog/Comments.jsx",
+        "modules/components/_blog/Comments.jsx",
         ".contentlayer/generated",
         ".contentlayer/generated/**/*.json",
         ".next/types/**/*.ts"
