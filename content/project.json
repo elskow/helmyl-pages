@@ -1,3 +1,91 @@
 {
-  "projects": []
+  "projects": [
+    {
+      "name": "Code Plagiarism Detector",
+      "description": "Backend service for detecting code plagiarism. The service uses a combination of lexical and semantic analysis to detect similarities between code snippets.",
+      "link": "https://github.com/elskow/cpp-plagiarism-detector",
+      "stacks": [
+        "Pygments",
+        "NLTK",
+        "FastAPI"
+      ],
+      "image": "/projects/Code Plagiarism Detector/image.png",
+      "date": 2023
+    },
+    {
+      "name": "OCR for Plate Numbers",
+      "description": "Training a model to recognize plate numbers from images. The model is trained using TROCR and be managed using ML-Ops tools such as Weights & Biases (Wandb).",
+      "link": "https://github.com/elskow/satria_data",
+      "stacks": [
+        "TROCR",
+        "OpenCV",
+        "Wandb"
+      ],
+      "image": "/projects/OCR for Plate Numbers/image.png",
+      "date": 2023
+    },
+    {
+      "name": "Helmyl.com",
+      "description": "My personal website built using Next.Js and Tailwind CSS. The site is optimized for performance and SEO.",
+      "link": "https://helmyl.com",
+      "stacks": [
+        "Next.Js",
+        "Shadcn",
+        "FramerMotion",
+        "Hyper & Remark",
+        "Umami-Analytics"
+      ],
+      "image": "/projects/Helmyl.com/image.png",
+      "date": 2024
+    },
+    {
+      "name": "Digit Recognizer from Scratch",
+      "description": "Applying Neural Networks to recognize handwritten digits. The model is trained from scratch using Pytorch and NumPy.",
+      "link": "https://github.com/elskow/DigitRecognizerFromScratch",
+      "stacks": [
+        "Flask",
+        "Pytorch",
+        "Next.js",
+        "Tailwind CSS"
+      ],
+      "image": "/projects/Digit Recognizer from Scratch/image.png",
+      "date": 2023
+    },
+    {
+      "name": "Nesa-Judge",
+      "description": "Online Judge system for basic programming assignments, built on top of DOMjudge. The system is containerized using Docker.",
+      "link": "https://hub.docker.com/r/elskow/domserver-rpl",
+      "stacks": [
+        "Symfony",
+        "Docker",
+        "MariaDB"
+      ],
+      "image": "/projects/Nesa-Judge/image.png",
+      "date": 2023
+    },
+    {
+      "name": "BFS Maze Solver",
+      "description": "A maze solver using Breadth-First Search (BFS) algorithm. The solver is implemented in Python and uses PyQT5 for visualization.",
+      "link": "https://github.com/elskow/BFSMazeSolver",
+      "stacks": [
+        "OpenCV",
+        "PyQT5"
+      ],
+      "image": "/projects/BFS Maze Solver/image.png",
+      "date": 2023
+    },
+    {
+      "name": "PinjamLab",
+      "description": "A simple web app for borrowing and lending lab equipment. The app is built using Next.Js and TRPC for the backend.",
+      "link": "https://pinjamlab.vercel.app/",
+      "stacks": [
+        "Next.Js",
+        "Tailwind CSS",
+        "TRPC",
+        "Prisma"
+      ],
+      "image": "/projects/PinjamLab/image.png",
+      "date": 2023
+    }
+  ]
 }

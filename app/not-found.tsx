@@ -1,5 +1,6 @@
 'use client'
 
+import PageLayout from '@/layouts/PageLayout'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { Metadata } from 'next'
 import Link from 'next/link'
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
 
 const NotFound = () => {
     return (
-        <div className="flex min-h-[80vh] flex-col items-center justify-center pt-2 text-center lg:min-h-[75vh]">
+        <PageLayout className="flex min-h-[80vh] flex-col items-center justify-center pt-2 text-center lg:min-h-[75vh]">
             <LazyMotion features={domAnimation}>
                 <m.h1
                     className="mb-4 text-3xl font-bold text-neutral-900 dark:text-neutral-100 lg:text-6xl"
@@ -38,7 +39,7 @@ const NotFound = () => {
                     </Link>
                 </button>
             </LazyMotion>
-        </div>
+        </PageLayout>
     )
 }
 

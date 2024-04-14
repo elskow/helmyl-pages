@@ -22,7 +22,6 @@ export const Post = defineDocumentType(() => ({
         date: { type: 'string', required: true },
         summary: { type: 'string', required: true },
         draft: { type: 'boolean', required: true },
-        lastUpdate: { type: 'date', required: false },
         banner: { type: 'string', required: false },
         tags: {
             type: 'list',
@@ -54,17 +53,9 @@ export const Post = defineDocumentType(() => ({
     },
 }))
 
-export const Projects = defineDocumentType(() => ({
-    name: 'Projects',
-    filePathPattern: 'projects.mdx',
-    fields: {
-        projects: { type: 'json', required: true },
-    },
-}))
-
 export default makeSource({
     contentDirPath: 'content',
-    documentTypes: [Post, Projects],
+    documentTypes: [Post],
     mdx: {
         rehypePlugins: [
             [rehypeKatex, { output: 'mathml' }],
