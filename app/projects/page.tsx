@@ -1,8 +1,12 @@
 import PageLayout from '@/layouts/PageLayout'
-import ContentProjects from '@/page-module/projects/Content.projects'
 import HeaderProjects from '@/page-module/projects/Header.projects'
 import project from 'content/project.json'
 import { Metadata } from 'next'
+import dynamic from 'next/dynamic'
+
+const ContentProjects = dynamic(() => import('@/page-module/projects/Content.projects'), {
+    ssr: false,
+})
 
 const projects = project.projects
 export const metadata: Metadata = {

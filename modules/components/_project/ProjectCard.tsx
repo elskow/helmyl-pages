@@ -42,7 +42,7 @@ const ProjectCard = ({ title, description, image, href, tech, date, index, ...pr
         >
             <LazyMotion features={domAnimation}>
                 <m.li
-                    className="group relative flex h-[500px] w-[300px] select-none flex-col items-start rounded-lg border border-transparent bg-white bg-opacity-20 hover:bg-opacity-10 dark:border-gray-700 dark:bg-slate-800 dark:bg-opacity-60 dark:hover:bg-gray-900 border-gray-400 border-opacity-20"
+                    className="group relative flex h-[500px] w-[300px] select-none flex-col items-start rounded-lg border border-transparent bg-white bg-opacity-20 hover:bg-opacity-10 dark:border-gray-700 dark:bg-slate-800 dark:bg-opacity-60 dark:hover:bg-gray-900 border-gray-500 border-opacity-20"
                     variants={cardVariants}
                     initial="hidden"
                     animate="visible"

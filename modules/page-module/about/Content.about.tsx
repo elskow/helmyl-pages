@@ -1,28 +1,19 @@
+import LoadingAnimation from '@/components/LoadingAnimation'
+import Experiences from '@/const/Experiences'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { AiOutlineLoading } from 'react-icons/ai'
-
-import Experiences from '@/const/Experiences'
-
-const Loading = () => {
-    return (
-        <div className="flex h-32 items-center justify-center">
-            <AiOutlineLoading className="h-10 w-10 animate-spin text-teal-600 dark:text-teal-500" />
-        </div>
-    )
-}
 
 const Skillset = dynamic(() => import('@/components/_about/Skillset'), {
     ssr: false,
-    loading: Loading,
+    loading: LoadingAnimation,
 })
 const WorkExperiences = dynamic(() => import('@/components/_about/WorkExperiences'), {
     ssr: false,
-    loading: Loading,
+    loading: LoadingAnimation,
 })
 const SpotifyNowPlaying = dynamic(() => import('@/components/_about/SpotifyNowPlaying'), {
     ssr: false,
-    loading: Loading,
+    loading: LoadingAnimation,
 })
 
 const ContentAbout = () => {
