@@ -7,16 +7,19 @@ import { BiSolidSun } from 'react-icons/bi'
 import { FaRegMoon } from 'react-icons/fa'
 
 const ThemeSwitcher = () => {
-    const [mounted, setMounted] = useState(false)
     const { theme, setTheme } = useTheme()
+    // @ts-ignore
+    const [icon, setIcon] = useState(FaRegMoon)
 
     useEffect(() => {
-        setMounted(true)
-    }, [])
-
-    if (!mounted) {
-        return null
-    }
+        if (theme === 'dark') {
+            // @ts-ignore
+            setIcon(<BiSolidSun className="theme-icon" />)
+        } else {
+            // @ts-ignore
+            setIcon(<FaRegMoon className="theme-icon" />)
+        }
+    }, [theme])
 
     const iconVariants = {
         dark: { rotate: 360 },
@@ -32,15 +35,7 @@ const ThemeSwitcher = () => {
                 initial={false}
                 animate={theme}
             >
-                {theme === 'dark' ? (
-                    <m.div variants={iconVariants}>
-                        <BiSolidSun className="theme-icon" />
-                    </m.div>
-                ) : (
-                    <m.div variants={iconVariants}>
-                        <FaRegMoon className="theme-icon" />
-                    </m.div>
-                )}
+                {icon}
             </m.button>
         </LazyMotion>
     )

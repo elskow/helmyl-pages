@@ -8,6 +8,7 @@ const PageLayout = ({ children, className }) => {
                 <Navbar
                     className={`mx-auto flex select-none items-center justify-between py-4 pt-6 md:pt-8 lg:max-w-5xl lg:pt-14`}
                 />
+
                 <section className={`${className}`}>{children}</section>
                 <Footer className="mx-auto pb-6 pt-6 lg:max-w-5xl lg:pb-12 lg:pt-14" />
             </div>

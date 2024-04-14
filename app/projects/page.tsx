@@ -8,7 +8,8 @@ const ContentProjects = dynamic(() => import('@/page-module/projects/Content.pro
     ssr: false,
 })
 
-const projects = project.projects
+const projects = project.projects.sort((a, b) => b.date - a.date)
+
 export const metadata: Metadata = {
     title: 'Projects',
     description: 'A list of all projects I have worked on',
