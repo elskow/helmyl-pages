@@ -7,17 +7,7 @@ import ImageProjectMdx from '@/components/_project/ImageProjectMdx'
 import ProjectLinkIcon from '@/components/_project/ProjectLinkIcon'
 import TechStack from '@/components/_project/TechStackBadge'
 
-const ProjectCard = ({
-    title,
-    description,
-    image,
-    href,
-    tech,
-    date,
-    link_text,
-    index,
-    ...props
-}) => {
+const ProjectCard = ({ title, description, image, href, tech, date, index, ...props }) => {
     const cardVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -52,7 +42,7 @@ const ProjectCard = ({
         >
             <LazyMotion features={domAnimation}>
                 <m.li
-                    className="group relative flex h-[500px] w-[300px] select-none flex-col items-start rounded-lg border border-transparent bg-white bg-opacity-20 hover:bg-opacity-10 dark:border-gray-700 dark:bg-slate-800 dark:bg-opacity-60 dark:hover:bg-gray-900 border-gray-300"
+                    className="group relative flex h-[500px] w-[300px] select-none flex-col items-start rounded-lg border border-transparent bg-white bg-opacity-20 hover:bg-opacity-10 dark:border-gray-700 dark:bg-slate-800 dark:bg-opacity-60 dark:hover:bg-gray-900 border-gray-400 border-opacity-20"
                     variants={cardVariants}
                     initial="hidden"
                     animate="visible"
@@ -74,7 +64,6 @@ const ProjectCard = ({
                         {tech && <TechStack tech={tech} />}
                         <p className="mt-6 flex items-center text-sm font-medium text-zinc-800 transition dark:text-zinc-50">
                             <ProjectLinkIcon />
-                            <span className="ml-2">{link_text}</span>
                         </p>
                     </div>
                 </m.li>

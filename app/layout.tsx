@@ -1,11 +1,9 @@
 import 'styles/globals.css'
 import 'styles/prism.css'
 
-import Navbar from '@/components/Navbar'
 import { inclusiveSans, jetBrainsMono, newsreader } from '@/lib/fonts'
 import { ThemeProviders } from './providers'
 
-import Footer from '@/components/Footer'
 import ProgressbarProvider from '@/components/Progressbar-Provider'
 import type { Metadata } from 'next'
 
@@ -60,22 +58,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 src="https://us.umami.is/script.js"
                 data-website-id="80b9e23d-c5ef-463d-9f8a-fca203abdc5a"
             />
-            <body className="min-h-screen bg-gradient-to-tr from-green-50 to-neutral-200 dark:bg-gradient-to-tr dark:from-gray-800 dark:to-gray-800">
+            <body suppressHydrationWarning>
                 <ThemeProviders>
-                    <ProgressbarProvider>
-                        <div>
-                            <div
-                                className="z-10 min-h-screen px-4 sm:px-8 lg:py-2"
-                                style={{ position: 'relative', zIndex: '20' }}
-                            >
-                                <Navbar
-                                    className={`mx-auto flex select-none items-center justify-between py-4 pt-6 md:pt-8 lg:max-w-5xl lg:pt-14`}
-                                />
-                                {children}
-                                <Footer className="mx-auto pb-6 pt-6 lg:max-w-5xl lg:pb-12 lg:pt-14" />
-                            </div>
-                        </div>
-                    </ProgressbarProvider>
+                    <ProgressbarProvider>{children}</ProgressbarProvider>
                 </ThemeProviders>
             </body>
         </html>

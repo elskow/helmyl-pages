@@ -2,13 +2,12 @@
 title: 'Instalasi Apache Hadoop dalam 3 Langkah'
 date: 2024-04-02
 tags:
-    - Big Data
-    - Hadoop
-    - Single Node Cluster
-    - Shell Script
+- Big Data
+- Hadoop
+- Single Node Cluster
+- Shell Script
 summary: Panduan termudah untuk menginstal dan mengkonfigurasi Apache Hadoop dengan skrip shell otomatis. Dengan tampilan web Hadoop yang benar-benar berfungsi.
 draft: false
-lastUpdate: 2024-04-02
 ---
 
 # Sekilas Tentang Apache Hadoop
@@ -131,11 +130,11 @@ Pertama, kita akan membuat folder user di HDFS untuk menyimpan file input dan ou
 1. Buka tampilan web Hadoop di `http://{ip_address}:9870`.
 2. Klik pada tab **Utilities** di bagian atas halaman.
 3. Pilih **Browse the file system**.
-   ![Browse File System](images/Hadoop-Tutor/hdfs-util-location.png)
+![Browse File System](images/Hadoop-Tutor/hdfs-util-location.png)
 4. Untuk membuat folder baru, klik icon **Create** di samping tombol **Go**.
-   ![Create Folder](images/Hadoop-Tutor/create-folder-location.png)
+![Create Folder](images/Hadoop-Tutor/create-folder-location.png)
 5. Masukkan nama folder bernama `user` dan klik **Create**.
-   ![Create User Folder](images/Hadoop-Tutor/mkdir-user.png)
+![Create User Folder](images/Hadoop-Tutor/mkdir-user.png)
 6. Klik folder `user` yang baru dibuat.
 7. Klik icon **Create** untuk membuat folder baru di dalam folder `user`.
 8. Masukkan nama folder baru bernama `hadoop` dan klik **Create**.
@@ -146,7 +145,7 @@ Untuk menguji program WordCount, kita akan menggunakan file teks sederhana sebag
 
 1. Unduh file `alice_in_wonderland.txt` di komputer lokal Anda.
 2. Unggah file `alice_in_wonderland.txt` ke folder `user/hadoop` di HDFS menggunakan tampilan web Hadoop.
-   ![Upload File](images/Hadoop-Tutor/add-input-data.png)
+![Upload File](images/Hadoop-Tutor/add-input-data.png)
 
 ## Langkah 3: Menjalankan Program WordCount
 
@@ -170,9 +169,9 @@ Setelah program WordCount selesai dijalankan, Anda dapat melihat hasilnya di fol
 2. Klik pada tab **Utilities** di bagian atas halaman.
 3. Pilih **Browse the file system**.
 4. Klik folder `user` -> `hadoop` -> `output` untuk melihat hasil WordCount.
-   ![View WordCount Output](images/Hadoop-Tutor/view-output.png)
+![View WordCount Output](images/Hadoop-Tutor/view-output.png)
 5. Klik pada file `part-r-00000` untuk melihat hasil WordCount. Anda dapat mengunduh file ini untuk melihat hasil secara lebih detail, atau melihatnya langsung di tampilan web.
-   ![View WordCount Result](images/Hadoop-Tutor/view-result.png)
+![View WordCount Result](images/Hadoop-Tutor/view-result.png)
 
 Anda telah berhasil menjalankan program WordCount menggunakan Hadoop dan melihat hasilnya. Program WordCount adalah contoh sederhana dari penggunaan Hadoop untuk memproses data besar menggunakan pemrograman MapReduce.
 
