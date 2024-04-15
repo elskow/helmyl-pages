@@ -1,6 +1,5 @@
 'use client'
 
-import PageLayout from '@/layouts/PageLayout'
 import ContentPost from '@/page-module/blog/post/Content.post'
 import HeaderPost from '@/page-module/blog/post/Header.post'
 import { allPosts } from 'contentlayer/generated'
@@ -30,10 +29,10 @@ const Page = ({ params }: { params: { slug: string } }) => {
     if (!post) return notFound()
 
     return (
-        <PageLayout className="mx-auto min-h-screen pb-16 pt-10 lg:max-w-5xl lg:pt-14">
+        <>
             <HeaderPost post={post} controls={controls} />
             <ContentPost body={post.body.code} theme={theme} controls={controls} />
-        </PageLayout>
+        </>
     )
 }
 

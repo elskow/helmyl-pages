@@ -1,4 +1,3 @@
-import PageLayout from '@/layouts/PageLayout'
 import ContentBlogs from '@/page-module/blog/Content.blogs'
 import HeaderBlogs from '@/page-module/blog/Header.blogs'
 import NotfoundBlogs from '@/page-module/blog/Notfound.blogs'
@@ -22,11 +21,11 @@ const Blog = () => {
     }
 
     return (
-        <PageLayout className="mx-auto mb-10 mt-6 min-h-screen w-full justify-center space-y-8 md:mt-10 lg:max-w-5xl">
+        <>
             <HeaderBlogs />
             <TagsBlogs tags={tags} />
             <ContentBlogs posts={posts} />
-        </PageLayout>
+        </>
     )
 }
 

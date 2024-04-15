@@ -3,14 +3,38 @@ import readingTime from 'reading-time'
 
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeKatex from 'rehype-katex'
+import rehypePresetMinify from 'rehype-preset-minify'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 
+/** @type {import('rehype-pretty-code'.Options} */
 const rehypePrettyOptions = {
     theme: 'dracula-soft',
-    keepBackground: false,
+    keepBackground: true,
+}
+
+const computedFields: any = {
+    readingTime: {
+        type: 'json',
+        resolve: (post: any) => readingTime(post.body.raw),
+    },
+    slug: {
+        type: 'string',
+        resolve: (post) => {
+            const parts = post._raw.flattenedPath.split('/')
+            return parts[parts.length - 1]
+        },
+    },
+    url: {
+        type: 'string',
+        resolve: (post) => {
+            const parts = post._raw.flattenedPath.split('/')
+            const slug = parts[parts.length - 1]
+            return `/blog/${slug}`
+        },
+    },
 }
 
 export const Post = defineDocumentType(() => ({
@@ -30,27 +54,7 @@ export const Post = defineDocumentType(() => ({
             default: [],
         },
     },
-    computedFields: {
-        readingTime: {
-            type: 'json',
-            resolve: (post) => readingTime(post.body.raw),
-        },
-        slug: {
-            type: 'string',
-            resolve: (post) => {
-                const parts = post._raw.flattenedPath.split('/')
-                return parts[parts.length - 1]
-            },
-        },
-        url: {
-            type: 'string',
-            resolve: (post) => {
-                const parts = post._raw.flattenedPath.split('/')
-                const slug = parts[parts.length - 1]
-                return `/blog/${slug}`
-            },
-        },
-    },
+    computedFields,
 }))
 
 export default makeSource({
@@ -70,6 +74,8 @@ export default makeSource({
                     },
                 },
             ],
+            // @ts-ignore
+            rehypePresetMinify,
         ],
         remarkPlugins: [remarkGfm, remarkMath],
     },
