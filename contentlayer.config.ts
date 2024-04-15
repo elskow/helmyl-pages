@@ -59,6 +59,7 @@ export const Post = defineDocumentType(() => ({
 
 export default makeSource({
     contentDirPath: 'content',
+    contentDirExclude: ['project.json'],
     documentTypes: [Post],
     mdx: {
         rehypePlugins: [

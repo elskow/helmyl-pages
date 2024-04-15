@@ -12,11 +12,15 @@ const BannerPost = ({ src, alt }) => {
                     alt={alt}
                     layout={'fill'}
                     objectFit="cover"
-                    className={`duration-1000 ease-in-out ${isLoaded ? 'scale-100 blur-0 grayscale-0' : 'scale-105 blur-lg grayscale-[100%]'})`}
+                    className={`duration-1000 ease-in-out ${isLoaded ? 'blur-0 grayscale-0 opacity-100' : 'blur-lg grayscale-[100%] opacity-0'})`}
                     onLoad={() => setIsLoaded(true)}
                     loading={'lazy'}
                     quality={100}
                     draggable={false}
+                    placeholder={'blur'}
+                    blurDataURL={
+                        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/l'
+                    }
                 />
             </div>
         </div>
