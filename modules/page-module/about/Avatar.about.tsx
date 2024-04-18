@@ -16,7 +16,7 @@ const AvatarAbout = () => {
     }, [])
 
     return (
-        <div className="lg:pl-32">
+        <div className="lg:pl-32 max-w-screen-md pr-20">
             <div className="max-w-xs px-2.5 lg:max-w-none">
                 <Image
                     src={HelmyAvatar}

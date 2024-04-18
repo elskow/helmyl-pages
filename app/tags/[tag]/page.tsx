@@ -19,7 +19,7 @@ const Tag = ({ params }) => {
     )
 
     return (
-        <PageLayout className="mx-auto mt-5 min-h-[70vh] w-full justify-center space-y-4 lg:max-w-5xl">
+        <PageLayout className="mx-auto mt-5 min-h-[70vh] w-full justify-center space-y-4 lg:max-w-5xl xl:max-w-7xl">
             <h1 className="mb-5 border-b border-gray-200 pb-5 text-base dark:border-gray-700 lg:text-xl">
                 {filteredPosts.length} posts tagged with{' '}
                 <span className="font-newsreader font-bold">{params.tag}</span>

@@ -6,8 +6,8 @@ import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion'
 import Link from 'next/link'
 import { useState } from 'react'
 
-const NavbarDropdownMenuMobile = ({ menuItems }: { menuItems: typeof typeMenuItems }) => {
-    const [isOpen, setIsOpen] = useState(false)
+const MobileNavbarDropdownMenu = ({ menuItems }: { menuItems: typeof typeMenuItems }) => {
+    const [isMenuOpen, setMenuOpen] = useState(false)
 
     return (
         <LazyMotion features={domAnimation}>
@@ -17,19 +17,19 @@ const NavbarDropdownMenuMobile = ({ menuItems }: { menuItems: typeof typeMenuIte
                         type="button"
                         className="flex items-center gap-2 text-sm"
                         id="menu-button"
-                        aria-expanded={isOpen}
+                        aria-expanded={isMenuOpen}
                         aria-haspopup="true"
-                        onClick={() => setIsOpen(!isOpen)}
+                        onClick={() => setMenuOpen(!isMenuOpen)}
                         whileTap={{ scale: 0.95, opacity: 0.5, transition: { duration: 0.1 } }}
                     >
                         Menu <ChevronDownIcon className="w-4 h-4" />
                     </m.button>
                 </div>
                 <AnimatePresence>
-                    {isOpen && (
+                    {isMenuOpen && (
                         <m.div
                             className="min-h-screen w-screen fixed inset-0 bg-black bg-opacity-50 z-40 filter backdrop-blur-sm"
-                            onClick={() => setIsOpen(!isOpen)}
+                            onClick={() => setMenuOpen(!isMenuOpen)}
                             variants={{
                                 hidden: { opacity: 0 },
                                 visible: { opacity: 1 },
@@ -59,7 +59,7 @@ const NavbarDropdownMenuMobile = ({ menuItems }: { menuItems: typeof typeMenuIte
                                         aria-label="Close menu"
                                         className="-m-1 p-1"
                                         type="button"
-                                        onClick={() => setIsOpen(!isOpen)}
+                                        onClick={() => setMenuOpen(!isMenuOpen)}
                                         animate={{ rotate: 180 }}
                                         whileTap={{ scale: 0.95 }}
                                     >
@@ -120,4 +120,4 @@ const NavbarDropdownMenuMobile = ({ menuItems }: { menuItems: typeof typeMenuIte
     )
 }
 
-export default NavbarDropdownMenuMobile
+export default MobileNavbarDropdownMenu
