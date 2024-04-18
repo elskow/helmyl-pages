@@ -88,14 +88,14 @@ const NavbarDropdownMenuMobile = ({ menuItems }: { menuItems: typeof typeMenuIte
                                             <Link
                                                 key={item.name}
                                                 href={item.href}
-                                                className="block py-2"
+                                                className="block py-2 focus:outline-none"
                                                 draggable={false}
                                                 unselectable={'on'}
                                                 prefetch={false}
                                             >
-                                                <m.p whileTap={{ opacity: 0.5, scale: 0.95 }}>
+                                                <m.span whileTap={{ opacity: 0.5, scale: 0.95 }}>
                                                     {item.name}
-                                                </m.p>
+                                                </m.span>
                                             </Link>
                                         ))}
                                         <Link
@@ -103,11 +103,11 @@ const NavbarDropdownMenuMobile = ({ menuItems }: { menuItems: typeof typeMenuIte
                                             draggable={false}
                                             unselectable={'on'}
                                             prefetch={false}
-                                            className="block py-2"
+                                            className="block py-2 focus:outline-none"
                                         >
-                                            <m.p whileTap={{ opacity: 0.5, scale: 0.95 }}>
+                                            <m.span whileTap={{ opacity: 0.5, scale: 0.95 }}>
                                                 Contact Me
-                                            </m.p>
+                                            </m.span>
                                         </Link>
                                     </ul>
                                 </nav>

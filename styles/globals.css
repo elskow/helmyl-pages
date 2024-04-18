@@ -36,6 +36,7 @@
 
         /* ur special color */
         --hover-color: lightseagreen;
+        outline: none;
     }
 
     .dark {
@@ -75,6 +76,7 @@
 @layer base {
     * {
         @apply border-border;
+        -webkit-tap-highlight-color: transparent;
     }
 
     body {
