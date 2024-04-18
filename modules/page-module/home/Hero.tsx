@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const Hero = () => {
     return (
-        <section className="my-auto justify-center space-y-6 pb-[35vh]">
+        <section className="my-auto justify-center space-y-6 pb-[10vh]">
             <p className="font-medium text-slate-800 dark:text-slate-100 sm:text-xl">
                 Hello! I&apos;m <span className="font-semibold">Helmy Luqmanulhakim</span>
             </p>

@@ -1,3 +1,4 @@
+import { slug } from 'github-slugger'
 import Link from 'next/link'
 
 const TagsBlogs = ({ tags }) => {
@@ -10,11 +11,11 @@ const TagsBlogs = ({ tags }) => {
                 >
                     <Link
                         className="px-2"
-                        href={`/tags/${tag}`}
+                        href={`/tags/${slug(tag)}`}
                         draggable={false}
                         unselectable={'on'}
                     >
-                        {tag}
+                        {slug(tag)}
                     </Link>
                 </ul>
             ))}

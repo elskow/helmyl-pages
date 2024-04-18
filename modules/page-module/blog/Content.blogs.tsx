@@ -7,7 +7,7 @@ const MemoizedPostCard = React.memo(PostCard)
 
 const ContentBlogs = ({ posts }) => {
     return (
-        <div className={`space-y-4 md:space-y-8`}>
+        <div className={`space-y-8`}>
             {posts.map((post) => (
                 <ul key={post.slug} className="mt-4">
                     <MemoizedPostCard

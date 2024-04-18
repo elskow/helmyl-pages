@@ -3,9 +3,7 @@ import ProjectCard from '@/components/_project/ProjectCard'
 const ContentProjects = ({ projects }) => {
     return (
         <ul className="mx-auto flex flex-col items-center space-y-10">
-            <div
-                className={`grid max-w-[90vw] grid-cols-1 gap-6 px-4 md:grid-cols-2 xl:grid-cols-3`}
-            >
+            <div className={`grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3 max-w-[80vw]`}>
                 {projects.map((project) => (
                     <ProjectCard
                         key={project.name}

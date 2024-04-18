@@ -13,7 +13,9 @@ const posts = allPosts.filter((post) => !post.draft).sort((a, b) => b.date.local
 const tags = posts
     .map((post) => post.tags)
     .flat()
-    .filter((value, index, self) => self.indexOf(value) === index)
+    .filter((value, index, self) => {
+        return self.indexOf(value) === index
+    })
 
 const Blog = () => {
     if (posts.length === 0) {
