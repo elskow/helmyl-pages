@@ -22,7 +22,7 @@ const AvatarAbout = () => {
                 alt="Profile Picture"
                 width={500}
                 height={500}
-                className={`aspect-square rotate-2 rounded-2xl transition duration-1000 ${isLoaded ? 'scale-100 blur-0 grayscale-0 shadow-lg shadow-emerald-950 drop-shadow-2xl dark:shadow-teal-900 dark:drop-shadow-2xl dark:backdrop-contrast-200 dark:shadow-2xl object-cover backdrop-contrast-200' : 'scale-105 blur-lg'}`}
+                className={`aspect-square rotate-2 rounded-2xl transition duration-1000 ${isLoaded ? 'scale-100 blur-0 grayscale-0 shadow-lg shadow-emerald-950 drop-shadow-2xl dark:shadow-teal-900 dark:drop-shadow-2xl dark:backdrop-contrast-200 dark:shadow-2xl object-cover backdrop-contrast-200 opacity-100' : 'scale-105 blur-lg opacity-0'}`}
                 draggable={false}
                 onLoad={() => setIsLoaded(true)}
                 placeholder="blur"

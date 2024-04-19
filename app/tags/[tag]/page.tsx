@@ -1,5 +1,5 @@
 import PageLayout from '@/layouts/PageLayout'
-import { Post, allPosts } from 'contentlayer/generated'
+import { allPosts, Post } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
 import type { Metadata } from 'next'
 import React, { lazy, useMemo } from 'react'
@@ -51,18 +51,9 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-    const tags = allPosts.reduce((acc, post: Post) => {
-        if (post.tags) {
-            post.tags.forEach((tag: string) => {
-                // @ts-ignore
-                if (!acc.includes(tag)) {
-                    // @ts-ignore
-                    acc.push(tag)
-                }
-            })
-        }
-        return acc
-    }, [])
-
-    return tags.map((tag: string) => ({ params: { tag } }))
+    return allPosts
+        .map(({ tags }) => tags)
+        .flat()
+        .filter((value, index, self) => self.indexOf(value) === index)
+        .map((tag) => ({ tag: slug(tag) }))
 }
