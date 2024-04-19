@@ -30,7 +30,7 @@
       "link": "https://helmyl.com",
       "stacks": [
         "Next.Js",
-        "Shadcn",
+        "Keystatic-CMS",
         "FramerMotion",
         "Hyper & Remark",
         "Umami-Analytics"
