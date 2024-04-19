@@ -5,7 +5,7 @@ import SocialAbout from '@/page-module/about/Social.about'
 
 const AboutPage = () => {
     return (
-        <PageLayout className="mx-auto mb-12 mt-8 grid w-full grid-cols-1 justify-center gap-y-8 space-y-10 lg:mt-12 lg:max-w-5xl xl:max-w-7xl  lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-20">
+        <PageLayout className="mx-auto mb-12 mt-8 grid w-full grid-cols-1 justify-center gap-y-8 space-y-10 lg:mt-12 lg:max-w-5xl lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-20">
             <AvatarAbout />
             <ContentAbout />
             <SocialAbout />

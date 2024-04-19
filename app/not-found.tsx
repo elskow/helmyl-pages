@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 const NotFound = () => {
     return (
-        <PageLayout className="flex lg:max-w-5xl xl:max-w-7xl mx-auto">
+        <PageLayout className="flex lg:max-w-5xl mx-auto">
             <div className="flex flex-col items-center justify-center h-full w-full">
                 <LazyMotion features={domAnimation}>
                     <m.h1

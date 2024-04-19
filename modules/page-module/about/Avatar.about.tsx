@@ -16,7 +16,7 @@ const AvatarAbout = () => {
     }, [])
 
     return (
-        <div className="lg:pl-32 xl:pl-36 max-w-xs px-2.5 lg:max-w-none pr-10 xl:pr-20">
+        <div className="lg:pl-32 xl:pl-36 max-w-xs px-2.5 lg:max-w-none pr-10">
             <Image
                 src={HelmyAvatar}
                 alt="Profile Picture"
