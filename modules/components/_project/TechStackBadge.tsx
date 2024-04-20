@@ -21,7 +21,7 @@ const TechStack = React.memo(({ tech, ...props }: { tech: string[] }) => {
                 {tech.length > 2 && !showAll && (
                     <p
                         onClick={handleShowAll}
-                        className="mb-2 mr-2 rounded bg-green-200 px-2 py-1 text-sm text-green-700 transition hover:bg-green-300 hover:bg-opacity-80 dark:bg-blue-200 dark:text-blue-700 dark:hover:bg-blue-300 dark:hover:bg-opacity-80"
+                        className="mb-2 mr-2 rounded bg-green-200 px-2 py-1 text-sm text-green-700 transition hover:bg-green-300 hover:bg-opacity-80 dark:bg-gray-200 dark:text-zinc-700 dark:hover:bg-gray-300 dark:hover:bg-opacity-80"
                     >
                         +{tech.length - 2} more
                     </p>
