@@ -9,7 +9,7 @@ const localCnf = {
 
 const remoteCnf = {
     kind: 'github',
-    repo: 'elskow/helmyl-pages',
+    repo: 'elskow/helmyl.com',
 }
 
 export default config({

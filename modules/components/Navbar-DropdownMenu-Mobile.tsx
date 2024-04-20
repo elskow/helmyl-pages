@@ -1,7 +1,7 @@
 'use client'
 
 import type typeMenuItems from '@/const/MenuItems'
-import { ChevronDownIcon } from '@radix-ui/react-icons'
+import { RxChevronDown } from 'react-icons/rx'
 import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -22,7 +22,7 @@ const MobileNavbarDropdownMenu = ({ menuItems }: { menuItems: typeof typeMenuIte
                         onClick={() => setMenuOpen(!isMenuOpen)}
                         whileTap={{ scale: 0.95, opacity: 0.5, transition: { duration: 0.1 } }}
                     >
-                        Menu <ChevronDownIcon className="w-4 h-4" />
+                        Menu <RxChevronDown className="w-4 h-4" />
                     </m.button>
                 </div>
                 <AnimatePresence>

@@ -4,7 +4,7 @@ const Comments = ({ theme, ...props }) => {
     return (
         <div {...props}>
             <Giscus
-                repo="elskow/helmyl-pages"
+                repo="elskow/helmyl.com"
                 category="Q&A"
                 categoryId="DIC_kwDOLPkEEc4CefZ6"
                 mapping="pathname"

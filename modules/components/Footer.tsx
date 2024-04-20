@@ -41,7 +41,7 @@ const Footer: React.FC<FooterProps> = ({ ...props }) => {
                     <p className="text-xs text-zinc-600 dark:text-zinc-300 md:text-sm">
                         © 2022 – {new Date().getFullYear()}{' '}
                         <Link
-                            href="https://github.com/elskow/helmyl-pages"
+                            href="https://github.com/elskow/helmyl.com"
                             className="transition-all duration-300 hover:text-teal-600 hover:underline dark:hover:text-teal-400 dark:hover:underline"
                             target="_blank"
                             draggable={false}

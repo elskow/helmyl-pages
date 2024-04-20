@@ -1,5 +1,5 @@
-import { ChevronRightIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
+import { RxChevronDown } from 'react-icons/rx'
 
 const Hero = () => {
     return (
@@ -25,7 +25,7 @@ const Hero = () => {
                     draggable={false}
                     unselectable={'on'}
                 >
-                    Hire Me! <ChevronRightIcon />
+                    Hire Me! <RxChevronDown />
                 </Link>
                 <Link
                     className="mt-2 inline-flex items-center rounded-md font-semibold hover:font-bold hover:underline sm:mt-0 sm:pl-4"
@@ -33,7 +33,7 @@ const Hero = () => {
                     draggable={false}
                     unselectable={'on'}
                 >
-                    Explore My Work <ChevronRightIcon />
+                    Explore My Work <RxChevronDown />
                 </Link>
             </div>
         </section>

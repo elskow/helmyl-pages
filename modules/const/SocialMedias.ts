@@ -1,29 +1,29 @@
-import { GitHubLogoIcon, LinkedInLogoIcon, TwitterLogoIcon } from '@radix-ui/react-icons'
-import { MdCallToAction } from 'react-icons/md'
+import { MdOutlineAttachEmail } from 'react-icons/md'
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 
 const socialMedias = [
     {
         name: 'LinkedIn',
         href: 'https://www.linkedin.com/in/helmyluqman/',
-        icon: LinkedInLogoIcon,
+        icon: FaLinkedin,
         text: 'LinkedIn Profile',
     },
     {
         name: 'Github',
         href: 'https://github.com/elskow',
-        icon: GitHubLogoIcon,
+        icon: FaGithub,
         text: 'Github Profile',
     },
     {
         name: 'Twitter',
         href: 'https://twitter.com/helmy_lh',
-        icon: TwitterLogoIcon,
+        icon: FaTwitter,
         text: 'Follow on Twitter',
     },
     {
         name: 'Email',
         href: 'mailto:helmyl.work@gmail.com',
-        icon: MdCallToAction,
+        icon: MdOutlineAttachEmail,
         text: 'Send Email',
     },
 ]
