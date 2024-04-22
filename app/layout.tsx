@@ -1,7 +1,7 @@
 import 'styles/globals.css'
 import 'styles/prism.css'
 
-import { inclusiveSans, jetBrainsMono, newsreader } from '@/lib/fonts'
+import { ibmPlexSans, jetBrainsMono, newsreader } from '@/lib/fonts'
 import { ThemeProviders } from './providers'
 
 import ProgressbarProvider from '@/components/Progressbar-Provider'
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html
-            className={`${inclusiveSans.variable} ${newsreader.variable} ${jetBrainsMono.variable} font-sans`}
+            className={`${ibmPlexSans.variable} ${newsreader.variable} ${jetBrainsMono.variable} font-sans`}
             lang={`en_US`}
             suppressHydrationWarning
         >

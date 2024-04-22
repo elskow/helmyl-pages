@@ -1,4 +1,4 @@
-import { Inclusive_Sans, JetBrains_Mono, Newsreader } from 'next/font/google'
+import { Inclusive_Sans, Inter, JetBrains_Mono, Newsreader, IBM_Plex_Sans } from 'next/font/google'
 
 /**
  * Inclusive Sans font configuration
@@ -9,6 +9,34 @@ import { Inclusive_Sans, JetBrains_Mono, Newsreader } from 'next/font/google'
  */
 export const inclusiveSans = Inclusive_Sans({
     weight: '400',
+    subsets: ['latin-ext'],
+    display: 'swap',
+    variable: '--font-sans',
+})
+
+/**
+ * Inter font configuration
+ *
+ * Example usage:
+ * In your Tailwind CSS classes, use `font-sans` to apply this font.
+ * For example: `<div class="font-sans">This is Inter</div>`
+ */
+export const inter = Inter({
+    weight: ['100', '200', '300', '400', '500', '600', '700', '800'],
+    subsets: ['latin-ext'],
+    display: 'swap',
+    variable: '--font-sans',
+})
+
+/**
+ * IBM Plex Sans font configuration
+ *
+ * Example usage:
+ * In your Tailwind CSS classes, use `font-sans` to apply this font.
+ * For example: `<div class="font-sans">This is IBM Plex Sans</div>`
+ */
+export const ibmPlexSans = IBM_Plex_Sans({
+    weight: ['100', '200', '300', '400', '500', '600', '700'],
     subsets: ['latin-ext'],
     display: 'swap',
     variable: '--font-sans',
