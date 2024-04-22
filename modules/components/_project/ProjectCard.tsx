@@ -36,7 +36,7 @@ const ProjectCard = ({ title, description, image, href, tech, date, index, ...pr
             <AnimatePresence>
                 <LazyMotion features={domAnimation}>
                     <m.li
-                        className="group relative flex select-none flex-col items-start rounded-lg bg-white bg-opacity-20 hover:bg-opacity-10 dark:border-gray-700 dark:bg-slate-800 dark:bg-opacity-60 dark:hover:bg-gray-900 border-gray-500 border-opacity-20 border w-full mx-auto max-w-[30rem] h-fit"
+                        className="group relative flex select-none flex-col items-start rounded-lg bg-white bg-opacity-20 hover:bg-opacity-10 dark:border-gray-700 dark:bg-slate-800 dark:bg-opacity-60 dark:hover:bg-gray-900 border-gray-500 border-opacity-20 border max-h-[30rem] w-full mx-auto max-w-[30rem]"
                         variants={cardVariants}
                         initial="hidden"
                         animate="visible"

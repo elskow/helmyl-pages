@@ -8,7 +8,7 @@ const TechStack = React.memo(({ tech, ...props }: { tech: string[] }) => {
     }, [])
 
     return (
-        <div className="min-h-[10rem]" {...props}>
+        <div className="min-h-[8vh]" {...props}>
             <div className="mt-4 flex flex-wrap">
                 {(showAll ? tech : tech.slice(0, 2)).map((item, index) => (
                     <span
