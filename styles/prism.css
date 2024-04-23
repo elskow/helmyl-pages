@@ -8,7 +8,7 @@ pre [data-line] {
 }
 
 .toc-card {
-    @apply sticky top-10 max-h-[80vh] overflow-y-scroll pl-4;
+    @apply sticky top-20 max-h-[80vh] overflow-y-scroll pl-4;
 }
 
 .toc-card::-webkit-scrollbar {

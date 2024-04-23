@@ -25,6 +25,8 @@ export default async function SpotifyNowPlaying({ ...props }) {
                 style={{
                     backgroundImage: `url(${currentSong.is_playing ? currentSong.image : lastPlayed.image})`,
                     backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
                 }}
             >
                 <div className="flex h-full w-full flex-row items-center justify-between rounded-lg bg-teal-900 bg-opacity-60 px-4 py-4 md:px-6 md:py-6">
@@ -46,7 +48,8 @@ export default async function SpotifyNowPlaying({ ...props }) {
                                 alt={currentSong.is_playing ? 'Now Playing' : 'Last Played'}
                                 width={100}
                                 height={100}
-                                className={`rounded-lg shadow-lg filter transition-all duration-300 hover:shadow-xl hover:brightness-90`}
+                                className={`rounded-lg shadow-lg filter transition-all duration-300 hover:shadow-xl hover:brightness-75 hover:saturated-125 hover:drop-shadow-md`}
+                                loading="lazy"
                             />
                         </Link>
                     </div>

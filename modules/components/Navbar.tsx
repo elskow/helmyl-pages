@@ -1,13 +1,18 @@
+'use client'
+
 import ThemeSwitcher from '@/components/ThemeSwitcher'
 import menuItems from '@/const/MenuItems'
+import { useScroll } from 'framer-motion'
 import React from 'react'
 
 import NavbarDropdownMenuMobile from '@/components/Navbar-DropdownMenu-Mobile'
+import NavbarFloating from '@/components/Navbar-Floating'
 import { ContactHighlightNavbar, MainHighlightNavbar } from '@/components/Navbar-Items'
 
 type NavbarProps = React.ComponentProps<'div'>
 
 const Navbar = ({ className, ...props }: NavbarProps) => {
+    const { scrollY } = useScroll()
     return (
         <nav>
             <div {...props} className={`${className}`}>
@@ -22,6 +27,7 @@ const Navbar = ({ className, ...props }: NavbarProps) => {
                     <ThemeSwitcher />
                 </div>
             </div>
+            {scrollY.get() > 100 && <NavbarFloating />}
         </nav>
     )
 }
