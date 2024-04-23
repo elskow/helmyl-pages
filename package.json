@@ -10,7 +10,7 @@
         }
     },
     "scripts": {
-        "dev": "next dev --turbo",
+        "dev": "next dev",
         "build": "next build && node scripts/rss.mjs",
         "start": "next start",
         "lint": "next lint",

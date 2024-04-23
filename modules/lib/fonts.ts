@@ -1,4 +1,4 @@
-import { Inclusive_Sans, JetBrains_Mono, Newsreader } from 'next/font/google'
+import { Inclusive_Sans, JetBrains_Mono, Newsreader, Assistant } from 'next/font/google'
 
 /**
  * Inclusive Sans font configuration
@@ -12,6 +12,18 @@ export const inclusiveSans = Inclusive_Sans({
     subsets: ['latin-ext'],
     display: 'swap',
     variable: '--font-sans',
+})
+
+/**
+ * Assistant font configuration
+ *
+ * Example usage :
+ * In your Tailwind CSS classes, use `font-sans` to apply this font.
+ * For example: `<div class="font-sans">This is Assistant</div>`
+ */
+export const assistant = Assistant({
+    subsets: ['latin-ext'],
+    variable: '--font-sans'
 })
 
 /**
