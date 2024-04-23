@@ -3,7 +3,7 @@ import { MdxRenderer } from '@/components/_blog/Mdx'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { lazy } from 'react'
 
-// const Toc = lazy(() => import('@/components/_blog/TableOfContents'))
+const Toc = lazy(() => import('@/components/_blog/TableOfContents'))
 
 const ContentPost = ({ body, theme, controls }) => {
     return (
@@ -20,7 +20,7 @@ const ContentPost = ({ body, theme, controls }) => {
                     <Comments theme={(theme as string) == 'dark' ? 'dark_dimmed' : 'light'} />
                 </div>
                 <div className="hidden lg:block lg:w-1/5">
-                    {/* <Toc /> */}
+                    <Toc />
                 </div>
             </m.article>
         </LazyMotion>
