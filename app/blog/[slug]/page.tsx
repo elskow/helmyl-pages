@@ -1,8 +1,16 @@
+import LoadingAnimation from '@/components/LoadingAnimation'
 import { allPosts } from 'contentlayer/generated'
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 
-const Page = dynamic(() => import('app/blog/[slug]/blog-ui'), { ssr: false })
+const Page = dynamic(() => import('app/blog/[slug]/blog-ui'), {
+    ssr: false,
+    loading: () => (
+        <div className="flex h-[60vh] items-center justify-center">
+            <LoadingAnimation />
+        </div>
+    ),
+})
 
 export async function generateStaticParams() {
     return allPosts.map(({ slug }) => ({

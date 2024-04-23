@@ -55,7 +55,7 @@ const ProjectCard = ({ title, description, image, href, tech, date, index, ...pr
                                 rel="noopener noreferrer"
                                 draggable={false}
                                 unselectable={'on'}
-                                className="mt-2 text-base font-semibold text-zinc-800 dark:text-zinc-50"
+                                className="mt-2 text-base font-bold text-zinc-800 dark:text-zinc-50"
                             >
                                 <p className="hover:underline">{title}</p>
                             </Link>

@@ -16,7 +16,6 @@ pre [data-line] {
 }
 
 .toc-link {
-    @apply font-newsreader text-base font-semibold;
     text-decoration: none !important;
 }
 
@@ -25,7 +24,7 @@ pre [data-line] {
     border-radius: 0.25rem;
     transition: background-color 0.2s;
     scroll-margin-top: 3rem;
-    @apply font-sans text-base font-light text-slate-800 hover:font-semibold dark:text-slate-100;
+    @apply font-sans text-sm font-light text-slate-800 hover:font-semibold dark:text-slate-100;
 }
 
 .is-active-link {

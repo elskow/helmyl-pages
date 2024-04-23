@@ -33,7 +33,7 @@ const Images = ({ src, alt }) => {
                             <Image
                                 src={srcSet}
                                 alt={alt}
-                                className="max-h-screen max-w-full rounded-lg object-cover object-center drop-shadow-lg md:max-h-[60vh] lg:max-h-[80vh] lg:rounded-xl"
+                                className="max-h-screen max-w-full rounded-lg object-cover object-center drop-shadow-lg md:max-h-[60vh] lg:max-h-[80vh] lg:rounded-xl px-8"
                                 onLoad={() => setIsLoaded(true)}
                                 width={800}
                                 height={800}
