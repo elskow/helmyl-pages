@@ -63,7 +63,7 @@ const Card: React.FC<CardProps> = ({ ...props }) => {
                                 ({readingTime})
                             </span>
                         </m.h1>
-                        <m.p className="mt-1 hidden text-sm font-light text-primary dark:text-primary md:flex lg:text-base">
+                        <m.p className="mt-1 hidden text-sm text-primary dark:text-primary md:flex lg:text-base">
                             {summary}
                         </m.p>
                     </Link>

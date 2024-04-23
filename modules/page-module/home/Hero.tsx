@@ -5,7 +5,7 @@ const Hero = () => {
     return (
         <section className="my-auto space-y-6 pb-[10vh] items-start">
             <p className="font-medium text-slate-800 dark:text-slate-100 sm:text-xl">
-                Hello! I&apos;m <span className="font-semibold">Helmy Luqmanulhakim</span>
+                Hello! I&apos;m <span className="font-bold">Helmy Luqmanulhakim</span>.
             </p>
             <h1 className="mb-6 font-code text-3xl font-semibold tracking-extra-tight text-slate-900 dark:text-slate-50 lg:text-5xl">
                 I do software development

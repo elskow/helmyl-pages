@@ -13,7 +13,7 @@ const HeaderBlogs = () => {
                     <HiMiniRss className={`inline`} />
                 </Link>
             </h1>
-            <p className="font-light lg:text-lg">
+            <p className="lg:text-lg">
                 I write about software development, productivity, and other topics that interest me.
             </p>
         </div>
