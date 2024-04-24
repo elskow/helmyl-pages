@@ -10,8 +10,8 @@
         }
     },
     "scripts": {
-        "dev": "next dev",
-        "build": "next build && node scripts/rss.mjs",
+        "dev": "node scripts/rss.mjs && next dev",
+        "build": "node scripts/rss.mjs && next build",
         "start": "next start",
         "lint": "next lint",
         "prettier": "prettier --write"

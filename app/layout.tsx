@@ -6,6 +6,8 @@ import { ThemeProviders } from './providers'
 
 import ProgressbarProvider from '@/components/Progressbar-Provider'
 import type { Metadata } from 'next'
+import Script from 'next/script'
+import * as process from 'node:process'
 
 export const metadata: Metadata = {
     metadataBase: new URL(`https://helmyl.com`),
@@ -30,6 +32,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             lang={`en_US`}
             suppressHydrationWarning
         >
+            <Favicon />
+            <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
+            <Script
+                src={`https://us.umami.is/script.js`}
+                data-website-id={process.env.UMAMI_DATA_WEBSITE_ID}
+                async
+            />
+            <body suppressHydrationWarning>
+                <ThemeProviders>
+                    <ProgressbarProvider>{children}</ProgressbarProvider>
+                </ThemeProviders>
+            </body>
+        </html>
+    )
+}
+
+const Favicon = () => {
+    return (
+        <>
             <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png" />
             <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png" />
             <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png" />
@@ -52,17 +73,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <meta name="msapplication-TileColor" content="#ffffff" />
             <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png" />
             <meta name="theme-color" content="#ffffff" />
-            <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
-            <script
-                async
-                src="https://us.umami.is/script.js"
-                data-website-id="80b9e23d-c5ef-463d-9f8a-fca203abdc5a"
-            />
-            <body suppressHydrationWarning>
-                <ThemeProviders>
-                    <ProgressbarProvider>{children}</ProgressbarProvider>
-                </ThemeProviders>
-            </body>
-        </html>
+        </>
     )
 }
