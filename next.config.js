@@ -16,6 +16,11 @@ const nextConfig = {
                 port: '',
             },
         ],
+        formats: ['image/avif', 'image/webp'],
+    },
+    webpack: (config, { _ }) => {
+        config.optimization.splitChunks = false
+        return config
     },
 }
 
