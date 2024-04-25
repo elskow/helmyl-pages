@@ -2,6 +2,7 @@ import ContentBlogs from '@/page-module/blog/Content.blogs'
 import HeaderBlogs from '@/page-module/blog/Header.blogs'
 import NotfoundBlogs from '@/page-module/blog/Notfound.blogs'
 import TagsBlogs from '@/page-module/blog/Tags.blogs'
+import { Slide } from '@/page-transition/Slide'
 import { allPosts } from 'contentlayer/generated'
 import { Metadata } from 'next'
 
@@ -24,9 +25,15 @@ const Blog = () => {
 
     return (
         <>
-            <HeaderBlogs />
-            <TagsBlogs tags={tags} />
-            <ContentBlogs posts={posts} />
+            <Slide>
+                <HeaderBlogs />
+            </Slide>
+            <Slide>
+                <TagsBlogs tags={tags} />
+            </Slide>
+            <Slide>
+                <ContentBlogs posts={posts} />
+            </Slide>
         </>
     )
 }

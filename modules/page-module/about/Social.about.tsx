@@ -1,9 +1,10 @@
 import SocialMedia from '@/const/SocialMedias'
+import { Slide } from '@/page-transition/Slide'
 import Link from 'next/link'
 
 const SocialAbout = () => {
     return (
-        <div className="lg:pl-32">
+        <Slide className="lg:pl-32">
             <ul role="list" className="select-none space-y-8">
                 {SocialMedia.map((item, index) => (
                     <li key={index}>
@@ -23,7 +24,7 @@ const SocialAbout = () => {
                     </li>
                 ))}
             </ul>
-        </div>
+        </Slide>
     )
 }
 

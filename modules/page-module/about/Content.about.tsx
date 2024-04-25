@@ -1,5 +1,6 @@
 import LoadingAnimation from '@/components/LoadingAnimation'
 import Experiences from '@/const/Experiences'
+import { Slide } from '@/page-transition/Slide'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 
@@ -18,7 +19,7 @@ const SpotifyNowPlaying = dynamic(() => import('@/components/_about/SpotifyNowPl
 
 const ContentAbout = () => {
     return (
-        <div className="lg:order-first lg:row-span-2">
+        <Slide className="lg:order-first lg:row-span-2">
             <h1 className="font-newsreader text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl lg:mb-16 lg:mt-10">
                 I&apos;m{' '}
                 <span className="text-teal-700 dark:text-teal-400">Helmy Luqmanulhakim</span>, a
@@ -71,7 +72,7 @@ const ContentAbout = () => {
                     </div>
                 </section>
             </div>
-        </div>
+        </Slide>
     )
 }
 

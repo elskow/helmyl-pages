@@ -1,7 +1,7 @@
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 
-const MainLayout = ({ children, className }) => {
+const PageLayout = ({ children, className }) => {
     return (
         <div className="min-h-screen bg-gradient-to-tr from-green-50 to-neutral-200 dark:bg-gradient-to-tr dark:from-gray-800 dark:to-gray-800">
             <div className="min-h-screen px-4 sm:px-8 lg:py-2 justify-between flex flex-col">
@@ -17,4 +17,4 @@ const MainLayout = ({ children, className }) => {
     )
 }
 
-export default MainLayout
+export default PageLayout

@@ -1,5 +1,6 @@
 import MainLayout from '@/layouts/MainLayout'
 import HeaderProjects from '@/page-module/projects/Header.projects'
+import { Slide } from '@/page-transition/Slide'
 import project from 'content/project.json'
 import { Metadata } from 'next'
 import dynamic from 'next/dynamic'
@@ -18,8 +19,12 @@ export const metadata: Metadata = {
 const Projects: React.FC = () => {
     return (
         <MainLayout className="mx-auto mb-10 mt-6 min-h-screen w-full justify-center space-y-8 md:mt-10 lg:max-w-5xl">
-            <HeaderProjects />
-            <ContentProjects projects={projects} />
+            <Slide>
+                <HeaderProjects />
+            </Slide>
+            <Slide>
+                <ContentProjects projects={projects} />
+            </Slide>
         </MainLayout>
     )
 }

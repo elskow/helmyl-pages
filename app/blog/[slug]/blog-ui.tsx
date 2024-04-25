@@ -2,6 +2,7 @@
 
 import ContentPost from '@/page-module/blog/post/Content.post'
 import HeaderPost from '@/page-module/blog/post/Header.post'
+import { Slide } from '@/page-transition/Slide'
 import { allPosts } from 'contentlayer/generated'
 import { domAnimation, LazyMotion, m, useAnimation, useScroll } from 'framer-motion'
 import { useTheme } from 'next-themes'
@@ -40,8 +41,12 @@ const Page = ({ params }: { params: { slug: string } }) => {
                 />
             </LazyMotion>
 
-            <HeaderPost post={post} controls={controls} />
-            <ContentPost body={post.body.code} theme={theme} controls={controls} />
+            <Slide>
+                <HeaderPost post={post} controls={controls} />
+            </Slide>
+            <Slide>
+                <ContentPost body={post.body.code} theme={theme} controls={controls} />
+            </Slide>
         </>
     )
 }
