@@ -1,4 +1,5 @@
-import LoadingAnimation from '@/components/LoadingAnimation'
+import ContentSkeletonPost from '@/page-module/blog/post/Content.Skeleton.post'
+import HeaderSkeletonPost from '@/page-module/blog/post/Header.Skeleton.post'
 import { allPosts } from 'contentlayer/generated'
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
@@ -6,9 +7,10 @@ import dynamic from 'next/dynamic'
 const Page = dynamic(() => import('app/blog/[slug]/blog-ui'), {
     ssr: false,
     loading: () => (
-        <div className="flex h-[60vh] items-center justify-center">
-            <LoadingAnimation />
-        </div>
+        <section className="mx-auto pb-10 pt-6 min-h-screen w-full justify-center space-y-8 md:pt-10 lg:max-w-5xl">
+            <HeaderSkeletonPost />
+            <ContentSkeletonPost />
+        </section>
     ),
 })
 

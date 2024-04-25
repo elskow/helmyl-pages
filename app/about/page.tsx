@@ -1,6 +1,24 @@
-import AvatarAbout from '@/page-module/about/Avatar.about'
-import ContentAbout from '@/page-module/about/Content.about'
-import SocialAbout from '@/page-module/about/Social.about'
+// import AvatarAbout from '@/page-module/about/Avatar.about'
+// import ContentAbout from '@/page-module/about/Content.about'
+// import SocialAbout from '@/page-module/about/Social.about'
+
+import AvatarSkeletonAbout from '@/page-module/about/Avatar.Skeleton.about'
+import ContentSkeletonAbout from '@/page-module/about/Content.Skeleton.about'
+import SocialSkeletonAbout from '@/page-module/about/Social.Skeleton.about'
+import dynamic from 'next/dynamic'
+
+const AvatarAbout = dynamic(() => import('@/page-module/about/Avatar.about'), {
+    loading: AvatarSkeletonAbout,
+    ssr: false,
+})
+const ContentAbout = dynamic(() => import('@/page-module/about/Content.about'), {
+    loading: ContentSkeletonAbout,
+    ssr: false,
+})
+const SocialAbout = dynamic(() => import('@/page-module/about/Social.about'), {
+    loading: SocialSkeletonAbout,
+    ssr: false,
+})
 
 const AboutPage = () => {
     return (
