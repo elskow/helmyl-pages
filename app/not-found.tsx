@@ -1,6 +1,5 @@
 'use client'
 
-import MainLayout from '@/layouts/MainLayout'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import { Metadata } from 'next'
 import Link from 'next/link'
@@ -20,7 +19,7 @@ export const metadata: Metadata = {
 
 const NotFound = () => {
     return (
-        <MainLayout className="flex lg:max-w-5xl mx-auto">
+        <div className="flex lg:max-w-5xl mx-auto">
             <div className="flex flex-col items-center justify-center h-full w-full">
                 <LazyMotion features={domAnimation}>
                     <m.h1
@@ -41,7 +40,7 @@ const NotFound = () => {
                     </button>
                 </LazyMotion>
             </div>
-        </MainLayout>
+        </div>
     )
 }
 

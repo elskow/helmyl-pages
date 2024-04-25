@@ -2,7 +2,6 @@ import ContentTags from '@/page-module/tags/Content.tags'
 import HeaderTags from '@/page-module/tags/Header.tags'
 import NotFoundTags from '@/page-module/tags/NotFound.tags'
 
-import MainLayout from '@/layouts/MainLayout'
 import { Slide } from '@/page-transition/Slide'
 import { allPosts } from 'contentlayer/generated'
 import { useMemo } from 'react'
@@ -23,14 +22,14 @@ const TagsPage = () => {
     }
 
     return (
-        <MainLayout className="mx-auto mb-10 mt-6 min-h-screen w-full justify-center space-y-8 md:mt-10 lg:max-w-5xl">
+        <section className="mx-auto mb-10 mt-6 min-h-screen w-full justify-center space-y-8 md:mt-10 lg:max-w-5xl">
             <Slide>
                 <HeaderTags />
             </Slide>
-            <Slide delay={0.2}>
+            <Slide delay={0.1}>
                 <ContentTags tags={tags} />
             </Slide>
-        </MainLayout>
+        </section>
     )
 }
 

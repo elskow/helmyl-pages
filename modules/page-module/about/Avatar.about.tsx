@@ -1,6 +1,7 @@
 'use client'
 
 import getBase64ImageLocal from '@/hook/get-base64-image-local'
+import { Slide } from '@/page-transition/Slide'
 import Image from 'next/image'
 import HelmyAvatar from 'public/helmy-avatar-bw.webp'
 import { useEffect, useState } from 'react'
@@ -16,7 +17,7 @@ const AvatarAbout = () => {
     }, [])
 
     return (
-        <div className="lg:pl-32 xl:pl-36 max-w-xs px-2.5 lg:max-w-none pr-10">
+        <Slide className="lg:pl-32 xl:pl-36 max-w-xs px-2.5 lg:max-w-none pr-10">
             <Image
                 src={HelmyAvatar}
                 alt="Profile Picture"
@@ -30,7 +31,7 @@ const AvatarAbout = () => {
                 loading={'lazy'}
                 quality={100}
             />
-        </div>
+        </Slide>
     )
 }
 

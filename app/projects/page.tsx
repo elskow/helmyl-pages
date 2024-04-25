@@ -1,4 +1,3 @@
-import MainLayout from '@/layouts/MainLayout'
 import HeaderProjects from '@/page-module/projects/Header.projects'
 import { Slide } from '@/page-transition/Slide'
 import project from 'content/project.json'
@@ -18,14 +17,14 @@ export const metadata: Metadata = {
 
 const Projects: React.FC = () => {
     return (
-        <MainLayout className="mx-auto mb-10 mt-6 min-h-screen w-full justify-center space-y-8 md:mt-10 lg:max-w-5xl">
+        <section className="mx-auto mb-10 mt-6 min-h-screen w-full justify-center space-y-8 md:mt-10 lg:max-w-5xl">
             <Slide>
                 <HeaderProjects />
             </Slide>
-            <Slide delay={0.2}>
+            <Slide delay={0.1}>
                 <ContentProjects projects={projects} />
             </Slide>
-        </MainLayout>
+        </section>
     )
 }
 

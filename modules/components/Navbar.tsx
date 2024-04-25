@@ -8,6 +8,7 @@ import React, { useEffect } from 'react'
 import NavbarDropdownMenuMobile from '@/components/Navbar-DropdownMenu-Mobile'
 import NavbarFloating from '@/components/Navbar-Floating'
 import { ContactHighlightNavbar, MainHighlightNavbar } from '@/components/Navbar-Items'
+import Unmount from '@/components/Unmount'
 
 type NavbarProps = React.ComponentProps<'div'>
 
@@ -28,19 +29,21 @@ const Navbar = ({ className, ...props }: NavbarProps) => {
 
     return (
         <nav>
-            <div {...props} className={`${className}`}>
-                <header className="flex items-center gap-4 lg:gap-6">
-                    <MainHighlightNavbar />
-                </header>
-                <div className="flex items-center gap-2 md:gap-4">
-                    <div className={`block items-center gap-2 sm:hidden`}>
-                        <NavbarDropdownMenuMobile menuItems={menuItems} />
+            <Unmount>
+                <div {...props} className={`${className}`}>
+                    <header className="flex items-center gap-4 lg:gap-6">
+                        <MainHighlightNavbar />
+                    </header>
+                    <div className="flex items-center gap-2 md:gap-4">
+                        <div className={`block items-center gap-2 sm:hidden`}>
+                            <NavbarDropdownMenuMobile menuItems={menuItems} />
+                        </div>
+                        <ContactHighlightNavbar />
+                        <ThemeSwitcher />
                     </div>
-                    <ContactHighlightNavbar />
-                    <ThemeSwitcher />
                 </div>
-            </div>
-            {hasScrolled && <NavbarFloating />}
+                {hasScrolled && <NavbarFloating />}
+            </Unmount>
         </nav>
     )
 }

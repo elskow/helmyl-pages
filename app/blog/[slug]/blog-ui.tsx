@@ -33,7 +33,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
     if (!post) return notFound()
 
     return (
-        <>
+        <section className="mx-auto mb-10 mt-2 min-h-screen w-full justify-center space-y-8 md:mt-4 lg:max-w-5xl">
             <LazyMotion features={domAnimation}>
                 <m.div
                     className={`z-10 fixed top-0 left-0 right-0 h-1 bg-green-500`}
@@ -47,7 +47,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
             <Slide>
                 <ContentPost body={post.body.code} theme={theme} controls={controls} />
             </Slide>
-        </>
+        </section>
     )
 }
 

@@ -17,7 +17,7 @@ const Hero = () => {
                     and data-related stuff.
                 </h1>
             </Slide>
-            <Slide delay={0.2}>
+            <Slide delay={0.12}>
                 <p className="mb-6 tracking-tight text-slate-800 dark:text-slate-100 sm:text-xl md:max-w-2xl">
                     I&apos;ve been coding for over{' '}
                     <span className="underline underline-offset-4">2 years</span>, working on
@@ -25,7 +25,7 @@ const Hero = () => {
                     exploring <b>computational mathematics</b> and <b>backend engineering</b>.
                 </p>
             </Slide>
-            <Slide className="flex select-none flex-col sm:flex-row" delay={0.3}>
+            <Slide className="flex select-none flex-col sm:flex-row" delay={0.14}>
                 <Link
                     className="inline-flex items-center rounded-md font-semibold hover:font-bold hover:underline"
                     href="/contact"

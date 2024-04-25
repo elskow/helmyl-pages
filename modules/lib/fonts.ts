@@ -1,4 +1,4 @@
-import { Inclusive_Sans, JetBrains_Mono, Newsreader, Assistant } from 'next/font/google'
+import { Assistant, Inclusive_Sans, JetBrains_Mono, Newsreader } from 'next/font/google'
 
 /**
  * Inclusive Sans font configuration
@@ -23,7 +23,7 @@ export const inclusiveSans = Inclusive_Sans({
  */
 export const assistant = Assistant({
     subsets: ['latin-ext'],
-    variable: '--font-sans'
+    variable: '--font-sans',
 })
 
 /**
@@ -34,7 +34,6 @@ export const assistant = Assistant({
  * For example: `<div class="font-newsreader">This is Newsreader</div>`
  */
 export const newsreader = Newsreader({
-    weight: ['400', '200', '300', '500', '600', '700', '800'],
     subsets: ['latin-ext'],
     display: 'swap',
     variable: '--font-newsreader',

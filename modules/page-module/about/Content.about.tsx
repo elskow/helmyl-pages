@@ -55,13 +55,13 @@ const ContentAbout = () => {
                             mastering new technologies.
                         </p>
                     </Slide>
-                    <Slide delay={0.2}>
+                    <Slide delay={0.12}>
                         <h2 className="mb-8 font-newsreader text-xl font-bold lg:mb-10 lg:text-2xl">
                             What am I using?
                         </h2>
                         <Skillset />
                     </Slide>
-                    <Slide delay={0.3}>
+                    <Slide delay={0.14}>
                         <h2 className="mb-8 font-newsreader text-xl font-bold lg:mb-10 lg:text-2xl">
                             Where have I worked?
                         </h2>
@@ -69,7 +69,7 @@ const ContentAbout = () => {
                             <WorkExperiences experiences={Experiences} />
                         </div>
                     </Slide>
-                    <Slide delay={0.4}>
+                    <Slide delay={0.16}>
                         <SpotifyNowPlaying />
                     </Slide>
                 </section>
