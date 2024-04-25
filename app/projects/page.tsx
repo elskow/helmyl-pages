@@ -22,7 +22,7 @@ const Projects: React.FC = () => {
             <Slide>
                 <HeaderProjects />
             </Slide>
-            <Slide>
+            <Slide delay={0.2}>
                 <ContentProjects projects={projects} />
             </Slide>
         </MainLayout>

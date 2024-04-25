@@ -27,7 +27,7 @@ const TagsPage = () => {
             <Slide>
                 <HeaderTags />
             </Slide>
-            <Slide>
+            <Slide delay={0.2}>
                 <ContentTags tags={tags} />
             </Slide>
         </MainLayout>

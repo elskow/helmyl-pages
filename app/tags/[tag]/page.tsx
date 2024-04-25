@@ -27,7 +27,7 @@ const Tag = ({ params }) => {
                     <span className="font-newsreader font-bold">{params.tag}</span>
                 </h1>
             </Slide>
-            <Slide>
+            <Slide delay={0.2}>
                 {filteredPosts.map((post, index) => (
                     <ul key={post.slug}>
                         <MemoizedPostCard

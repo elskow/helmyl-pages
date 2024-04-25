@@ -28,10 +28,10 @@ const Blog = () => {
             <Slide>
                 <HeaderBlogs />
             </Slide>
-            <Slide>
+            <Slide delay={0.1}>
                 <TagsBlogs tags={tags} />
             </Slide>
-            <Slide>
+            <Slide delay={0.2}>
                 <ContentBlogs posts={posts} />
             </Slide>
         </>
