@@ -14,6 +14,17 @@ const feedOptions = {
     feed_url: `${site_url}/rss.xml`,
     pubDate: currentDate,
     copyright: `All rights reserved ${currentDate.getFullYear()} Helmy Luqmanulhakim`,
+    language: 'en',
+    ttl: '60',
+    custom_namespaces: {
+        content: 'http://purl.org/rss/1.0/modules/content/',
+        dc: 'http://purl.org/dc/elements/1.1/',
+    },
+    custom_elements: [
+        { 'content:encoded': { _cdata: 'This is a test' } },
+        { 'dc:creator': ' <em>Helmy Luqmanulhakim</em>' },
+        { 'dc:rights': 'All rights reserved' },
+    ],
 }
 
 const feed = new RSS(feedOptions)

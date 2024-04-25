@@ -1,4 +1,4 @@
-const getBase64Image = async (imgpath: string) => {
+const getBase64ImageLocal = async (imgpath: string) => {
     const response = await fetch(imgpath)
     const blob = await response.blob()
     return await new Promise<string>((resolve) => {
@@ -10,4 +10,4 @@ const getBase64Image = async (imgpath: string) => {
     })
 }
 
-export default getBase64Image
+export default getBase64ImageLocal

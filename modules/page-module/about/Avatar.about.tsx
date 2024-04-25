@@ -1,6 +1,6 @@
 'use client'
 
-import getBase64Image from '@/hook/get-base64-image'
+import getBase64ImageLocal from '@/hook/get-base64-image-local'
 import Image from 'next/image'
 import HelmyAvatar from 'public/helmy-avatar-bw.webp'
 import { useEffect, useState } from 'react'
@@ -10,7 +10,7 @@ const AvatarAbout = () => {
     const [placeholder, setPlaceholder] = useState('')
 
     useEffect(() => {
-        getBase64Image(HelmyAvatar.src).then((data) => {
+        getBase64ImageLocal(HelmyAvatar.src).then((data) => {
             setPlaceholder(data)
         })
     }, [])

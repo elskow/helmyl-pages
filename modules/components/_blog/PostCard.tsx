@@ -3,18 +3,8 @@
 import FormatDate from '@/components/_blog/FormatDate'
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 import Link from 'next/link'
-import React from 'react'
 
-interface CardProps {
-    href: string
-    title: string
-    summary: string
-    date: string
-    readingTime: string
-    index: number
-}
-
-const Card: React.FC<CardProps> = ({ ...props }) => {
+const Card = ({ ...props }) => {
     const { href, title, summary, date, readingTime, index } = props
 
     const variants = {

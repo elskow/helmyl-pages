@@ -1,4 +1,4 @@
-import PageLayout from '@/layouts/PageLayout'
+import MainLayout from '@/layouts/MainLayout'
 import HeaderProjects from '@/page-module/projects/Header.projects'
 import project from 'content/project.json'
 import { Metadata } from 'next'
@@ -17,10 +17,10 @@ export const metadata: Metadata = {
 
 const Projects: React.FC = () => {
     return (
-        <PageLayout className="mx-auto mb-10 mt-6 min-h-screen w-full justify-center space-y-8 md:mt-10 lg:max-w-5xl">
+        <MainLayout className="mx-auto mb-10 mt-6 min-h-screen w-full justify-center space-y-8 md:mt-10 lg:max-w-5xl">
             <HeaderProjects />
             <ContentProjects projects={projects} />
-        </PageLayout>
+        </MainLayout>
     )
 }
 

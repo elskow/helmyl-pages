@@ -1,10 +1,6 @@
 import { format, parseISO } from 'date-fns'
 
-interface FormatDateProps {
-    dateString: string
-}
-
-const FormatDate = ({ dateString, ...props }: FormatDateProps) => {
+const FormatDate = ({ dateString, ...props }) => {
     const date = parseISO(dateString)
     const formattedDate = format(date, 'MMM d, yyyy')
     return (

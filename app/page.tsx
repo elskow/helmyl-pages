@@ -1,10 +1,10 @@
-import PageLayout from '@/layouts/PageLayout'
+import MainLayout from '@/layouts/MainLayout'
 import Hero from '@/page-module/home/Hero'
 
 export default async function Page() {
     return (
-        <PageLayout className="flex lg:max-w-5xl mx-auto">
+        <MainLayout className="flex lg:max-w-5xl mx-auto">
             <Hero />
-        </PageLayout>
+        </MainLayout>
     )
 }
