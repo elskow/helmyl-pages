@@ -8,15 +8,15 @@ summary: Explore the concept of mutual exclusion in multithreading using C, its 
 draft: false
 ---
 
-## Introduction
+# Introduction
 
 Multithreading can greatly enhance the performance of programs by allowing tasks to run concurrently. However, when multiple threads access shared resources, issues like data corruption and race conditions can arise. Mutual exclusion is a fundamental concept in multithreading that ensures only one thread accesses a shared resource at a time. In this article, we'll explore the concept of mutual exclusion in multithreading using C and provide examples of its implementation.
 
-## Understanding Mutual Exclusion
+# Understanding Mutual Exclusion
 
 Mutual exclusion (often abbreviated as "mutex") is a technique that prevents multiple threads from simultaneously accessing shared resources. It ensures that only one thread can enter a critical section of code at a time, allowing for orderly and controlled access to shared data.
 
-## The Need for Mutual Exclusion
+# The Need for Mutual Exclusion
 
 Consider a scenario where multiple threads are updating a shared variable. Without mutual exclusion, the following problems can occur:
 
@@ -24,7 +24,7 @@ Consider a scenario where multiple threads are updating a shared variable. Witho
 
 -   **Data Corruption:** Concurrent access to shared data without proper synchronization can result in data corruption and inconsistencies.
 
-## Implementing Mutual Exclusion with Mutex
+# Implementing Mutual Exclusion with Mutex
 
 In C, mutual exclusion is often implemented using mutexes (short for "mutual exclusion"). Here's a simple example of using a mutex to protect a shared resource:
 
@@ -60,6 +60,6 @@ int main() {
 
 In this example, two threads increment a shared resource while being protected by a mutex. The pthread_mutex_lock function acquires the mutex before accessing the shared resource, ensuring that only one thread can access it at a time. pthread_mutex_unlock releases the mutex when the critical section is done.
 
-## Conclusion
+# Conclusion
 
 Mutual exclusion is a crucial concept in multithreading with C, allowing for safe and controlled access to shared resources. It prevents race conditions, data corruption, and ensures the integrity of shared data in concurrent programming. When working with multithreaded applications, understanding and implementing mutual exclusion is essential for robust and reliable software.

@@ -8,15 +8,15 @@ summary: Explore the concept of threads in the C programming language, their use
 draft: false
 ---
 
-## Introduction
+# Introduction
 
 In the world of programming, efficiency and performance are paramount. One way to achieve these goals is through the use of threads. In this article, we'll explore the concept of threads in the C programming language, their applications, and how they enable parallel execution for improved program performance.
 
-## What Are Threads?
+# What Are Threads?
 
 In C, a thread is a sequence of instructions within a program that can be executed independently. Each thread has its own program counter, stack, and set of registers but shares the same memory space with other threads in the same process. This shared memory space allows threads to communicate and coordinate their actions.
 
-## The Need for Threads
+# The Need for Threads
 
 Threads are particularly valuable in scenarios where tasks can be executed concurrently, such as in:
 
@@ -26,7 +26,7 @@ Threads are particularly valuable in scenarios where tasks can be executed concu
 
 -   **Server Applications:** Web servers, database servers, and other server applications can handle multiple client requests simultaneously using threads.
 
-## Creating Threads in C
+# Creating Threads in C
 
 In C, you can create threads using libraries like POSIX Threads (pthread) or Windows Threads. Here's a simplified example using POSIX Threads:
 
@@ -53,7 +53,7 @@ int main() {
 
 In this example, pthread_create is used to create a new thread that runs the myThreadFunction. The main program continues to execute alongside the new thread.
 
-## Thread Synchronization
+# Thread Synchronization
 
 When multiple threads access shared resources concurrently, synchronization mechanisms are essential to prevent data corruption and race conditions. Mutexes, semaphores, and condition variables are commonly used tools for thread synchronization in C.
 

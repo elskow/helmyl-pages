@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import tocbot from 'tocbot'
+import * as tocbot from 'tocbot'
 
 export default function Toc({ ...props }) {
     const tocRef = useRef<HTMLDivElement | null>(null)
