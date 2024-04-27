@@ -22,6 +22,20 @@ const nextConfig = {
         config.optimization.splitChunks = false
         return config
     },
+    poweredByHeader: false,
+    async headers() {
+        return [
+            {
+                source: '/(.*)',
+                headers: [
+                    {
+                        key: 'X-Content-Type-Options',
+                        value: 'nosniff',
+                    },
+                ],
+            },
+        ]
+    },
 }
 
 module.exports = withContentlayer(nextConfig)
