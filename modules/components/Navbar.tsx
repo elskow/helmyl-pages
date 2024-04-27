@@ -1,11 +1,14 @@
 'use client'
 
 import ThemeSwitcher from '@/components/ThemeSwitcher'
+
 import menuItems from '@/const/MenuItems'
 import { useScroll } from 'framer-motion'
+import dynamic from 'next/dynamic'
 import React, { useEffect } from 'react'
 
-import NavbarDropdownMenuMobile from '@/components/Navbar-DropdownMenu-Mobile'
+const NavbarDropdownMenuMobile = dynamic(() => import('@/components/Navbar-DropdownMenu-Mobile'))
+
 import NavbarFloating from '@/components/Navbar-Floating'
 import { ContactHighlightNavbar, MainHighlightNavbar } from '@/components/Navbar-Items'
 import Unmount from '@/components/Unmount'
