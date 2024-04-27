@@ -4,6 +4,7 @@ import 'styles/prism.css'
 import { assistant, jetBrainsMono, newsreader } from '@/lib/fonts'
 import { Providers } from './providers'
 
+import FakeTechnologies from '@/components/FakeTechnologies'
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import type { Metadata } from 'next'
@@ -39,7 +40,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 data-website-id={process.env.UMAMI_DATA_WEBSITE_ID}
                 async
             />
-            <body>
+            <body suppressHydrationWarning={true}>
+                <FakeTechnologies />
                 <Providers>
                     <div className="min-h-screen bg-gradient-to-tr from-green-50 to-neutral-200 dark:bg-gradient-to-tr dark:from-gray-800 dark:to-gray-800">
                         <div className="min-h-screen px-4 sm:px-8 lg:py-2 justify-between flex flex-col">
