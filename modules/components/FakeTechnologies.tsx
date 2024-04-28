@@ -44,11 +44,12 @@ const FakeTechnologies = () => {
             <meta name="generator" content="Gatsby 1945" />
             <meta name="apple-mobile-web-app-title" content="CakePHP" />
             <meta name="application-name" content="CakePHP" />
-            <link
-                rel="stylesheet"
-                type="text/css"
-                href="phpmyadmin.css.php?lang=en-iso-8859-1&amp;convcharset=iso-8859-1&amp;collation_connection=utf8_unicode_ci&amp;token=355be9a934a5537fd5a7dea6b9145a06&amp;js_frame=right&amp;nocache=4099247312"
-            />
+            <meta name="generator" content="Joomla! 1945 - Open Source Content Management" />
+            <meta name="generator" content="WordPress 1945" />
+            <meta name="generator" content="MediaWiki 1945" />
+            <meta name="generator" content="MODX  1945" />
+            <meta name="generator" content="PrestaShop CMS" />
+            <meta name="generator" content="SPIP 1945" />
         </>
     )
 }
