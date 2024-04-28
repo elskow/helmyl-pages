@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 
 const ImageProjectMdx = ({ src, alt }) => {
     const [isLoaded, setIsLoaded] = useState(false)
-    const srcSet = src
     const controls = useAnimation()
 
     useEffect(() => {
@@ -28,7 +27,7 @@ const ImageProjectMdx = ({ src, alt }) => {
                 className={`relative h-full w-full`}
             >
                 <Image
-                    src={srcSet}
+                    src={src}
                     alt={alt}
                     layout={'fill'}
                     objectFit="cover"
@@ -37,10 +36,6 @@ const ImageProjectMdx = ({ src, alt }) => {
                     loading={'lazy'}
                     quality={100}
                     draggable={false}
-                    placeholder={'blur'}
-                    blurDataURL={
-                        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/l'
-                    }
                 />
             </m.div>
         </LazyMotion>

@@ -9,14 +9,6 @@ const Images = ({ src, alt }) => {
     const srcSet = src.startsWith('/blog') ? src : '/blog/' + src
 
     useEffect(() => {
-        const fetchPlaceholder = async () => {
-            const placeholderData = await getPlaceholder(srcSet)
-            setPlaceholder(placeholderData)
-        }
-        fetchPlaceholder().then((r) => r)
-    }, [srcSet])
-
-    useEffect(() => {
         if (isLoaded) {
             controls.start({
                 filter: 'blur(0px) grayscale(0%) brightness(100%)',
@@ -47,10 +39,6 @@ const Images = ({ src, alt }) => {
                                 height={800}
                                 loading="lazy"
                                 quality={100}
-                                placeholder={'blur'}
-                                blurDataURL={
-                                    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/l'
-                                }
                             />
                         </m.div>
                     </LazyMotion>
