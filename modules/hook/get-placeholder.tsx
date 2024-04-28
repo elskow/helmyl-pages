@@ -2,7 +2,6 @@
 
 import fs from 'fs'
 import * as path from 'node:path'
-import * as process from 'node:process'
 import { getPlaiceholder } from 'plaiceholder'
 
 const getPlaceholder = async (imageUrl: string) => {
@@ -23,7 +22,7 @@ const getPlaceholder = async (imageUrl: string) => {
     const imageBuffer = imageUrl.startsWith('http')
         ? await fetch(imageUrl).then(async (res) => Buffer.from(await res.arrayBuffer()))
         : // : await fs.readFile(`./public${imageUrl}`)
-          fs.readFileSync(path.join(process.cwd(), `public${imageUrl}`))
+          fs.readFileSync(path.resolve(`public${imageUrl}`))
 
     const { base64 } = await getPlaiceholder(imageBuffer)
 
