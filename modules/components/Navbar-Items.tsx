@@ -1,8 +1,10 @@
 'use client'
 
-import menuItems from '@/const/MenuItems'
 import Link from 'next/link'
+import { HiOutlineChatAlt2 } from 'react-icons/hi'
+import menuItems from '../../const/MenuItems'
 
+import Tooltip from '@/components/Tooltip'
 import { usePathname } from 'next/navigation'
 
 const MainHighlightNavbar = () => {
@@ -42,18 +44,20 @@ const MainHighlightNavbar = () => {
     )
 }
 
-const ContactHighlightNavbar = () => {
+const SpecialSectionNavbar = () => {
     const pathname = usePathname()
     return (
         <Link
-            href="/contact"
-            className={`item-menu-hover hidden sm:flex ${pathname.startsWith('/contact') ? 'font-bold' : ''}`}
+            href="/guest-book"
+            className={`hidden sm:flex ${pathname.startsWith('/guest-book') ? 'font-bold' : ''}`}
             draggable={false}
             unselectable={'on'}
         >
-            <span>Contact Me</span>
+            <Tooltip tooltipText="Guest Book" position={'bottom'}>
+                <HiOutlineChatAlt2 className="self-center mr-2" />
+            </Tooltip>
         </Link>
     )
 }
 
-export { ContactHighlightNavbar, MainHighlightNavbar }
+export { MainHighlightNavbar, SpecialSectionNavbar }

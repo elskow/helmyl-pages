@@ -1,10 +1,10 @@
 'use client'
 
-import type typeMenuItems from '@/const/MenuItems'
-import { RxChevronDown } from 'react-icons/rx'
 import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion'
 import Link from 'next/link'
 import { useState } from 'react'
+import { RxChevronDown } from 'react-icons/rx'
+import type typeMenuItems from '../../const/MenuItems'
 
 const MobileNavbarDropdownMenu = ({ menuItems }: { menuItems: typeof typeMenuItems }) => {
     const [isMenuOpen, setMenuOpen] = useState(false)
@@ -99,14 +99,14 @@ const MobileNavbarDropdownMenu = ({ menuItems }: { menuItems: typeof typeMenuIte
                                             </Link>
                                         ))}
                                         <Link
-                                            href="/contact"
+                                            href="/guest-book"
                                             draggable={false}
                                             unselectable={'on'}
                                             prefetch={false}
                                             className="block py-2 focus:outline-none"
                                         >
                                             <m.span whileTap={{ opacity: 0.5, scale: 0.95 }}>
-                                                Contact Me
+                                                Guest Book
                                             </m.span>
                                         </Link>
                                     </ul>

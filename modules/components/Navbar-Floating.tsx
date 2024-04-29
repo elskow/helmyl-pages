@@ -1,10 +1,10 @@
 'use client'
 
 import NavbarDropdownMenuMobile from '@/components/Navbar-DropdownMenu-Mobile'
-import { ContactHighlightNavbar, MainHighlightNavbar } from '@/components/Navbar-Items'
+import { MainHighlightNavbar, SpecialSectionNavbar } from '@/components/Navbar-Items'
 import ThemeSwitcher from '@/components/ThemeSwitcher'
-import menuItems from '@/const/MenuItems'
 import { AnimatePresence, LazyMotion, domAnimation, m } from 'framer-motion'
+import menuItems from '../../const/MenuItems'
 
 const NavbarFloating = () => {
     return (
@@ -24,7 +24,7 @@ const NavbarFloating = () => {
                             <div className={`block items-center gap-2 sm:hidden`}>
                                 <NavbarDropdownMenuMobile menuItems={menuItems} />
                             </div>
-                            <ContactHighlightNavbar />
+                            <SpecialSectionNavbar />
                             <ThemeSwitcher />
                         </div>
                     </div>

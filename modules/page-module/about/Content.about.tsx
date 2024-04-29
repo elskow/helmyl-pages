@@ -1,8 +1,8 @@
 import LoadingAnimation from '@/components/LoadingAnimation'
-import Experiences from '@/const/Experiences'
 import { Slide } from '@/page-transition/Slide'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import Experiences from '../../../const/Experiences'
 
 const Skillset = dynamic(() => import('@/components/_about/Skillset'), {
     ssr: false,

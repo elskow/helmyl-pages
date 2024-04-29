@@ -1,6 +1,6 @@
-import SocialMedia from '@/const/SocialMedias'
 import { Slide } from '@/page-transition/Slide'
 import Link from 'next/link'
+import SocialMedia from '../../../const/SocialMedias'
 
 const SocialAbout = () => {
     return (

@@ -27,20 +27,22 @@ const Hero = () => {
             </Slide>
             <Slide className="flex select-none flex-col sm:flex-row" delay={0.14}>
                 <Link
-                    className="inline-flex items-center rounded-md font-semibold hover:font-bold hover:underline"
-                    href="/contact"
+                    className="inline-flex items-center rounded-md font-semibold hover:font-bold hover:underline transition-all duration-300"
+                    href="/about"
                     draggable={false}
                     unselectable={'on'}
+                    title={'Learn more about me'}
                 >
-                    Hire Me! <RxChevronDown />
+                    Interested ? <RxChevronDown className={`ml-1`} />
                 </Link>
                 <Link
-                    className="mt-2 inline-flex items-center rounded-md font-semibold hover:font-bold hover:underline sm:mt-0 sm:pl-4"
+                    className="mt-2 inline-flex items-center rounded-md font-semibold hover:font-bold hover:underline sm:mt-0 sm:pl-4 transition-all duration-300"
                     href="/projects"
                     draggable={false}
                     unselectable={'on'}
+                    title={'Explore my projects'}
                 >
-                    Explore My Work <RxChevronDown />
+                    Explore My Work <RxChevronDown className={`ml-1`} />
                 </Link>
             </Slide>
         </section>
