@@ -25,15 +25,17 @@ const Hero = () => {
                     exploring <b>computational mathematics</b> and <b>backend engineering</b>.
                 </p>
             </Slide>
-            <Slide className="flex select-none flex-col sm:flex-row" delay={0.14}>
+            <Slide
+                className="flex select-none flex-col sm:flex-row space-y-2 sm:space-y-0"
+                delay={0.14}
+            >
                 <Link
                     className="inline-flex items-center rounded-md font-semibold hover:font-bold hover:underline transition-all duration-300"
                     href="/about"
                     draggable={false}
                     unselectable={'on'}
-                    title={'Learn more about me'}
                 >
-                    Interested ? <RxChevronDown className={`ml-1`} />
+                    Learn More <RxChevronDown className={`ml-1`} />
                 </Link>
                 <Link
                     className="mt-2 inline-flex items-center rounded-md font-semibold hover:font-bold hover:underline sm:mt-0 sm:pl-4 transition-all duration-300"
