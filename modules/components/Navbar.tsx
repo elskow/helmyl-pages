@@ -31,8 +31,8 @@ const Navbar = ({ className, ...props }: NavbarProps) => {
     }, [scrollY])
 
     return (
-        <nav>
-            <Unmount>
+        <Unmount>
+            <nav>
                 <div {...props} className={`${className}`}>
                     <header className="flex items-center gap-4 lg:gap-6">
                         <MainHighlightNavbar />
@@ -46,8 +46,8 @@ const Navbar = ({ className, ...props }: NavbarProps) => {
                     </div>
                 </div>
                 {hasScrolled && <NavbarFloating />}
-            </Unmount>
-        </nav>
+            </nav>
+        </Unmount>
     )
 }
 

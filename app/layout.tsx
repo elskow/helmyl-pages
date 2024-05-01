@@ -9,7 +9,8 @@ import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import type { Metadata } from 'next'
 import Script from 'next/script'
-import * as process from 'node:process'
+
+const { UMAMI_DATA_WEBSITE_ID } = process.env
 
 export const metadata: Metadata = {
     metadataBase: new URL(`https://helmyl.com`),
@@ -37,20 +38,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
             <Script
                 src={`https://us.umami.is/script.js`}
-                data-website-id={process.env.UMAMI_DATA_WEBSITE_ID}
+                data-website-id={UMAMI_DATA_WEBSITE_ID}
                 async
             />
             <body suppressHydrationWarning={true}>
                 <FakeTechnologies />
                 <Providers>
-                    <div className="min-h-screen bg-gradient-to-tr from-green-50 to-neutral-200 dark:bg-gradient-to-tr dark:from-gray-800 dark:to-gray-800">
-                        <div className="min-h-screen px-4 sm:px-8 lg:py-2 justify-between flex flex-col">
-                            <Navbar
-                                className={`mx-auto flex select-none items-center justify-between py-4 pt-6 md:pt-8 lg:max-w-5xl lg:pt-14`}
-                            />
-                            {children}
-                            <Footer className="mx-auto pb-6 pt-6 lg:max-w-5xl lg:pb-12 lg:pt-14" />
-                        </div>
+                    <div className="min-h-screen bg-gradient-to-tr from-green-50 to-neutral-200 dark:bg-gradient-to-tr dark:from-gray-800 dark:to-gray-800 px-4 sm:px-8 lg:py-2 justify-between flex flex-col">
+                        <Navbar
+                            className={`mx-auto flex select-none items-center justify-between py-4 pt-6 md:pt-8 lg:max-w-5xl lg:pt-14`}
+                        />
+                        {children}
+                        <Footer className="mx-auto pb-6 pt-6 lg:max-w-5xl lg:pb-12 lg:pt-14" />
                     </div>
                 </Providers>
             </body>
