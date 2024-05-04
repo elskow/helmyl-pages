@@ -9,7 +9,7 @@ const Tooltip = ({ children, tooltipText, position = 'top' }) => {
         <section
             onMouseEnter={() => setVisible(true)}
             onMouseLeave={() => setVisible(false)}
-            className="relative inline-block"
+            className="relative inline-block cursor-pointer"
         >
             {children}
             {visible && (

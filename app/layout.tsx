@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html
-            className={`${assistant.variable} ${newsreader.variable} ${jetBrainsMono.variable} font-sans`}
+            className={`${assistant.variable} ${newsreader.variable} ${jetBrainsMono.variable} font-sans font-medium`}
             lang={`en`}
         >
             <Favicon />
@@ -44,7 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body suppressHydrationWarning={true}>
                 <FakeTechnologies />
                 <Providers>
-                    <div className="min-h-screen bg-gradient-to-tr from-green-50 to-neutral-200 dark:bg-gradient-to-tr dark:from-gray-800 dark:to-gray-800 px-4 sm:px-8 lg:py-2 justify-between flex flex-col">
+                    <div className="min-h-screen bg-gradient-to-t from-emerald-50 to-neutral-200 px-4 sm:px-8 lg:py-2 justify-between flex flex-col dark:from-slate-900 dark:to-slate-800 via-neutral-100 via-30% to-90%">
                         <Navbar
                             className={`mx-auto flex select-none items-center justify-between py-4 pt-6 md:pt-8 lg:max-w-5xl lg:pt-14`}
                         />

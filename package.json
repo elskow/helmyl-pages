@@ -21,6 +21,8 @@
     "@giscus/react": "^3.0.0",
     "@keystatic/core": "^0.5.11",
     "@keystatic/next": "^5.0.0",
+    "@supabase/ssr": "^0.3.0",
+    "@supabase/supabase-js": "^2.43.0",
     "autoprefixer": "10.4.14",
     "clsx": "^2.1.0",
     "contentlayer": "^0.3.4",
