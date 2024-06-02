@@ -3,6 +3,7 @@ import GithubLogoutButton from '@/components/_guest-book/GithubLogoutButton'
 import { createClient as createClientClient } from '@/lib/supabase/client'
 import { createClient as createClientServer } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
+import { Slide } from '@/page-transition/Slide'
 
 interface ResGuestBook {
     id: number
@@ -45,7 +46,7 @@ const ContentGuestBook = async () => {
     }
 
     return (
-        <section className="space-y-8 bg-zinc-50 py-12 px-6 rounded-xl my-auto pb-[10vh] items-start w-full h-[60vh] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+        <Slide className="space-y-8 bg-zinc-50 py-12 px-6 rounded-xl my-auto pb-[10vh] items-start w-full h-[60vh] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
             <div className="space-y-4 w-full font-code h-full text-slate-800 dark:text-slate-100">
                 {guestbookReqStat === 200 && guestbookMsg ? (
                     guestbookMsg.map((item: ResGuestBook) => (
@@ -113,7 +114,7 @@ const ContentGuestBook = async () => {
                     </>
                 )}
             </form>
-        </section>
+        </Slide>
     )
 }
 

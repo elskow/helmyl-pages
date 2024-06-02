@@ -44,7 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <body suppressHydrationWarning={true}>
                 <FakeTechnologies />
                 <Providers>
-                    <div className="min-h-screen bg-gradient-to-t from-neutral-100 to-neutral-200 px-4 sm:px-8 lg:py-2 justify-between flex flex-col dark:from-slate-900 dark:to-slate-800">
+                    <div className="min-h-screen bg-neutral-200 px-4 sm:px-8 lg:py-2 justify-between flex flex-col dark:bg-slate-800">
                         <Navbar
                             className={`mx-auto flex select-none items-center justify-between py-4 pt-6 md:pt-8 lg:max-w-5xl lg:pt-14`}
                         />

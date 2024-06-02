@@ -9,7 +9,7 @@ const TagsPost = React.memo(({ tags }: { tags: string[] }) => (
         </div>
         {tags?.map((tag) => (
             <li
-                className="mb-2 mr-2 rounded bg-green-50 px-3 py-1 text-xs font-medium capitalize text-green-900 transition-all duration-300 hover:bg-green-900 hover:text-white dark:bg-gray-700 dark:text-white dark:hover:bg-slate-500 md:text-sm"
+                className="mb-2 mr-2 rounded bg-gray-200 px-2 py-1 text-sm text-gray-700 transition hover:bg-gray-300 hover:bg-opacity-80 dark:bg-gray-700 dark:text-gray-50 dark:hover:bg-gray-800 dark:hover:bg-opacity-80 border border-gray-300 dark:border-gray-700 capitalize"
                 key={tag}
                 title={slug(tag)}
             >
