@@ -1,45 +1,26 @@
-import { LazyMotion, domAnimation, m, useAnimation } from 'framer-motion'
 import Image from 'next/legacy/image'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const ImageProjectMdx = ({ src, alt }) => {
     const [isLoaded, setIsLoaded] = useState(false)
-    const controls = useAnimation()
-
-    useEffect(() => {
-        if (isLoaded) {
-            controls.start({
-                filter: 'blur(0px) grayscale(0%) brightness(100%)',
-                opacity: 1,
-                transition: { duration: 1, ease: 'easeOut' },
-            })
-        }
-    }, [isLoaded, controls])
 
     return (
-        <LazyMotion features={domAnimation}>
-            <m.div
-                animate={controls}
-                initial={{
-                    filter: 'blur(10px) grayscale(100%) brightness(50%)',
-                    opacity: 0,
-                }}
-                className={`relative h-full w-full`}
-            >
-                <Image
-                    src={src}
-                    alt={alt}
-                    layout={'fill'}
-                    objectFit="cover"
-                    className={`duration-1000 ease-in-out no-select rounded-lg`}
-                    onLoad={() => setIsLoaded(true)}
-                    loading={'lazy'}
-                    quality={100}
-                    draggable={false}
-                />
-            </m.div>
-        </LazyMotion>
+        <div className={`relative h-full w-full`}>
+            <Image
+                src={src}
+                alt={alt}
+                layout={'fill'}
+                objectFit="cover"
+                className={`duration-1000 ease-in-out no-select rounded-lg ${isLoaded ? '' : 'blur-sm grayscale filter'}`}
+                onLoad={() => setIsLoaded(true)}
+                loading={'lazy'}
+                quality={100}
+                draggable={false}
+                placeholder='blur'
+                blurDataURL='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4='
+            />
+        </div>
     )
 }
 
-export default ImageProjectMdx
+export default ImageProjectMdx  
