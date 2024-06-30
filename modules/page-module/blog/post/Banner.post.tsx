@@ -17,10 +17,7 @@ const BannerPost = ({ src, alt }) => {
                     loading={'lazy'}
                     quality={100}
                     draggable={false}
-                    placeholder={'blur'}
-                    blurDataURL={
-                        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkAAIAAAoAAv/l'
-                    }
+                    placeholder={'empty'}
                 />
             </div>
         </div>

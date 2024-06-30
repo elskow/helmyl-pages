@@ -1,7 +1,7 @@
 import Comments from '@/components/_blog/Comments'
 import { MdxRenderer } from '@/components/_blog/Mdx'
-import { LazyMotion, domAnimation, m } from 'framer-motion'
 import Toc from '@/components/_blog/TableOfContents'
+import { LazyMotion, domAnimation, m } from 'framer-motion'
 
 const ContentPost = ({ body, theme, controls }) => {
     return (

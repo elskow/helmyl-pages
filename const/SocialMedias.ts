@@ -1,5 +1,5 @@
-import { MdOutlineAttachEmail } from 'react-icons/md'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { MdOutlineAttachEmail } from 'react-icons/md'
 
 const socialMedias = [
     {

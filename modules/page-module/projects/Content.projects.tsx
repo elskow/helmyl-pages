@@ -11,11 +11,9 @@ const ContentProjects = ({ projects }) => {
                         key={project.name}
                         title={project.name}
                         href={project.link}
-                        image={project.image}
                         description={project.description}
                         tech={project.stacks}
                         date={project.date}
-                        index={projects.indexOf(project)}
                     />
                 ))}
             </div>

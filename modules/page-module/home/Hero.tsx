@@ -1,6 +1,6 @@
+import { Slide } from '@/page-transition/Slide'
 import Link from 'next/link'
 import { RxChevronDown } from 'react-icons/rx'
-import { Slide } from '@/page-transition/Slide'
 
 const Hero = () => {
     return (

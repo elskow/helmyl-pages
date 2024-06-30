@@ -16,11 +16,11 @@ const ImageProjectMdx = ({ src, alt }) => {
                 loading={'lazy'}
                 quality={100}
                 draggable={false}
-                placeholder='blur'
-                blurDataURL='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4='
+                placeholder="blur"
+                blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4="
             />
         </div>
     )
 }
 
-export default ImageProjectMdx  
+export default ImageProjectMdx
