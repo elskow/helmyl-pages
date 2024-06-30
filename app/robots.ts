@@ -4,7 +4,7 @@ export default function robots(): MetadataRoute.Robots {
     return {
         rules: {
             userAgent: '*',
-            allow: '/',
+            allow: ['/'],
             disallow: [
                 '/admin',
                 '/api',
@@ -17,5 +17,6 @@ export default function robots(): MetadataRoute.Robots {
             ],
         },
         sitemap: 'https://helmyl.com/sitemap.xml',
+        host: 'https://helmyl.com',
     }
 }
