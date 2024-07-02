@@ -3,9 +3,8 @@ import Image from '@/components/_blog/ImageBlogMdx'
 import type { MDXComponents } from 'mdx/types'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import Link from 'next/link'
-import { memo } from 'react'
 
-const CustomLink = memo((props: any) => {
+const CustomLink = (props: any) => {
     const href = props.href
 
     if (href.startsWith('/')) {
@@ -21,7 +20,7 @@ const CustomLink = memo((props: any) => {
     }
 
     return <a target="_blank" rel="noopener noreferrer" {...props} />
-})
+}
 
 CustomLink.displayName = 'CustomLink'
 

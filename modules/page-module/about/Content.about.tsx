@@ -29,7 +29,7 @@ const ContentAbout = () => {
             </Slide>
             <div className="pt-12 text-base ">
                 <section className="space-y-12 md:space-y-16">
-                    <Slide delay={0.1}>
+                    <Slide delay={0.2}>
                         <h2 className="mb-3 font-newsreader text-xl font-bold lg:mb-5 lg:text-2xl">
                             Who am I?
                         </h2>
@@ -55,13 +55,13 @@ const ContentAbout = () => {
                             mastering new technologies.
                         </p>
                     </Slide>
-                    <Slide delay={0.12}>
+                    <Slide delay={0.4}>
                         <h2 className="mb-8 font-newsreader text-xl font-bold lg:mb-10 lg:text-2xl">
                             What am I using?
                         </h2>
                         <Skillset />
                     </Slide>
-                    <Slide delay={0.14}>
+                    <Slide delay={0.6}>
                         <h2 className="mb-8 font-newsreader text-xl font-bold lg:mb-10 lg:text-2xl">
                             Where have I worked?
                         </h2>
@@ -69,7 +69,7 @@ const ContentAbout = () => {
                             <WorkExperiences experiences={Experiences} />
                         </div>
                     </Slide>
-                    <Slide delay={0.16}>
+                    <Slide delay={0.8}>
                         <SpotifyNowPlaying />
                     </Slide>
                 </section>

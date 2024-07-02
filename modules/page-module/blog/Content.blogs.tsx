@@ -3,20 +3,18 @@ import React from 'react'
 
 const PostCard = dynamic(() => import('@/components/_blog/PostCard'))
 
-const MemoizedPostCard = React.memo(PostCard)
-
 const ContentBlogs = ({ posts }) => {
     return (
         <div className={`space-y-8`}>
             {posts.map((post) => (
                 <ul key={post.slug} className="mt-4">
-                    <MemoizedPostCard
+                    <PostCard
+                        index={posts.indexOf(post)}
                         readingTime={post.readingTime.text}
                         href={`${post.url}`}
                         title={post.title}
                         summary={post.summary}
                         date={post.date}
-                        index={posts.indexOf(post)}
                     />
                 </ul>
             ))}

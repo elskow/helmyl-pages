@@ -2,7 +2,7 @@
 
 import Skills from 'const/Skills'
 import Link from 'next/link'
-import { memo, useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { LazyMotion, domAnimation, m } from 'framer-motion'
 
@@ -84,4 +84,4 @@ const Skillset = ({ ...props }) => {
     )
 }
 
-export default memo(Skillset)
+export default Skillset

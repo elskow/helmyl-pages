@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProjectLinkIcon = React.memo(() => {
+const ProjectLinkIcon = () => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +17,6 @@ const ProjectLinkIcon = React.memo(() => {
             />
         </svg>
     )
-})
-ProjectLinkIcon.displayName = 'ProjectLinkIcon'
+}
 
 export default ProjectLinkIcon

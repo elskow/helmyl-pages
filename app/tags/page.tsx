@@ -4,18 +4,13 @@ import NotFoundTags from '@/page-module/tags/NotFound.tags'
 
 import { Slide } from '@/page-transition/Slide'
 import { allPosts } from 'contentlayer/generated'
-import { useMemo } from 'react'
 
 const posts = allPosts.filter((post) => !post.draft)
 const TagsPage = () => {
-    const tags = useMemo(() => {
-        return posts
-            .map((post) => post.tags)
-            .flat()
-            .filter((value, index, self) => {
-                return self.indexOf(value) === index
-            })
-    }, [])
+    const tags = posts
+        .map((post) => post.tags)
+        .flat()
+        .filter((value, index, self) => self.indexOf(value) === index)
 
     if (posts.length === 0) {
         return <NotFoundTags />

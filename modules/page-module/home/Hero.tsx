@@ -10,14 +10,14 @@ const Hero = () => {
                     Hello! I&apos;m <span className="font-bold">Helmy Luqmanulhakim</span>.
                 </p>
             </Slide>
-            <Slide>
+            <Slide delay={0.1}>
                 <h1 className="mb-6 font-code text-3xl font-semibold tracking-extra-tight text-slate-900 dark:text-slate-50 lg:text-5xl">
                     I do software development
                     <br />
                     and data-related stuff.
                 </h1>
             </Slide>
-            <Slide>
+            <Slide delay={0.2}>
                 <p className="mb-6 tracking-tight text-slate-800 dark:text-slate-100 sm:text-xl md:max-w-2xl">
                     I&apos;ve been coding for over{' '}
                     <span className="underline underline-offset-4">2 years</span>, working on
@@ -25,7 +25,7 @@ const Hero = () => {
                     exploring <b>computational mathematics</b> and <b>backend engineering</b>.
                 </p>
             </Slide>
-            <Slide className="flex select-none flex-col sm:flex-row space-y-2 sm:space-y-0">
+            <Slide className="flex select-none flex-col sm:flex-row space-y-2 sm:space-y-0" delay={0.3}>
                 <Link
                     className="inline-flex items-center rounded-md font-semibold hover:font-bold hover:underline transition-all duration-300"
                     href="/about"

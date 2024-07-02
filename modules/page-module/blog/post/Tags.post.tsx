@@ -2,7 +2,7 @@ import { slug } from 'github-slugger'
 import Link from 'next/link'
 import React from 'react'
 
-const TagsPost = React.memo(({ tags }: { tags: string[] }) => (
+const TagsPost = ({ tags }: { tags: string[] }) => (
     <ul className="mb-4 flex select-none flex-wrap">
         <div className="text-sm font-medium text-primary dark:text-primary md:text-base">
             Tags: &nbsp;
@@ -24,7 +24,6 @@ const TagsPost = React.memo(({ tags }: { tags: string[] }) => (
             </li>
         ))}
     </ul>
-))
+)
 
-TagsPost.displayName = 'TagsList'
 export default TagsPost

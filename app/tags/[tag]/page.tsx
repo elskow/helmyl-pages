@@ -2,21 +2,15 @@ import { Slide } from '@/page-transition/Slide'
 import { allPosts, Post } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
 import type { Metadata } from 'next'
-import React, { lazy, useMemo } from 'react'
+import React, { lazy } from 'react'
 
 const PostCard = lazy(() => import('@/components/_blog/PostCard'))
 
-const MemoizedPostCard = React.memo(PostCard)
-
 const Tag = ({ params }) => {
     const tagSlug = slug(params.tag)
-    const filteredPosts: Post[] = useMemo(
-        () =>
-            allPosts.filter((post) => {
-                return post.tags?.some((tag) => slug(tag) === tagSlug)
-            }),
-        [tagSlug]
-    )
+    const filteredPosts: Post[] = allPosts.filter((post) => {
+        return post.tags?.some((tag) => slug(tag) === tagSlug)
+    })
 
     return (
         <section className="mx-auto mt-5 min-h-[70vh] w-full justify-center space-y-4 lg:max-w-5xl">
@@ -29,7 +23,7 @@ const Tag = ({ params }) => {
             <Slide delay={0.1}>
                 {filteredPosts.map((post, index) => (
                     <ul key={post.slug}>
-                        <MemoizedPostCard
+                        <PostCard
                             readingTime={post.readingTime.text}
                             href={`${post.url}`}
                             title={post.title}

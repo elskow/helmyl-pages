@@ -7,12 +7,12 @@ import { allPosts } from 'contentlayer/generated'
 import { domAnimation, LazyMotion, m, useAnimation, useScroll } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { notFound } from 'next/navigation'
-import { memo, useEffect, useMemo } from 'react'
+import { useEffect } from 'react'
 
 const findPost = (slug: string, posts: any) => posts.find((post: any) => post.slug === slug)
 
 const Page = ({ params }: { params: { slug: string } }) => {
-    const post = useMemo(() => findPost(params.slug, allPosts), [params.slug])
+    const post = findPost(params.slug, allPosts)
 
     const { scrollYProgress } = useScroll()
 
@@ -52,4 +52,4 @@ const Page = ({ params }: { params: { slug: string } }) => {
 }
 
 Page.displayName = 'BlogPostPage'
-export default memo(Page)
+export default Page
